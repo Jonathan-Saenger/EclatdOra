@@ -4,129 +4,147 @@
 
 {% block body %}
 
-
 <img src="{{asset('graphisme/ECLAT-DORA-2024-Couleur.png')}}" class="img-fluid" alt="..." >
 
-
-<main>
-  <section class="text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-5 mx-auto">
-        <h2 class="fw-light">Derniers articles du blog</h2>
-        <p class="lead text-body-secondary">Retrouvez mes derniers articles. N'hésitez pas à venir commenter les articles et partager vos impressions.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
-      </div>
+<div class="container marketing py-5">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Formateur, coach, alchimiste <span class="text-body-secondary">Bienvenue !</span></h2>
+            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+        </div>
+        <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+        </div>
     </div>
-  </section>
+</div>
 
-  <div class="album bg-body-tertiary">
+
+<div class="bg-body-secondary"> 
+
+    <section class="text-center container">
+        <div class="row pt-lg-3">
+            <div class="col-lg-6 col-md-5 mx-auto">
+                <h2 class="fw-light">Derniers articles du blog</h2>
+                <p class="lead text-body-secondary">Retrouvez mes derniers articles. N'hésitez pas à venir commenter les articles et partager vos impressions.</p>
+                <p>
+                  <a href="#" class="btn btn-outline-secondary my-2 center">Visitez le blog</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="album pb-3">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-md-6">
+                  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+                      <h3 class="mb-0">Featured post</h3>
+                      <div class="mb-1 text-body-secondary">Nov 12</div>
+                      <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="link-dark icon-link gap-1 icon-link-hover stretched-link link-underline-opacity-25 link-underline-opacity-100-hover">
+                        Continuer la lecture
+                        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                      </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                      <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
+                        <h3 class="mb-0">Post title</h3>
+                        <div class="mb-1 text-body-secondary">Nov 11</div>
+                        <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="link-dark icon-link gap-1 icon-link-hover stretched-link link-underline-opacity-25 link-underline-opacity-100-hover">
+                          Continuer la lecture
+                          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                        </a>
+                      </div>
+                      <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container px-4 pt-3">
+    <h2 class="pb-2 border-bottom">Découvrez mes prestations</h2>
+</div>
+
+  <div class="album pb-5 pt-3 bg-body-tertiary">
     <div class="container">
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="{{asset('graphisme/SeanceLucia.png')}}" class="img-fluid" width="100%" height="225" alt="..." >
             <div class="card-body">
+              <h3 class="card-title">Séance LUCIA</h3>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Réserver</button>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="{{asset('graphisme/HypnoseT.png')}}" class="img-fluid" width="100%" height="225" alt="..." >
             <div class="card-body">
+            <h3 class="card-title">Hypnose transactionnelle</h3>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Réserver</button>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="{{asset('graphisme/MeditationGuidee.png')}}" class="img-fluid" width="100%" height="225" alt="..." >
             <div class="card-body">
+            <h3 class="card-title">Méditation guidée</h3>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Réserver</button>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
-        </div>  
-
-
-      
-</main>
-    <div class="container px-4 py-5">
-    <h2 class="pb-2 border-bottom">Découvrez toutes mes prestations</h2>
-
-    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-      <div class="col d-flex flex-column align-items-start gap-2">
-        <h2 class="fw-bold text-body-emphasis">Left-aligned title explaining these awesome features</h2>
-        <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="btn btn-outline-secondary btn-lg">Me contacter</a>
-      </div>
-
-      <div class="col">
-        <div class="row row-cols-1 row-cols-sm-2 g-4">
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#collection" />
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Formation REIKI</h4>
-            <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#gear-fill" />
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Méditation guidée</h4>
-            <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#speedometer" />
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Séance Lucia</h4>
-            <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
-
-          <div class="col d-flex flex-column gap-2">
-            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#table" />
-              </svg>
-            </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Hypnose transactionnelle</h4>
-            <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-          </div>
         </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="text-center fw-bold"> Ils m'ont fait confiance </h2>
+
+<div class="row justify-content-center">
+    <div class="col-sm-6 mb-4">
+      <div class="card p-3"> 
+        <figure class="p-3 mb-0">
+          <blockquote class="blockquote">
+            <p>Les séances de Cédric sont excellentes, je remarque les nouveaux progrès !</p>
+          </blockquote>
+          <figcaption class="blockquote-footer mb-0 text-body-secondary">
+            Someone famous in <cite title="Source Title">Source Title</cite>
+          </figcaption>
+        </figure>
       </div>
     </div>
+</div>
+
+
+
 {% endblock %}
