@@ -4,4 +4,107 @@
 
 {% block body %}
 
+<div class="my-3">
+  <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('graphisme/symbole_Reiki.png')}}'); background-size: cover; background-position: center;">
+    <div class="container py-5">
+      <h2 class="text-body-emphasis">Découvrez ma formation REIKI</h2>
+        <p><cite>“Le Reiki est l’Amour, l’Amour est la plénitude, la plénitude est l’équilibre, l’équilibre est le bien-être, le bien-être est la liberté de la maladie.”</cite> Dr. Mikao Usui</p>
+    </div>
+  </div>
+</div>
+
+    <div class="text-center m-3">
+    <p> Pour en savoir plus sur les vertus et les bienfaits du Reiki, vous pouvez consulter mon article en suivant le lien ci-dessous : </p>
+        <iframe
+        class="border border-3"
+        id="inlineFrameExample"
+        title="Inline Frame Example"
+        width="80%"
+        height="300px"
+        src="https://www.univers-quantic-shop.com/blog/arts-energetiques/le-reiki-bienfaits-proprietes-et-histoire">
+        </iframe> <br>
+        <button class="btn btn-outline-primary btn-sm"><a href="{{ ('https://www.univers-quantic-shop.com/blog/arts-energetiques/le-reiki-bienfaits-proprietes-et-histoire')}}" target="_blank"> Lien vers le site </a></button>
+    </div>
+
+<!-- PRIX -->
+    <div class="container">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h2 class="display-4 fw-normal text-body-emphasis">Tarifs</h2>
+            <p class="fs-5 text-body-secondary">N'hésitez pas à me contacter si vous souhaitez plus d'informations !</p>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 mx-5 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h3 class="my-0 fw-normal">Séance individuelle</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title">90 €</h4>
+                    <div class="list-unstyled mt-3 mb-4">
+                        <p>Durée: 1h30</p>
+                    </div>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Réserver</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h3 class="my-0 fw-normal">1er degré Reiki</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title">230 €</h4>
+                    <div class="list-unstyled mt-3 mb-4">
+                        <p>Durée: 1 week-end</p>
+                    </div>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Réserver</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h3 class="my-0 fw-normal">2ème degré Reiki</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title">450 €</h4>
+                    <div class="list-unstyled mt-3 mb-4">
+                        <p>Durée: 1 week-end</p>
+                    </div>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Réserver</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h3 class="my-0 fw-normal">3ème degré Reiki</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title">980 €</h4>
+                    <div class="list-unstyled mt-3 mb-4">
+                        <p>Durée: 1 week-end</p>
+                    </div>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Réserver</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h3 class="my-0 fw-normal">4ème degré Reiki</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title">1450 €</h4>
+                    <div class="list-unstyled mt-3 mb-4">
+                        <p>Durée: 1 week-end</p>
+                    </div>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Réserver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
