@@ -28,8 +28,15 @@
                 <a class="nav-link" href="{{ path('app_presentation') }}">A propos</a>
             </li>
         </ul>
-            <a href="#"><button type="button" class="btn">S'inscrire</button></a>
-            <a href="{{ path('app_login')}}"><button type="button" class="btn btn-outline-secondary">Se connecter</button></a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <p><a class="connecter" href="{{path ('admin')}}">Panneau d'administration</a></p>
+            {% elseif is_granted('ROLE_USER') %}
+                <p><a class="connecter" href="#{#{{path ('app_blog')}}#}">Votre espace</a></p>
+                <p>><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
+            {% else %}
+                <a href="#{#{{ path('app_register') }}#}"><button type="button" class="btn">S'inscrire</button></a>
+                <a href="{{ path('app_login')}}"><button type="button" class="btn btn-outline-secondary">Se connecter</button></a>
+            {% endif %}
       </div>
     </div>
 </nav>

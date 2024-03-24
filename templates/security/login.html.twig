@@ -2,8 +2,18 @@
 
 {% block title %}Log in!{% endblock %}
 
+
 {% block body %}
 
+<div class="my-3">
+  <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_anth.png')}}'); background-size: cover; background-position: center;">
+    <div class="container py-5">
+      <h2 class="text-body-emphasis">Portail de connexion</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container my-3">
     <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -15,19 +25,17 @@
             </div>
         {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <p><cite>Merci de remplir tous les champs pour vous connecter</cite></p>
+<div class="my-3">
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
         <label for="inputPassword">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+</div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-        >
-
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
+        <button class="btn btn-primary " type="submit"> Sign in </button>
     </form>
-    
+</div>
+
 {% endblock %}
