@@ -4,21 +4,25 @@
 
 {% block body %}
 
-<div class="container">
-    <div class="card text-center m-5">
-        <h2 class="card-header"> Titre de l'évènement</h2>
-        <div class="card-body">
-            <img src="{{asset('images/exemple_evenement.png')}}" class="img-fluid" width="550px" height="100%" alt="...">
-            <p class="card-text">Texte de description de l'évènement</p>
-            <p class="fw-medium"> Début de l'évènement : </p>
-            <p class="fw-medium"> Fin de l'évènement : </p>
-            <p class="fw-bold"> Prix : 150 € </p>
-            <a href="#" class="btn btn-primary">S'inscrire à l'évènement</a>
+    {% for evenement in evenements %}
+
+        <div class="container">
+            <div class="card text-center m-5">
+                <h2 class="card-header"> {{ evenement.getTitle() }}</h2>
+                <div class="card-body">
+                    <img src="{{asset('images/exemple_evenement.png')}}" class="img-fluid" width="550px" height="100%" alt="...">
+                    <p class="card-text"> {{ evenement.getDescription() | raw  }} </p>
+                    <p class="fw-medium"> L'évènement débutera le {{evenement.getStart|format_date('long', locale='fr') }} </p>
+                    <p class="fw-medium"> et se terminera le {{evenement.getEnd|format_date('long', locale='fr') }} </p>
+                    <p class="fw-bold"> Prix : {{ evenement.getPrice()}} € </p>
+                    <a href="#" class="btn btn-primary">S'inscrire à l'évènement</a>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    Créé le {{evenement.getCreateAt|format_date('long', locale='fr') }}
+                </div>
+            </div>
         </div>
-        <div class="card-footer text-body-secondary">
-            Date de publication de l'annonce
-        </div>
-    </div>
-</div>
+
+    {% endfor %}
 
 {% endblock %}
