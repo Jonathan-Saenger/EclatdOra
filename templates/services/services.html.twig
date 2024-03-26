@@ -3,18 +3,49 @@
 {% block title %}Hello ServicesController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container my-5">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Méditation guidée <span class="text-body-secondary">"De la méditation nait la sagesse"</span></h2>
+            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+                <div class="text-center">
+                    <button type="button" class="btn btn-outline-secondary">Réserver une séance</button>
+                </div>
+        </div>
+        <div class="col-md-5">
+            <img src="{{asset('images/services_meditation.png')}}" class="img-fluid" width="100%" height="225" alt="..." >
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/saeng/Documents/EclatdOra/src/Controller/ServicesController.php</code></li>
-        <li>Your template at <code>C:/Users/saeng/Documents/EclatdOra/templates/services/index.html.twig</code></li>
-    </ul>
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Hypnose transpersonnelle <span class="text-body-secondary">"Suivre le chemin de son âme"</span></h2>
+            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+                <div class="text-center">
+                    <button type="button" class="btn btn-outline-primary">Réserver une séance</button>
+                </div>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="{{asset('images/services_hypnose.png')}}" class="img-fluid" width="100%" height="225" alt="..." >
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1"> Séance Lucia <span class="text-body-secondary">"Eveil par la Lumière intérieure"</span></h2>
+            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+            <div class="text-center">
+                <button type="button" class="btn btn-outline-danger">Réserver une séance</button>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="{{asset('images/services_lucia.png')}}" class="img-fluid" width="100%" height="225" alt="..." >
+        </div>
+    </div>
 </div>
 {% endblock %}
