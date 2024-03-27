@@ -15,4 +15,12 @@ class ServicesController extends AbstractController
             'controller_name' => 'ServicesController',
         ]);
     }
+
+    #[Route('/_meditation', name: 'app_meditation')]
+    public function page(): Response
+    {
+        return $this->render('services/_meditation.html.twig', [
+            'controller_name' => 'Controller',
+        ]);
+    }
 }
