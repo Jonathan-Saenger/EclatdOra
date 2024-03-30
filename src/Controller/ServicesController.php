@@ -17,9 +17,17 @@ class ServicesController extends AbstractController
     }
 
     #[Route('/_meditation', name: 'app_meditation')]
-    public function page(): Response
+    public function serviceMediation(): Response
     {
         return $this->render('services/_meditation.html.twig', [
+            'controller_name' => 'Controller',
+        ]);
+    }
+
+    #[Route('/_lucia', name: 'app_lucia')]
+    public function serviceLucia(): Response
+    {
+        return $this->render('services/_lucia.html.twig', [
             'controller_name' => 'Controller',
         ]);
     }
