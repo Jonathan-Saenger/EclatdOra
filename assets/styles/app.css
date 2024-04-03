@@ -1,0 +1,83 @@
+h1 {
+    color: #D19039;
+    text-shadow: 3px 3px 2px #0A020A;
+    font-weight: bold;
+}
+
+h1:hover{
+    text-shadow: 6px 6px 4px #0A020A;
+}
+
+
+h2 {
+    color: #D19039;
+    text-shadow: 1px 1px 1px #0A020A;
+}
+
+h3 {
+    color: #D19039;
+    font-weight: bold;
+}
+
+h4 {
+    color: #0A020A
+}
+
+.fond {
+    background-color: #F6EFEA;
+    margin-top: 1.5rem;
+}
+
+.bouton-or {
+    background:  #D19039;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; /* Pour rendre le bouton ovale */
+    transition: background 0.3s; /* Transition pour l'effet de survol */
+    width: auto; /* Pour rendre le bouton responsive */
+    max-width: 200px; /* Largeur maximale pour les écrans plus grands */
+    text-align: center;
+}
+
+.bouton-or:hover {
+    background: #0A020A; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-or:active {
+    background: #D19039; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-reseaux {
+    background:  #0A020A;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; /* Pour rendre le bouton ovale */
+    transition: background 0.3s; /* Transition pour l'effet de survol */
+    width: auto; /* Pour rendre le bouton responsive */
+    max-width: 200px; /* Largeur maximale pour les écrans plus grands */
+    text-align: center;
+}
+
+.bouton-reseaux:hover {
+    background: #D19039; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-reseaux:active {
+    background: #0A020A; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}

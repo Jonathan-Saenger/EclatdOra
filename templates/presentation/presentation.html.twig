@@ -4,10 +4,9 @@
 
 {% block body %}
 <div class="my-3">
-    <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_apropos.png')}}'); background-size: cover; background-position: center;">
+    <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_apropos.png')}}'); background-size: cover; background-position: center; height: 300px; width: 100%">
         <div class="container py-5">
-        <h2 class="text-body-emphasis">Bienvenue dans cette rubrique. Je vous propose d'en savoir plus sur moi !</h2>
-            <p><cite>“Le Reiki est l’Amour, l’Amour est la plénitude, la plénitude est l’équilibre, l’équilibre est le bien-être, le bien-être est la liberté de la maladie.”</cite> Dr. Mikao Usui</p>
+            <h1>Bienvenue dans cette rubrique. Je vous propose d'en savoir plus sur moi !</h1>
         </div>
     </div>
     </div>
@@ -30,11 +29,11 @@
                     ressentais déjà l’énergie des pierres. </p>
                 </div>
                 <div class="col-md-5 text-center">
-                <img src="{{asset('images/cedric_presentation.png')}}" class="img-fluid rounded-circle" width="500" height="500">
+                <img src="{{asset('images/cedric_presentation.png')}}" class="img-fluid" width="500" height="500">
                 </div>
                 </div>
 
-            <div class="row featurette mb-5">
+            <div class="row featurette mb-1">
                 <div class="col-md-7 order-md-2">
                     <p class="lead">Fasciné par les arts martiaux, j'ai pratiqué une discipline japonaise pendant 25 ans et je l’ai enseigné pendant 10 ans, 
                     apprenant ainsi à canaliser l'énergie et découvrant en moi un magnétisme latent.</p>
@@ -47,16 +46,19 @@
                     <p class="lead">En 2020, j'ai acquis la technologie de luminothérapie appelée Lucia, permettant d'atteindre des états de conscience modifiés. </p>
                     <p class="lead">En 2022, j'ai obtenu ma maîtrise Reiki et ai commencé à enseigner dans mon centre bien-être. J'ai également commencé à accompagner 
                     des groupes de méditation et à proposer des stages bien-être pour aider les personnes à se connecter aux énergies subtiles </p>
-                    <p class="lead">En 2023, j'ai complété ma formation en hypnose transpersonnelle (plus communément appelé hypnose régressive), devenant officiellement 
-                    praticien. </p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <img src="{{asset('images/cedric_presentation2.png')}}" class="img-fluid rounded-circle" width="500" height="500">
+                    <img src="{{asset('images/cedric_presentation2.png')}}" class="img-fluid" width="500" height="500">
                 </div>
             </div>
-            <p class="lead">Aujourd'hui, c'est à partir de l’espace du cœur et avec bienveillance, que je mets à disposition toute mon expertise et mon savoir-faire, 
+            <p class="lead">En 2023, j'ai complété ma formation en hypnose transpersonnelle (plus communément appelé hypnose régressive), devenant officiellement 
+                    praticien. Aujourd'hui, c'est à partir de l’espace du cœur et avec bienveillance, que je mets à disposition toute mon expertise et mon savoir-faire, 
                     afin d'éclairer votre chemin de vie et vous aider à évoluer sur votre voie spirituelle. </p>
         </div>
+
+            <div class="text-center">
+                <button type="button" class="bouton-or">Réserver une séance</button>
+            </div>
     </main>
 
 {% endblock %}
