@@ -4,32 +4,34 @@
 
 {% block body %}
 
-<img src="{{asset('images/entete_index.png')}}" class="img-fluid pt-3" alt="...">
+<img src="{{asset('images/entete_index.png')}}" class="img-fluid pt-3" alt="Bannière d'accueil Eclat d'Ora">
 
-    <div class="container marketing py-5">
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Bienvenue sur l'espace <span class="text-warning">Eclat d'ORA</span></h2>
-                <p class="lead pt-3"> Je suis Cédric MEYER, un passionné par l'Etre Humain, la Vie et les mystères de la conscience. Le bien-être et l’épanouissement personnel 
-                sont au cœur de mon activité. A travers Eclat d'ORA, je vous propose de vous accompagner sur le chemin de la découverte de soi par le biais de pratiques 
-                ancestrales et innovantes sur lesquelles j'ai été formé. Mon rôle est de vous offrir des expériences uniques et transformatrices, en vous invitant à explorer des 
-                pratiques telles que la formation Reiki, l'hypnose transpersonnelle, la méditation ou encore la Lucia.<br>
-                Chaque activité que je vous propose est conçue pour vous aider à vous connecter avec votre propre énergie, à découvrir des moyens de guérir et de se réconforter. 
-                Je vous invite à explorer mes services et à découvrir comment ces pratiques, par l'énergie et la sagesse qui s'y cachent, peuvent vous aider à atteindre votre plein 
-                potentiel et à vivre une vie plus épanouie en harmonie avec vous-même.<br><br>
-                Je suis convaincu que chaque visiteur est un voyageur curieux et ouvert, prêt à découvrir de nouvelles façons de vivre et de se sentir bien. N'hésitez pas à me 
-                contacter si vous souhaitez échanger directement avec moi. <br><br>
-                Je vous souhaite une très belle visite ! </p>
-            </div>
-            <div class="col-md-5">
-                <img src="{{asset('images/cedric_index.png')}}" class="img-fluid" alt="..." >
+    <div class="bg-body-secondary mt-3"> 
+        <div class="container marketing py-5 ">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">Bienvenue sur l'espace <span class="text-warning">Eclat d'ORA</span></h2>
+                    <p class="lead pt-3"> Je suis Cédric MEYER, un passionné par l'Etre Humain, la Vie et les mystères de la conscience. Le bien-être et l’épanouissement personnel 
+                    sont au cœur de mon activité. A travers Eclat d'ORA, je vous propose de vous accompagner sur le chemin de la découverte de soi par le biais de pratiques 
+                    ancestrales et innovantes sur lesquelles j'ai été formé. Mon rôle est de vous offrir des expériences uniques et transformatrices, en vous invitant à explorer des 
+                    pratiques telles que la formation Reiki, l'hypnose transpersonnelle, la méditation ou encore la Lucia.<br>
+                    Chaque activité que je vous propose est conçue pour vous aider à vous connecter avec votre propre énergie, à découvrir des moyens de guérir et de se réconforter. 
+                    Je vous invite à explorer mes services et à découvrir comment ces pratiques, par l'énergie et la sagesse qui s'y cachent, peuvent vous aider à atteindre votre plein 
+                    potentiel et à vivre une vie plus épanouie en harmonie avec vous-même.<br><br>
+                    Je suis convaincu que chaque visiteur est un voyageur curieux et ouvert, prêt à découvrir de nouvelles façons de vivre et de se sentir bien. N'hésitez pas à me 
+                    contacter si vous souhaitez échanger directement avec moi. <br><br>
+                    Je vous souhaite une très belle visite ! </p>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{asset('images/cedric_index.png')}}" class="img-fluid" alt="..." >
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-body-secondary"> 
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary" style="background-image: url('{{asset('images/fond_evenement.png')}}'); background-size: cover; background-position: center;">
         <div class=" text-center container">
-              <h2 class="fw-light">Prochain évènement</h2>
+              <h2 class="featurette-heading fw-normal lh-1 pt-3">Prochain évènement</h2>
               <p class="lead text-body-secondary">A ne pas manquer !</p>
         </div>
         {% for evenement in evenements %}
@@ -39,9 +41,6 @@
                 <p class="lead mb-4">{{ evenement.getDescription() |striptags|slice(0, 250) }}</p>
                 <p class="fw"> Début de l'évènement : {{evenement.getStart|format_date('long', locale='fr') }} </p>
                 <p class="fw"> Fin de l'évènement : {{evenement.getEnd|format_date('long', locale='fr') }} </p>
-                <div class="overflow-hidden" style="max-height: 30vh;">
-                        <img src="{{asset('images/presentation_lucia.png')}}" class="img-fluid" width="100%" height="225" alt="..." >
-                </div>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                     <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">S'inscrire</button>
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Découvrir les autres évènements</button>
@@ -49,63 +48,11 @@
             </div>
         </div>
         {% endfor %}
-    </div>
+  </div>
 
-    <section class="text-center container">
-        <div class="row pt-lg-3">
-            <div class="col-lg-6 col-md-5 mx-auto">
-                <h2 class="fw-light">Derniers articles du blog</h2>
-                <p class="lead text-body-secondary">Retrouvez mes derniers articles. N'hésitez pas à venir commenter les articles et partager vos impressions.</p>
-                <p>
-                  <a href="#" class="btn btn-outline-secondary my-2 center">Visitez le blog</a>
-                </p>
-            </div>
-        </div>
-    </section>
-    <div class="album">
-        <div class="container">
-            <div class="row mb-2">
-                <div class="col-md-6">
-                  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                      <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
-                      <h3 class="mb-0">Featured post</h3>
-                      <div class="mb-1 text-body-secondary">Nov 12</div>
-                      <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                      <a href="#" class="link-dark icon-link gap-1 icon-link-hover stretched-link link-underline-opacity-25 link-underline-opacity-100-hover">
-                        Continuer la lecture
-                        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-                      </a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                      <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                      <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
-                        <h3 class="mb-0">Post title</h3>
-                        <div class="mb-1 text-body-secondary">Nov 11</div>
-                        <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="link-dark icon-link gap-1 icon-link-hover stretched-link link-underline-opacity-25 link-underline-opacity-100-hover">
-                          Continuer la lecture
-                          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-                        </a>
-                      </div>
-                      <div class="col-auto d-none d-lg-block">
-                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
- 
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary" style="background-image: url('{{asset('images/formation_reiki_index.png')}}'); background-size: cover; background-position: center;">
         <div class="col-md-6 p-lg-5 mx-auto my-5">
-            <h2 class="display-3 fw-bold">Découvrez ma formation REIKI</h2>
+            <h2 class="featurette-heading fw-normal lh-1">Découvrez ma formation REIKI</h2>
             <h3 class="fw-normal text-muted mb-3"> Je vous initie à cet art ancien de guérison énergétique pour harmoniser le corps et l’esprit.</h3>
             <div class="d-flex gap-3 justify-content-center lead fw-normal">
                 <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ path('app_formation') }}">
