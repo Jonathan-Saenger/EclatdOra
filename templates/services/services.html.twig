@@ -40,7 +40,11 @@
             <h2 class="featurette-heading fw-normal lh-1"> Expérience de Lumière <span class="text-body-secondary">Lucia</span></h2>
             <p class="lead">Éveillez vos sens et illuminez votre esprit avec une expérience lumineuse unique qui ouvre les portes de la perception et enrichit votre vie quotidienne.<a href="{{ path('app_lucia')}}" target="_blank"><button type="button" class="btn btn-link">Lire la suite</button></a></p>             
             <div class="text-center">
-                <button type="button" class="btn btn-outline-primary btn-lg">Réserver une séance</button>
+                {#<button type="button" class="btn btn-outline-primary btn-lg">Réserver une séance</button>#}
+                <button class="bouton-or">Réserver</button>
+                <button class="bouton-bleu">Réserver</button>
+                <button class="bouton-violet">Réserver</button>
+                <button class="bouton-jaune">Réserver</button>
             </div>
         </div>
         <div class="col-md-5">
@@ -48,5 +52,117 @@
         </div>
     </div>
 </div>
+
+<style>
+.bouton-bleu {
+    background:  #ABD2E5;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; /* Pour rendre le bouton ovale */
+    transition: background 0.3s; /* Transition pour l'effet de survol */
+    width: auto; /* Pour rendre le bouton responsive */
+    max-width: 200px; /* Largeur maximale pour les écrans plus grands */
+    text-align: center;
+}
+
+.bouton-bleu:hover {
+    background: #46649B; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-bleu:active {
+    background: #ABD2E5; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-or {
+    background:  #D19039;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; /* Pour rendre le bouton ovale */
+    transition: background 0.3s; /* Transition pour l'effet de survol */
+    width: auto; /* Pour rendre le bouton responsive */
+    max-width: 200px; /* Largeur maximale pour les écrans plus grands */
+    text-align: center;
+}
+
+.bouton-or:hover {
+    background: #0A020A; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-or:active {
+    background: #D19039; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-violet {
+    background:  #6F5F7A;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; /* Pour rendre le bouton ovale */
+    transition: background 0.3s; /* Transition pour l'effet de survol */
+    width: auto; /* Pour rendre le bouton responsive */
+    max-width: 200px; /* Largeur maximale pour les écrans plus grands */
+    text-align: center;
+}
+
+.bouton-violet:hover {
+    background: #A02240; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-violet:active {
+    background:  #6F5F7A; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-jaune {
+    background:  #EFD641;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; /* Pour rendre le bouton ovale */
+    transition: background 0.3s; /* Transition pour l'effet de survol */
+    width: auto; /* Pour rendre le bouton responsive */
+    max-width: 200px; /* Largeur maximale pour les écrans plus grands */
+    text-align: center;
+}
+
+.bouton-jaune:hover {
+    background: #95C27B; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+.bouton-jaune:active {
+    background: #EFD641; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+
+</style>
 
 {% endblock %}
