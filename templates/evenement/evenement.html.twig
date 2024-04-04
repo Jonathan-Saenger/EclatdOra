@@ -4,6 +4,14 @@
 
 {% block body %}
 
+    <div class="my-3">
+        <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_evenements.png')}}'); background-size: cover; background-position: center; height: 300px; width: 100%">
+            <div class="container py-5">
+                <h1> Retrouvons-nous à mes évènements !</h1>
+            </div>
+        </div>
+    </div>
+
     {% for evenement in evenements %}
 
         <div class="container">
