@@ -2,6 +2,7 @@ h1 {
     color: #D19039;
     text-shadow: 3px 3px 2px #0A020A;
     font-weight: bold;
+    font-size : 3.5rem; 
 }
 
 h1:hover{
@@ -12,11 +13,13 @@ h1:hover{
 h2 {
     color: #D19039;
     text-shadow: 1px 1px 1px #0A020A;
+    font-size: 2.5rem;
 }
 
 h3 {
     color: #D19039;
     font-weight: bold;
+    font-size: 1.7rem;
 }
 
 h4 {
