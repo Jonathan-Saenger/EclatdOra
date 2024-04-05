@@ -28,7 +28,6 @@ h4 {
 
 .fond {
     background-color: #F6EFEA;
-    margin-top: 1.5rem;
 }
 
 .bouton-or {
@@ -44,7 +43,6 @@ h4 {
     border-radius: 25px; /* Pour rendre le bouton ovale */
     transition: background 0.3s; /* Transition pour l'effet de survol */
     width: auto; /* Pour rendre le bouton responsive */
-    max-width: 200px; /* Largeur maximale pour les écrans plus grands */
     text-align: center;
 }
 
@@ -83,4 +81,60 @@ h4 {
 .bouton-reseaux:active {
     background: #0A020A; /* Couleur dorée lors du clic */
     box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+/* Personnalisation de la navbar */ 
+
+.fs-4 {
+    color: #0A020A;
+}
+
+.fs-4:hover {
+    background: #D19039; /* Couleur dorée lors du clic */
+    padding: 5px 20px;
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+    border-radius: 20px; /* Pour rendre le bouton ovale */
+    transition: background 0.5s;
+    color: white;
+    text-shadow: 3px 3px 3px #0A020A;
+}
+
+@media screen and (max-width: 1235px) {
+   .fs-4 {
+    font-size: 1rem !important;
+    }
+}
+
+.navbar-nav .nav-link {
+    height: 60px; /* Hauteur fixe pour les éléments de navigation */
+}
+
+.fs-4 {
+    position: relative;
+    overflow: hidden; /* Pour cacher le fond qui va déborder */
+}
+
+.fs-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #D19039;
+    transition: width 0.5s ease; /* Transition de la largeur du rideau */
+    z-index: -1; /* Pour placer le pseudo-élément en arrière-plan */
+}
+
+.fs-4:hover::before {
+    width: 100%; /* Largeur totale lors du survol */
+}
+
+.fs-4:hover {
+    padding: 5px 20px;
+    box-shadow: none;
+    border-radius: 20px;
+    transition: padding 0.5s, box-shadow 0.5s, border-radius 0.5s; /* Transition pour d'autres propriétés */
+    color: white;
+    text-shadow: 3px 3px 3px #0A020A;
 }

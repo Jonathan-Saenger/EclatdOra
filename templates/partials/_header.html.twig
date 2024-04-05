@@ -1,40 +1,37 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <img src="{{asset('images/logo_header.png')}}" alt="Eclat d'Ora" width="120" height="60">
+<img src="{{asset('images/entete_index.png')}}" class="img-fluid pt-3" alt="Bannière d'accueil Eclat d'Ora">
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary my-3">
+    <div class="container-fluid text-center">
+      <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}"><img src="{{asset('images/logo_header.png')}}" alt="Eclat d'Ora" width="120" height="60"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-between" style="width: 100%; padding-left: 40px; padding-right: 40px;">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">ECLAT D'ORA</a>
+                <a class="nav-link" href="{{path('app_services')}}"><p class="fs-4">Mes services</p></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{path('app_services')}}">Mes services</a>
+                <a class="nav-link" href="{{ path('app_formation') }}"><p class="fs-4">Formation Reiki</p></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_formation') }}">Formation Reiki</a>
+                <a class="nav-link" href="{{ path('app_evenement') }}"><p class="fs-4">Evènements</p></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_evenement') }}">Evènements</a>
+                <a class="nav-link" href="#{#{{ path('app_evenement') }}#}"><p class="fs-4">Réservation et tarifs</p></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#{#{{ path('app_evenement') }}#}">Réservation et tarifs</a>
+                <a class="nav-link" href="#{#{{ path('app_evenement') }}#}"><p class="fs-4">Cadeau</p></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#{#{{ path('app_evenement') }}#}">Offrir un cadeau</a>
-            </li>
-            {#<li class="nav-item">
-                <a class="nav-link" href="{{ path('app_blog') }}">Blog</a>
-            </li>#}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_formulaire_contact') }}">Contact</a>
+                <a class="nav-link" href="{{ path('app_formulaire_contact') }}"><p class="fs-4">Contact</p></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_presentation') }}">A propos</a>
+                <a class="nav-link" href="{{ path('app_presentation') }}"><p class="fs-4">A propos</p></a>
             </li>
         </ul>
-        {% if is_granted('ROLE_ADMIN') %}
+
+        <!-- {% if is_granted('ROLE_ADMIN') %}
             <p><a class="connecter" href="{{path ('admin')}}">Panneau d'administration</a></p>
             {% elseif is_granted('ROLE_USER') %}
                 <p><a class="connecter" href="#{#{{path ('app_blog')}}#}">Votre espace</a></p>
@@ -42,7 +39,7 @@
             {% else %}
                 <a href="#{#{{ path('app_register') }}#}"><button type="button" class=" btn">S'inscrire</button></a>
                 <a href="{{ path('app_login')}}"><button type="button" class="btn btn-outline-dark">Se connecter</button></a>
-            {% endif %}
+            {% endif %} -->
       </div>
     </div>
 </nav>
