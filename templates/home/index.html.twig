@@ -19,7 +19,9 @@
                     Je suis convaincu que chaque visiteur est un voyageur curieux et ouvert, prêt à découvrir de nouvelles façons de vivre et de se sentir bien. N'hésitez pas à me 
                     contacter si vous souhaitez échanger directement avec moi. <br><br>
                     Je vous souhaite une très belle visite ! </p>
-                    <a class="bouton-or"> En savoir plus </a>
+                      <div class="text-center">
+                        <a class="bouton-or"> En savoir plus </a>
+                      </div>
                 </div>
                 <div class="col-md-5">
                     <img src="{{asset('images/cedric_index.png')}}" class="img-fluid" alt="..." >
@@ -42,7 +44,7 @@
                 <p class="fw"> Fin de l'évènement : {{evenement.getEnd|format_date('long', locale='fr') }} </p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                     <button type="button" class="bouton-or">S'inscrire</button>
-                    <button type="button" class="btn btn-outline-dark rounded-pill px-4 fs-4">Autres évènements</button>
+                    <button type="button" class="bouton-or">Autres évènements</button>
                 </div>
             </div>
         </div>
@@ -104,7 +106,7 @@
           </div>
         </div>
         <div class="container mt-3 text-center">
-            <button type="button" class="bouton-or">Réserver une séance</button>
+            <button type="button" class="bouton-or mb-3">Réserver une séance</button>
         </div>
     </div>
 

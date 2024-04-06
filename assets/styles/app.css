@@ -9,6 +9,23 @@ h1:hover{
     text-shadow: 6px 6px 4px #0A020A;
 }
 
+@media screen and (max-width: 780px) {
+    h1 {
+        font-size : 3rem; 
+     }
+ }
+
+ @media screen and (max-width: 600px) {
+    h1 {
+        font-size : 2.5rem; 
+     }
+ }
+
+ @media screen and (max-width: 422px) {
+    h1 {
+        font-size : 2rem; 
+     }
+ }
 
 h2 {
     color: #D19039;
