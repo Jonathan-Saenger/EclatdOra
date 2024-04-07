@@ -31,4 +31,12 @@ class ServicesController extends AbstractController
             'controller_name' => 'Controller',
         ]);
     }
+
+    #[Route('/_hypnose', name: 'app_hypnose')]
+    public function serviceHypnose(): Response
+    {
+        return $this->render('services/_hypnose.html.twig', [
+            'controller_name' => 'Controller',
+        ]);
+    }
 }
