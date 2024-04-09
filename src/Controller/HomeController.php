@@ -19,10 +19,14 @@ class HomeController extends AbstractController
     }
 
     #[Route('/charte_plateau_therapeuthique', name: 'app_charte_plateau_therapeuthique')]
-    public function serviceCharte(): Response
+    public function juridiqueCharte(): Response
     {
-        return $this->render('home/charte_plateau_therapeuthique.html.twig', [
-            'controller_name' => 'Controller',
-        ]);
+        return $this->render('home/charte_plateau_therapeuthique.html.twig');
     }
+
+    #[Route('/mentions_legales', name:'app_mentions_legales')]
+    public function juridiqueMentions(): Response
+        {
+            return $this->render('home/mentions_legales.html.twig');
+        }
 }
