@@ -17,4 +17,12 @@ class HomeController extends AbstractController
             'evenements' => $EvenementRepository->findBy([], ['createAt' => 'DESC'], 1)
         ]);
     }
+
+    #[Route('/charte_plateau_therapeuthique', name: 'app_charte_plateau_therapeuthique')]
+    public function serviceCharte(): Response
+    {
+        return $this->render('home/charte_plateau_therapeuthique.html.twig', [
+            'controller_name' => 'Controller',
+        ]);
+    }
 }

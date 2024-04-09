@@ -6,7 +6,7 @@
             <h5>Section</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Juridique</a></li>
+              <li class="nav-item mb-2"><a href="{{ path('app_charte_plateau_therapeuthique') }}" class="nav-link p-0 text-body-secondary">Charte plateau thérapeuthique</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
             </ul>
           </div>
@@ -14,18 +14,14 @@
           <div class="col-6 col-md-2 mb-3">
             <h5>Mes services</h5>
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Séance LUCIA</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Hypnose transpersonnelle</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Méditation guidée</a></li>
+              <li class="nav-item mb-2"><a href="{{ path('app_lucia') }}" class="nav-link p-0 text-body-secondary">Séance LUCIA</a></li>
+              <li class="nav-item mb-2"><a href="{{ path('app_hypnose') }}" class="nav-link p-0 text-body-secondary">Hypnose transpersonnelle</a></li>
+              <li class="nav-item mb-2"><a href="{{ path('app_meditation') }}" class="nav-link p-0 text-body-secondary">Méditation guidée</a></li>
             </ul>
           </div>
 
           <div class="col-6 col-md-2 mb-3">
-            <h5>Mes formations</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="{{ path('app_formation') }}" class="nav-link p-0 text-body-secondary">Formation Reiki</a>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Formation 2</a></li>
-            </ul>
+            <h5><a href="{{ path('app_formation') }}" class="nav-link p-0">Ma formation REIKI</a></h5>
           </div>
 
           <div class="col-md-5 offset-md-1 mb-3">
@@ -41,7 +37,7 @@
         </div>
 
         <div class="footer-copyright text-center py-3">
-          <p>&copy; 2024 Cédric MEYER Tous droits réservés.</p>
+          <p>&copy; 2024 Site créé par Jonathan Saenger Tous droits réservés.</p>
           <ul class="list-unstyled d-flex justify-content-center align-items-center">
             <li><a class="bouton-reseaux" href="">
                                 <svg 
