@@ -60,7 +60,7 @@ h4 {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 25px; /* Pour rendre le bouton ovale */
-    transition: background 0.3s; /* Transition pour l'effet de survol */
+    transition: background 0.1s; /* Transition pour l'effet de survol */
     width: auto; /* Pour rendre le bouton responsive */
     text-align: center;
 }
