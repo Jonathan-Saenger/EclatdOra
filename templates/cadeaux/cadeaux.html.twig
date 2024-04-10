@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cadeaux{% endblock %}
+
+{% block body %}
+
+    <div class="my-3">
+        <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/bandeau_cadeau.png')}}'); background-size: cover; background-position: center; height: 300px; width: 100%">
+            <div class="container pt-3">
+                <h1> OFFREZ DES CADEAUX </h1>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-3 text-center container">
+            <h2>Idée de cadeaux</h2>
+            <h3>Envie d'offrir un cadeau bien-être à un proche ?</h3>
+            <h3>Faites lui découvrir la méditation, l'hypnose transpersonnelle ou la lumière Lucia</h3>
+            <p class="lead">Parfait pour illuminer tous les <strong>moments spéciaux</strong> de la vie, des <strong>anniversaires</strong> à la <strong>Saint-Valentin</strong>, en passant par la <strong>Fête des Mères</strong>, la <strong>Fête des Pères</strong>, <strong>Noël</strong>, etc... !</p>
+    </section>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="card m-3" style="width: 25rem;">
+                <img src="{{asset('images/services_hypnose.png')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                <div class="card-body">
+                    <h3>Séance hypnose</h3>
+                    <h4 class="card-text">Offrez une séance d'hypnose</h4>
+                    <p> Prix € </p>
+                    <a href="#" class="bouton-or">Offrir</a>
+                </div>
+            </div>
+            <div class="card m-3" style="width: 25rem;">
+                <img src="{{asset('images/services_meditation.png')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                <div class="card-body">
+                    <h3>Séance méditation</h3>
+                    <h4 class="card-text">Offrez une séance méditation</h4>
+                    <p> Prix € </p>
+                    <a href="#" class="bouton-or">Offrir</a>
+                </div>
+            </div>
+            <div class="card m-3" style="width: 25rem;">
+                <img src="{{asset('images/services_lucia.png')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                <div class="card-body">
+                    <h3>Séance Lucia</h3>
+                    <h4 class="card-text">Offrez une séance Lucia</h4>
+                    <p> Prix € </p>
+                    <a href="#" class="bouton-or">Offrir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   {# <div class="fond"> 
+        <div class="container marketing py-3 ">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2> Vous souhaitez en savoir plus sur mes prestations ?</h2>
+                </div>
+            </div>
+        </div>
+    </div>    #}
+
+{% endblock %}
