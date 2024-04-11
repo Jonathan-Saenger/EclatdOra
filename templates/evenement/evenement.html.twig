@@ -16,14 +16,16 @@
 
         <div class="container">
             <div class="card text-center m-5">
-                <h2 class="card-header"> {{ evenement.getTitle() }}</h2>
+                <div class="card-header">
+                    <h2> {{ evenement.getTitle() }}</h2>
+                </div>
                 <div class="card-body">
                     <img src="{{asset('images/exemple_evenement.png')}}" class="img-fluid" width="550px" height="100%" alt="...">
-                    <p class="card-text"> {{ evenement.getDescription() | raw  }} </p>
-                    <p class="fw-medium"> L'évènement débutera le {{evenement.getStart|format_date('long', locale='fr') }} </p>
-                    <p class="fw-medium"> et se terminera le {{evenement.getEnd|format_date('long', locale='fr') }} </p>
-                    <p class="fw-bold"> Prix : {{ evenement.getPrice()}} € </p>
-                    <a href="#" class="btn btn-primary">S'inscrire à l'évènement</a>
+                    <p class="lead"> {{ evenement.getDescription() | raw  }} </p>
+                    <p class="lead fw-semibold"> L'évènement débutera le {{evenement.getStart|format_date('long', locale='fr') }} </p>
+                    <p class="lead fw-semibold"> et se terminera le {{evenement.getEnd|format_date('long', locale='fr') }} </p>
+                    <p class="lead fw-bold"> Prix : {{ evenement.getPrice()}} € </p>
+                    <a href="#" class="bouton-or">S'inscrire à l'évènement</a>
                 </div>
                 <div class="card-footer text-body-secondary">
                     Créé le {{evenement.getCreateAt|format_date('long', locale='fr') }}
