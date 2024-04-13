@@ -3,7 +3,9 @@ h1 {
         background: linear-gradient(to bottom, #000000 0%, #c27107 30%, #c27107 70%, #000000 100%);
         -webkit-background-clip: text; 
         color: transparent;
-        font-weight: 350;    }
+        -webkit-text-stroke: 1px white;
+        text-stroke: 1px white;
+    }
 
 @media screen and (max-width: 991px) {
     h1 {
