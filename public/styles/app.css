@@ -3,8 +3,9 @@ h1 {
         background: linear-gradient(to bottom, #000000 0%, #c27107 30%, #c27107 70%, #000000 100%);
         -webkit-background-clip: text; 
         color: transparent;
-        -webkit-text-stroke: 1px white;
-        text-stroke: 1px white;
+        -webkit-text-stroke: 0.5px white;
+        text-stroke: 0.5px white;
+        font-family: 'Molengo';
     }
 
 h2 {
