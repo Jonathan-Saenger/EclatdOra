@@ -39,4 +39,21 @@ class ServicesController extends AbstractController
             'controller_name' => 'Controller',
         ]);
     }
+
+    #[Route('/_soins', name: 'app_soins')]
+    public function serviceSoins(): Response
+    {
+        return $this->render('services/_soins.html.twig', [
+            'controller_name' => 'SoinsController',
+        ]);
+    }
+
+    #[Route('/_medium', name: 'app_medium')]
+    public function serviceMedium(): Response
+    {
+        return $this->render('services/_medium.html.twig', [
+            'controller_name' => 'MediumController',
+        ]);
+    }
+    
 }
