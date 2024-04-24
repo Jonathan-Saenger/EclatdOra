@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="container my-3">
+<div class="container my-5">
     <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -25,7 +25,7 @@
         {% endif %}
 
         <p><cite>Merci de remplir tous les champs pour vous connecter</cite></p>
-        <div class="my-3">
+        <div class="my-5">
                 <label for="inputEmail"><h3>Email :</h3></label> <br>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
                 <label for="inputPassword"><h3>Password :</h3></label> <br>
