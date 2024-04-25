@@ -4,29 +4,78 @@
 
 {% block body %}
 
-<div class="my-3">
-  <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_anth.png')}}'); background-size: cover; background-position: center;">
-    <div class="container py-5">
-      <h1>Inscription</h1>
+    <div class="my-3">
+    <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_anth.png')}}'); background-size: cover; background-position: center;">
+        <div class="container py-5">
+        <h1>Inscription</h1>
+        </div>
     </div>
-  </div>
-</div>
+    </div>
 
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-<div class="container">
-    {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    <div class="container">
 
-        <button type="submit" class="btn">Register</button>
+        <p> Merci de renseigner tous les champs pour vous inscrire. </p>
+
+        {{ form_errors(registrationForm) }}
+        {{ form_start(registrationForm) }}
+
+        <div class="mb-3 mx-5">
+            <h3> Nom : </h3>
+            {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.nom) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            <h3> Prénom : </h3>
+            {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.prenom) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            <h3> Adresse : </h3>
+            {{ form_widget(registrationForm.adresse, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.adresse) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            <h3> Code Postal : </h3>
+            {{ form_widget(registrationForm.codePostal, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.codePostal) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            <h3> Ville : </h3>
+            {{ form_widget(registrationForm.ville, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.ville) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            <h3> Email : </h3>
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.email) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            <h3> Mot de passe </h3>
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'checkbox'}}) }}
+            {{ form_label(registrationForm.agreeTerms) }}
+            {{ form_errors(registrationForm.agreeTerms) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            <button type="submit" class="bouton-or">S'inscrire</button>
+        </div>
+
     {{ form_end(registrationForm) }}
 </div>
 

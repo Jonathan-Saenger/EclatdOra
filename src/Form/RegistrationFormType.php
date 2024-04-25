@@ -18,13 +18,20 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
+            ->add('nom')
+            ->add('prenom')
+            ->add('adresse')
+            ->add('codePostal')
+            ->add('ville')
             ->add('agreeTerms', CheckboxType::class, [
-                                'mapped' => false,
+                'mapped' => false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
+                'label' => 'En soumettant ce formulaire, j’accepte que mes informations soient utilisées dans le cadre de mon inscription.',
+            
             ])
             ->add('plainPassword', PasswordType::class, [
                                 // instead of being set onto the object directly,
@@ -42,6 +49,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                'label' => 'Mot de passe',
             ])
         ;
     }
