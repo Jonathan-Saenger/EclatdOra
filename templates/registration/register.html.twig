@@ -55,13 +55,19 @@
         </div>
 
         <div class="mb-3 mx-5">
+            <h3> Numéro de téléphone : </h3>
+            {{ form_widget(registrationForm.telephone, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.telephone) }}
+        </div>
+
+        <div class="mb-3 mx-5">
             <h3> Email : </h3>
             {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(registrationForm.email) }}
         </div>
 
         <div class="mb-3 mx-5">
-            <h3> Mot de passe </h3>
+            <h3> Mot de passe :</h3>
             {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(registrationForm.plainPassword) }}
         </div>
