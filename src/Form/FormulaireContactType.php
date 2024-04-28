@@ -18,7 +18,6 @@ class FormulaireContactType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('prenom')
             ->add('email')
             ->add('telephone')
             ->add('message', TextareaType::class, [

@@ -31,7 +31,7 @@ class FormulaireContactController extends AbstractController
 
             $email = (new Email())
                 ->from($email)
-                ->to('to@example.com')
+                ->to('cedric.eclatdora@gmail.com')
                 ->subject('Formulaire de contact')
                 ->text($message)
                 ->html("<p>Bonjour Cédric ! Tu as reçu une demande de contact de " . $prenom . "  " . $nom . " ! Son numéro de téléphone est 

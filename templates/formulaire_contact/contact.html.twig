@@ -101,7 +101,8 @@
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <h3> Formulaire de contact : </h3>
                     <p class="mb-4">Vous pouvez aussi me contacter directement par le formulaire ci-dessous :</p>
-                    <form>
+                    {{ form_start(form)}}
+                        {{form_errors(form)}}
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -131,7 +132,7 @@
                                 <button class="bouton-or" type="submit">Envoyer</button>
                             </div>
                         </div>
-                    </form>
+                    {{form_end(form)}}
                 </div>
             </div>
         </div>
