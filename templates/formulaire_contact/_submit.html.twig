@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Envoie du message réussi ! {% endblock %}
+
+{% block body %}
+
+    <div class="reponse">
+        <img class="image_submit" src="{{ asset('/images/annexes/photo_submit.png') }}" alt="Bienvenue sur le site Post-Partum">
+        <h2> Merci pour votre message ! </h2>
+        <h3> Je ne manquerais pas de vous répondre dans les meilleurs délais ! </h3>
+        <div class="boutton_accueil">
+            <a href="{{ path('app_home') }}"><button type="button" class="bouton-or">Revenir à l'accueil</button></a>
+        </div>
+    </div>
+
+{% endblock %}

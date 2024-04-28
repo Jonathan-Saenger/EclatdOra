@@ -2186,16 +2186,16 @@
         },
         {
             "name": "symfony/asset-mapper",
-            "version": "v7.0.4",
+            "version": "v7.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset-mapper.git",
-                "reference": "7cd421551f53849f641a1a3499392ed5c81598a8"
+                "reference": "07133d369eb9f644985584d0877d294c8847a4f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset-mapper/zipball/7cd421551f53849f641a1a3499392ed5c81598a8",
-                "reference": "7cd421551f53849f641a1a3499392ed5c81598a8",
+                "url": "https://api.github.com/repos/symfony/asset-mapper/zipball/07133d369eb9f644985584d0877d294c8847a4f0",
+                "reference": "07133d369eb9f644985584d0877d294c8847a4f0",
                 "shasum": ""
             },
             "require": {
@@ -2244,7 +2244,7 @@
             "description": "Maps directories of assets & makes them available in a public directory with versioned filenames.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/asset-mapper/tree/v7.0.4"
+                "source": "https://github.com/symfony/asset-mapper/tree/v7.0.5"
             },
             "funding": [
                 {
@@ -2260,7 +2260,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-22T20:27:20+00:00"
+            "time": "2024-03-04T12:47:58+00:00"
         },
         {
             "name": "symfony/brevo-mailer",
