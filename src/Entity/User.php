@@ -64,11 +64,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
+    #[ORM\OneToMany(targetEntity: EmailInscription::class, mappedBy: 'User')]
+    private Collection $emailInscriptions;
+
     public function __construct()
     {
         $this->evenement = new ArrayCollection();
         $this->article = new ArrayCollection();
         $this->contacts = new ArrayCollection();
+        $this->emailInscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -316,6 +320,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVille(?string $ville): static
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EmailInscription>
+     */
+    public function getEmailInscriptions(): Collection
+    {
+        return $this->emailInscriptions;
+    }
+
+    public function addEmailInscription(EmailInscription $emailInscription): static
+    {
+        if (!$this->emailInscriptions->contains($emailInscription)) {
+            $this->emailInscriptions->add($emailInscription);
+            $emailInscription->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEmailInscription(EmailInscription $emailInscription): static
+    {
+        if ($this->emailInscriptions->removeElement($emailInscription)) {
+            // set the owning side to null (unless already changed)
+            if ($emailInscription->getUser() === $this) {
+                $emailInscription->setUser(null);
+            }
+        }
 
         return $this;
     }

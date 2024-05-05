@@ -10,11 +10,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\MailerInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\EmailInscription;
+use App\Form\EmailInscriptionType;
 
 class FormulaireContactController extends AbstractController
 {
     #[Route('/formulaire/contact', name: 'app_formulaire_contact')]
-    public function index(Request $request, MailerInterface $mailer): Response
+    public function index(Request $request, MailerInterface $mailer, ): Response
     {   
         $contact = new Contact();
         $form = $this->createForm(FormulaireContactType::class, $contact);
@@ -47,9 +50,38 @@ class FormulaireContactController extends AbstractController
         ]);
     }
 
-        #[Route('/_submit', name: 'app_submit')]
-        public function submit() : Response
-        {
-            return $this->render('formulaire_contact/_submit.html.twig');
+    #[Route('/_submit', name: 'app_submit')]
+    public function submit() : Response
+    {
+        return $this->render('formulaire_contact/_submit.html.twig');
+    }
+
+    #[Route('/_inscription', name: 'app_inscription')]
+    public function inscriptionEmail(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager) : Response
+    {
+        $EmailInscription = new EmailInscription();
+        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
+        $formEmail->handleRequest($request);
+
+        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
+
+            $data = $formEmail->getData();
+            $email = $data->getEmail();
+
+            $email = (new Email())
+                ->from($email)
+                ->to('cedric.eclatdora@gmail.com')
+                ->subject('Demande d\'inscription à la newsletter')
+                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
+
+            $mailer->send($email);
+
+            $entityManager->persist($EmailInscription);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_inscription');
         }
+        
+        return $this->render('formulaire_contact/_inscription.html.twig');
+    }
 }

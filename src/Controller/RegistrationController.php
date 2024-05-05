@@ -17,6 +17,12 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
+use App\Entity\EmailInscription;
+use App\Form\EmailInscriptionType;
+use App\Repository\EvenementRepository;
+
 
 class RegistrationController extends AbstractController
 {
@@ -28,8 +34,33 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, Authenticator $authenticator, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, Authenticator $authenticator, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
     {
+        // Formualaire Newsletter
+        $EmailInscription = new EmailInscription();
+        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
+        $formEmail->handleRequest($request);
+        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
+
+            $data = $formEmail->getData();
+            $email = $data->getEmail();
+
+            $email = (new Email())
+                ->from($email)
+                ->to('cedric.eclatdora@gmail.com')
+                ->subject('Demande d\'inscription à la newsletter')
+                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
+
+            $mailer->send($email);
+
+            $entityManager->persist($EmailInscription);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
+            return $this->redirectToRoute('app_home');
+        }
+        
+        // Formulaire d'inscription
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -65,6 +96,7 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form,
+            'formEmail' => $formEmail->createView(),
         ]);
     }
 

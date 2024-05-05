@@ -3,7 +3,11 @@
 {% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-
+    <div class="text-center alert-success">
+            {% for flashMessage in app.flashes('success') %}
+                <h4> {{ flashMessage }} </h4>
+            {% endfor %}
+    </div>
     <div class="fond mt-3"> 
         <div class="container marketing py-3 ">
             <div class="row featurette">

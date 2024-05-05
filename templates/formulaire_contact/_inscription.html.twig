@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Envoie du message réussi ! {% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h2> Merci pour votre inscription ! </h2>
+        <h3> Vous retrouverez prochainement la newsletter dans votre boite mails ! </h3>
+        <div class="boutton_accueil">
+            <a href="{{ path('app_home') }}"><button type="button" class="bouton-or">Revenir à l'accueil</button></a>
+        </div>
+    </div>
+
+{% endblock %}
