@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\EmailInscription;
 use App\Entity\User;
 use App\Entity\Evenement;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -29,6 +30,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
         yield MenuItem::linkToCrud('Evenement', 'fas fa-star', Evenement::class);
         yield MenuItem::linkToCrud('Membres', 'fa fa-user', User::class);
+        yield MenuItem::linkToCrud('Inscrits Newsletter', 'fa fa-letter', EmailInscription::class);
         yield MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', $this->generateUrl('app_home'));
     }
 }
