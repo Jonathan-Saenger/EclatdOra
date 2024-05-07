@@ -17,11 +17,34 @@ use App\Form\EmailInscriptionType;
 class FormulaireContactController extends AbstractController
 {
     #[Route('/formulaire/contact', name: 'app_formulaire_contact')]
-    public function index(Request $request, MailerInterface $mailer, ): Response
+    public function index(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
     {   
         $contact = new Contact();
         $form = $this->createForm(FormulaireContactType::class, $contact);
         $form->handleRequest($request);
+
+        $EmailInscription = new EmailInscription();
+        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
+        $formEmail->handleRequest($request);
+
+        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
+            $data = $formEmail->getData();
+            $emailInscription = $data->getEmail();
+
+            $emailInscription = (new Email())
+                ->from($emailInscription)
+                ->to('cedric.eclatdora@gmail.com')
+                ->subject('Demande d\'inscription à la newsletter')
+                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $emailInscription ." ");
+
+            $mailer->send($emailInscription);
+
+            $entityManager->persist($EmailInscription);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
+            return $this->redirectToRoute('app_home');
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -47,6 +70,7 @@ class FormulaireContactController extends AbstractController
 
         return $this->render('formulaire_contact/contact.html.twig', [
             'form' => $form,
+            'formEmail' => $formEmail->createView(),
         ]);
     }
 

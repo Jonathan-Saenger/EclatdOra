@@ -40,6 +40,7 @@ class PresentationController extends AbstractController
             $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
             return $this->redirectToRoute('app_home');
         }
+        
         return $this->render('presentation/presentation.html.twig', [
             'controller_name' => 'PresentationController',
             'formEmail' => $formEmail->createView(),

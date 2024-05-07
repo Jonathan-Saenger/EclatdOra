@@ -1,40 +1,59 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link 
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+                rel="stylesheet" 
+                integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+                crossorigin="anonymous"
+            >
+            <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Carme&family=Encode+Sans:wght@100..900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Molengo&display=swap" rel="stylesheet">
+            {% block javascripts %}
+                {% block importmap %}{{ importmap('app') }}{% endblock %}
+            {% endblock %}
+    </head>
 
-{% block title %}Log in!{% endblock %}
+{% include "partials/_header.html.twig" %}
 
 {% block body %}
 
-<div class="my-3">
-  <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_anth.png')}}'); background-size: cover; background-position: center;">
-    <div class="container py-5">
-      <h1>Portail de connexion</h1>
-    </div>
-  </div>
-</div>
-
-<div class="container my-5">
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
-
-        <p><cite>Merci de remplir tous les champs pour vous connecter</cite></p>
-        <div class="my-5">
-                <label for="inputEmail"><h3>Email :</h3></label> <br>
-                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                <label for="inputPassword"><h3>Password :</h3></label> <br>
-                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <div class="my-3">
+      <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_anth.png')}}'); background-size: cover; background-position: center;">
+        <div class="container py-5">
+          <h1>Portail de connexion</h1>
         </div>
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+      </div>
+    </div>
 
-        <button class="bouton-or" type="submit"> Se connecter </button>
-    </form>
-</div>
+    <div class="container my-5">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <p><cite>Merci de remplir tous les champs pour vous connecter</cite></p>
+            <div class="my-5">
+                    <label for="inputEmail"><h3>Email :</h3></label> <br>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                    <label for="inputPassword"><h3>Password :</h3></label> <br>
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <button class="bouton-or" type="submit"> Se connecter </button>
+        </form>
+    </div>
 
 {% endblock %}
