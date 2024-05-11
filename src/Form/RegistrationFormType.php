@@ -11,6 +11,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -18,17 +21,70 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('nom')
-            ->add('prenom')
-            ->add('adresse')
+            ->add('nom', TextType::class, [
+                'constraints' => [
+                    new Length([
+                        'min' => 2,
+                        'minMessage' => 'Veuillez saisir un minimum de {{limit}} caractères',
+                        'max' => 15,
+                        'maxMessage' => 'Vous avez dépassé le nombre de caractère limités',
+                    ]),
+                    new Regex([
+                        'pattern' => '/^[a-zA-Z-]+$/',
+                        'match' => true,
+                        'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer'
+                    ]),
+                ]
+            ])
+            ->add('prenom', TextType::class, [
+                'constraints' => [
+                    new Length ([
+                        'min' => 5,
+                        'minMessage' => 'Veuillez saisir un minimum de caractère',
+                        'max' => 15,
+                        'maxMessage' => 'Vous avez dépasser le nombre de caractères limités',
+                    ]),
+                    new Regex([
+                        'pattern' => '/^[a-zA-Z-]+$/',
+                        'match' => true,
+                        'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer'
+                    ])
+                ]
+            ])
+            ->add('adresse', TextType::class, [
+                'constraints' => [
+                    new Regex([
+                        'pattern' => '/^[a-zA-Z0-9]+$/',
+                        'match' => true,
+                        'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer'
+                    ]),
+                ]
+            ])
             ->add('telephone')
-            ->add('codePostal')
-            ->add('ville')
+            ->add('codePostal', IntegerType::class, [
+                'constraints' => [
+                    new Length ([
+                        'min' => 5,
+                        'minMessage' => 'Merci de saisir un code postal valide',
+                        'max' => 7, 
+                        'maxMessage' => 'Merci de saisir un code postal valide',
+                    ]),
+                ]
+            ])
+            ->add('ville', TextType::class, [
+                'constraints' => [
+                    new Regex([
+                        'pattern' => '/^[a-zA-Z-]+$/',
+                        'match' => true,
+                        'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer'
+                    ]),
+                ]
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Merci de cocher la condition d\'acceptation',
                     ]),
                 ],
                 'label' => 'En soumettant ce formulaire, j’accepte que mes informations soient utilisées dans le cadre de mon inscription.',
@@ -43,11 +99,9 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Please enter a password',
                     ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
+                    new Regex([
+                        'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\/:,])[A-Za-z\d@$!%*?&\/:,]{8,}$/',
+                        'message' => 'Votre Password doit contenir au moins une lettre majuscule, un chiffre, un caractère spécial et 8 caractères.',
                     ]),
                 ],
                 'label' => 'Mot de passe',
