@@ -1,9 +1,10 @@
 <div class="text-end me-5">
     {% if is_granted('ROLE_ADMIN') %}
         <p><a class="connecter" href="{{path ('admin')}}">Panneau d'administration</a></p>
+        <p><a href="{{ path('app_logout') }}"> Se déconnecter</a></p>
         {% elseif is_granted('ROLE_USER') %}
             <p><a class="connecter" href="#{#{{path ('app_blog')}}#}">Votre espace</a></p>
-            <p>><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
+            <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
         {% else %}
             <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold px-3" href="{{ path('app_register') }}">S'inscrire</a>
             <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold" href="{{ path('app_login')}}">Se connecter</a>
