@@ -20,7 +20,7 @@
                     <h2> {{ evenement.getTitle() }}</h2>
                 </div>
                 <div class="card-body">
-                    <img src="{{asset('images/exemple_evenement.png')}}" class="img-fluid" width="550px" height="100%" alt="...">
+                    <img src="{{ vich_uploader_asset(evenement,'imageFile') }}" class="img-fluid" width="550px" height="100%" alt="Image de l'évènement à venir">
                     <p class="lead"> {{ evenement.getDescription() | raw  }} </p>
                     <p class="lead fw-semibold"> L'évènement débutera le {{evenement.getStart|format_date('long', locale='fr') }} </p>
                     <p class="lead fw-semibold"> et se terminera le {{evenement.getEnd|format_date('long', locale='fr') }} </p>

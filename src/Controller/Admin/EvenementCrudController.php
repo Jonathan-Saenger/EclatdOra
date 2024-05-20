@@ -10,6 +10,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Intl\Languages;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 \Locale::setDefault('en');
 $language = Languages::getName('fr');
@@ -26,7 +28,7 @@ class EvenementCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
     yield TextField::new('title', 'Titre');
-    //yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
+    yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
     yield TextEditorField::new('description', 'Description de l\'évènement');
     yield NumberField::new('price', 'Prix');
     yield DateTimeField::new('start', 'Début de l\'évènement');

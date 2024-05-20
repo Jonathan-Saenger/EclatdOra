@@ -42,6 +42,7 @@
         {% for evenement in evenements %}
         <div class="px-4 my-3 text-center border-bottom">
             <h3>{{evenement.getTitle() }}</h3>
+            <img src="{{ vich_uploader_asset(evenement,'imageFile') }}" class="img-fluid" width="550px" height="100%" alt="Image du dernier évènement">
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4">{{ evenement.getDescription() |striptags|slice(0, 250) }}</p>
                 <p class="fw"> Début de l'évènement : {{evenement.getStart|format_date('long', locale='fr') }} </p>
