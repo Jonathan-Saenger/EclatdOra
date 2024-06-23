@@ -38,6 +38,9 @@ class Reservation
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Prestation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +138,18 @@ class Reservation
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPrestation(): ?string
+    {
+        return $this->Prestation;
+    }
+
+    public function setPrestation(string $Prestation): static
+    {
+        $this->Prestation = $Prestation;
 
         return $this;
     }
