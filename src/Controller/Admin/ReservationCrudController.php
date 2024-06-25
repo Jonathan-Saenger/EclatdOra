@@ -3,10 +3,18 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Reservation;
+use DateTime;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
+use Symfony\Component\Intl\Languages;
+
+\Locale::setDefault('en');
+$language = Languages::getName('fr');
+$language = Languages::getAlpha3Name('fra');
 
 class ReservationCrudController extends AbstractCrudController
 {
@@ -15,14 +23,11 @@ class ReservationCrudController extends AbstractCrudController
         return Reservation::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        yield TextField::new('prestation', 'Prestation');
+        yield DateField::new('date', 'Date');
+        yield TimeField::new('debut','Heure de début');
+        yield TimeField::new('fin','Heure de fin');
     }
-    */
 }
