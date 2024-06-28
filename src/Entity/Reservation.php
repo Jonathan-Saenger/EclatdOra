@@ -27,7 +27,7 @@ class Reservation
     private ?User $user = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Prestation = null;
+    private ?string $prestation = null;
 
     public function getId(): ?int
     {
@@ -84,12 +84,12 @@ class Reservation
 
     public function getPrestation(): ?string
     {
-        return $this->Prestation;
+        return $this->prestation;
     }
 
-    public function setPrestation(string $Prestation): static
+    public function setPrestation(string $prestation): static
     {
-        $this->Prestation = $Prestation;
+        $this->prestation = $prestation;
 
         return $this;
     }

@@ -31,7 +31,7 @@ class ReservationCrudController extends AbstractCrudController
         yield ChoiceField::new('prestation', 'Type de prestation')
             ->setChoices([
                 'Hypnose transpersonnelle en presentielle' => 'Hypnose transpersonnelle en presentielle',
-                'Hypnose transpersonnelle en visio' => 'Hypnose transpersonnelle visio',
+                'Hypnose transpersonnelle en visio' => 'Hypnose transpersonnelle en visio',
                 'Méditation guidée' => 'Méditation guidée',
                 'Formation Reiki' => 'Formation Reiki',
                 'Luminothérapie individuelle 1h' => 'Luminotherapie individuelle 1h',
