@@ -6,21 +6,22 @@
 
     <h2>Réserver une prestation</h2>
 
-    <div class="container">
+    <div class="container mb-3">
         <label for=""> <h3>Veuillez choisir un créneau : </h3></label> <br>
         <select class="form-select">
             {% for reservation in reservation %}
-                {% if reservation.getPrestation() in ['Hypnose transpersonnelle - Visio', 'reiki'] %} 
+                {#{% if reservation.getPrestation() in ['Hypnose transpersonnelle - Visio', 'reiki'] %} #}
+                 {% if reservation.getPrestation() %}
                     <option>
-                        {{ reservation.getPrestation() }}
-                        Date : {{ reservation.getDate()|format_date('long', locale='fr') }} - 
-                        De {{ reservation.getDebut()|date('H:i') }}
-                        à {{ reservation.getFin()|date('H:i') }}
+                        {{ reservation.getPrestation() }} - 
+                        Le {{ reservation.getDate()|format_date('long', locale='fr') }},  
+                        de {{ reservation.getDebut()|date('H:i') }}
+                        à {{ reservation.getFin()|date('H:i') }}.
                     </option>
                 {% endif %}
             {% endfor %}
-        </select> 
-        <button type="submit" class="btn btn-primary">Réserver</button>
-    </div>
+        </select> <br>
+        <button type="submit" class="bouton-or">Réserver</button>
+    </div> 
 
 {% endblock %}

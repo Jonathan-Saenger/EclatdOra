@@ -30,15 +30,15 @@ class ReservationCrudController extends AbstractCrudController
         yield TimeField::new('fin','Heure de fin');
         yield ChoiceField::new('prestation', 'Type de prestation')
             ->setChoices([
-                'Hypnose transpersonnelle - Presentielle' => 'Hypnose transpersonnelle - Presentielle',
-                'Hypnose transpersonnelle - Visio' => 'Hypnose transpersonnelle - Visio',
+                'Hypnose transpersonnelle en presentielle' => 'Hypnose transpersonnelle en presentielle',
+                'Hypnose transpersonnelle en visio' => 'Hypnose transpersonnelle visio',
                 'Méditation guidée' => 'Méditation guidée',
-                'Reiki' => 'Reiki',
+                'Formation Reiki' => 'Formation Reiki',
                 'Luminothérapie individuelle 1h' => 'Luminotherapie individuelle 1h',
                 'Luminothérapie individuelle 2h' => 'Luminotherapie individuelle 2h',
                 'Luminothérapie duo 1h' => 'Luminotherapie duo 1h',
                 'Luminothérapie duo 2h' => 'Luminotherapie duo 2h',
-                'Soins « Holistique » d’harmonisation' => 'Soins « Holistique » d’harmonisation',
+                'Soins holistique d’harmonisation' => 'Soins holistique d’harmonisation',
                 'Séance médiumnique' => 'Séance médiumnique'
         ]);
     }
