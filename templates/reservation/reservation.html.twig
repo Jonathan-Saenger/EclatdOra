@@ -7,10 +7,9 @@
     <h2>Réserver une prestation : </h2>
 
     <div class="container mb-3">
-        <h3> {{ prestation }} </h3>
         <label for=""><h4 class="fw-semibold">Veuillez choisir un créneau : </h4> </label>
         <select class="form-select">
-            {% for reservation in reservations %}
+            {% for reservation in reservation %}
                     <option>
                         {{ reservation.prestation }} - 
                         Le {{ reservation.date()|format_date('long', locale='fr') }},  
@@ -21,6 +20,6 @@
             {% endfor %}
         </select> <br>
         <button type="submit" class="bouton-or">Réserver</button>
-    </div> 
+    </div>
 
 {% endblock %}

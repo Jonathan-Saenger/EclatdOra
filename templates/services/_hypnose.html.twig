@@ -147,8 +147,12 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title pricing-card-title">200 €</h4>
-                    <button type="button" class="bouton-or">Acompte: 60 €</button>
-                    <button type="button" class="bouton-or">Réserver</button>
+                    <a href="{{ path('reservation_prestation', { prestation: 'Hypnose transpersonnelle en presentielle'}) }}">
+                        <button type="button" class="bouton-or">Acompte: 60 €</button>
+                    </a>
+                    <a href="{{ path('reservation_prestation', { prestation: 'Hypnose transpersonnelle en presentielle'}) }}">
+                        <button type="button" class="bouton-or">Réserver</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -159,7 +163,9 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title pricing-card-title">200 €</h4>
-                    <button type="button" class="bouton-or">Réserver</button>
+                    <a href="{{ path('reservation_prestation', { prestation: 'Hypnose transpersonnelle en visio'}) }}">
+                        <button type="button" class="bouton-or">Réserver</button>
+                    </a>
                 </div>
             </div>
         </div> 
