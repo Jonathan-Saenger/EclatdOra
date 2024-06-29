@@ -38,7 +38,7 @@ class ReservationCrudController extends AbstractCrudController
                 'Luminothérapie individuelle 2h' => 'Luminotherapie individuelle 2h',
                 'Luminothérapie duo 1h' => 'Luminotherapie duo 1h',
                 'Luminothérapie duo 2h' => 'Luminotherapie duo 2h',
-                'Soins holistique d’harmonisation' => 'Soins holistique d’harmonisation',
+                'Soins holistique' => 'Soins holistique',
                 'Séance médiumnique' => 'Séance médiumnique'
         ]);
     }
