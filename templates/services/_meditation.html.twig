@@ -38,7 +38,9 @@
         symboles à hautes fréquences vibratoires, les encens, les huiles essentiels ainsi que ma voix.</p>
 
         <div class="text-center mb-3">
-            <button type="button" class="bouton-or">Réserver une séance</button>
+            <a href="{{ path('reservation_prestation', { prestation: 'Méditation guidée'}) }}"
+                <button type="button" class="bouton-or">Réserver une séance</button>
+            </a>
         </div>
 
         <p class="text-end "><a class="text-warning link-offset-2 link-underline link-underline-opacity-0 fw-bold" href=" {{path('app_services')}}">Revenir aux services ↣</a></p>
