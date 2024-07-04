@@ -12,6 +12,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use App\Form\EmailInscriptionType;
 use App\Entity\EmailInscription;
 use App\Repository\ReservationRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class ReservationController extends AbstractController
 {
@@ -83,26 +84,27 @@ class ReservationController extends AbstractController
             'formEmail' => $formEmail->createView(),
         ]);
     }
-
-    // Validation du formulaire : le compléter avec l'envoi du formulaire vers Brevo
     
-    //#[Route('/submit-reservation', name: 'route_name_to_handle_form_submission')]
-    //public function handleFormSubmission(Request $request, ReservationRepository $reservationRepository, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
-    //{
-    //    $reservationId = $request->request->get('reservation');
-    //   if ($reservationId) {
-    //       $reservation = $reservationRepository->find($reservationId);
+    #[Route('/reservation/submit/{id}', name: 'reservation_submit')]
+    public function submitReservation(int $id, ReservationRepository $reservationRepository, MailerInterface $mailer, UserInterface $user): Response
+    {
+        $reservation = $reservationRepository->find($id);
 
-            // Logic to handle the selected reservation
-            // For example, you can send an email, save to database, etc.
+        if (!$reservation) {
+            throw $this->createNotFoundException('Réservation non trouvée.');
+        }
 
-    //       $this->addFlash('success', 'Votre réservation a été prise en compte pour le créneau sélectionné.');
-    //       return $this->redirectToRoute('some_route_after_submission');
-    //   }
+        $email = (new Email())
+            ->from('no-reply@votre-site.com')
+            ->to('cedric.eclatdora@gmail.com') 
+            ->subject('Nouvelle réservation')
+            ->html("<p>Bonjour Cédric, une nouvelle réservation a été effectuée pour la prestation : <strong>{$reservation->getPrestation()}</strong>.</p>
+                    Voici le créneau choisi : <p>Date :<strong> {$reservation->getDate()->format('d/m/Y')} de {$reservation->getDebut()->format('H:i')} à {$reservation->getFin()->format('H:i')}.</strong></p>
+                    Le client est : <strong>{$user->getNom()} {$user->getPrenom()}</strong>, son email est : <strong>{$user->getEmail()}</strong> et son numéro de téléphone est : <strong>0{$user->getTelephone()}</strong>.");
 
-    //   $this->addFlash('error', 'Veuillez sélectionner un créneau.');
-    //   return $this->redirectToRoute('current_route_with_form'); // Replace with the route name where the form is displayed
-    //}
+        $mailer->send($email);
+
+        $this->addFlash('success', 'Votre réservation a été envoyée !');
+        return $this->redirectToRoute('app_home'); // Créer un visuel pour la validation de la réservation
+    }
 }
-
-
