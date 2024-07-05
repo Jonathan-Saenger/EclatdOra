@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créneaux de réservation{% endblock %}
+
+{% block body %}
+
+    <h2>Réserver une prestation : </h2>
+
+    <div class="container mb-3">
+        <label for=""><h4 class="fw-semibold">Veuillez choisir un créneau : </h4> </label>
+        <select class="form-select" id="reservation-select">
+            {% for reservation in reservation %}
+                <option value="{{ reservation.id }}">
+                    {{ reservation.prestation }} - 
+                    Le {{ reservation.date()|format_date('long', locale='fr') }},  
+                    de {{ reservation.debut()|date('H:i') }}
+                    à {{ reservation.fin()|date('H:i') }}.
+                </option>
+            {% endfor %}
+        </select> <br>
+        <a id="reserve-button" class="btn btn-primary bouton-or" href="#">Réserver</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const reserveButton = document.getElementById('reserve-button');
+            reserveButton.addEventListener('click', function() {
+                const select = document.getElementById('reservation-select');
+                const reservationId = select.value;
+                if (reservationId) {
+                    window.location.href = `/reservation/submit/${reservationId}`;
+                } else {
+                    alert('Veuillez choisir un créneau.');
+                }
+            });
+        });
+    </script>
+
+{% endblock %}
