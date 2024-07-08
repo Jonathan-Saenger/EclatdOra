@@ -14,7 +14,7 @@ final class Version20240502092922 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Création de la table email inscription';
     }
 
     public function up(Schema $schema): void
