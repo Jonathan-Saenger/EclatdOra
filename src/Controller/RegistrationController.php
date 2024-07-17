@@ -22,7 +22,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use App\Entity\EmailInscription;
 use App\Form\EmailInscriptionType;
 use App\Repository\EvenementRepository;
-
+use App\Repository\UserRepository;
 
 class RegistrationController extends AbstractController
 {
@@ -80,13 +80,13 @@ class RegistrationController extends AbstractController
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('cedric.eclatdora@gmail.com', 'Verification Mail'))
+                    ->from(new Address('cedric.eclatdora@gmail.com'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject('Confirmation d\'inscription sur Eclat d\'Ora')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_email');
            /* return $userAuthenticator->authenticateUser(
                 $user,
                 $authenticator,
@@ -117,6 +117,19 @@ class RegistrationController extends AbstractController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('app_register');
+        //return $this->redirectToRoute('app_register');
     }
+
+    #[Route('/email_validation', name: 'app_email')]
+    public function emailValidation(Request $request): Response
+    {
+
+        $prenom = $request->query->get('prenom');
+
+        return $this->render('registration/email_validation.html.twig', [
+            'prenom' => $prenom,
+        ]);
+    }
+
+
 }
