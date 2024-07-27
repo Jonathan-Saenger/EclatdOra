@@ -54,7 +54,7 @@ class RegistrationFormType extends AbstractType
             ->add('adresse', TextType::class, [
                 'constraints' => [
                     new Regex([
-                        'pattern' => '/^[a-zA-Z0-9 ]+$/',
+                        'pattern' => '/^[a-zA-Z0-9 àáâäéèêëîïôöùûüçÀÁÂÄÉÈÊËÎÏÔÖÙÛÜÇ]+$/',
                         'match' => true,
                         'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer'
                     ]),
