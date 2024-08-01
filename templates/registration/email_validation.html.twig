@@ -10,12 +10,49 @@
         <h1> Merci !  Ton inscription a bien été pris en compte ! </h1> <br>
         <h2> Un email de validation a été envoyé sur ta boite mail. A très bientôt sur Eclat d'Ora ! </h2>
     </div>
+    <div class="texte2">
+        <h3> 
+            <a class="texte1" href="{{ path('app_home') }}">
+                Retourner sur l'écran d'accueil
+            </a>
+        </h3>
+    </div>
+
+
+
+
 
 {% endblock %}
 
 <style>
-.texte {
+.texte  {
     text-align: center;
-    
 }
+
+.Texte2 {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.texte1 {
+    background:  #D19039;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 25px; /* Pour rendre le bouton ovale */
+    transition: background 0.1s; /* Transition pour l'effet de survol */
+    width: auto; /* Pour rendre le bouton responsive */
+    text-align: center;
+}
+
+.texte1:hover {
+    background: #0A020A; /* Couleur dorée lors du clic */
+    box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
+}
+
+
+
 </style>
