@@ -73,6 +73,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'user')]
     private Collection $reservations;
 
+    /**
+     * @var Collection<int, Temoignage>
+     */
+    #[ORM\OneToMany(targetEntity: Temoignage::class, mappedBy: 'Relation')]
+    private Collection $temoignages;
+
     public function __construct()
     {
         $this->evenement = new ArrayCollection();
@@ -80,6 +86,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->contacts = new ArrayCollection();
         $this->emailInscriptions = new ArrayCollection();
         $this->reservations = new ArrayCollection();
+        $this->temoignages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -385,6 +392,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($reservation->getUser() === $this) {
                 $reservation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Temoignage>
+     */
+    public function getTemoignages(): Collection
+    {
+        return $this->temoignages;
+    }
+
+    public function addTemoignage(Temoignage $temoignage): static
+    {
+        if (!$this->temoignages->contains($temoignage)) {
+            $this->temoignages->add($temoignage);
+            $temoignage->setRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTemoignage(Temoignage $temoignage): static
+    {
+        if ($this->temoignages->removeElement($temoignage)) {
+            // set the owning side to null (unless already changed)
+            if ($temoignage->getRelation() === $this) {
+                $temoignage->setRelation(null);
             }
         }
 
