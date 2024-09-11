@@ -34,7 +34,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Membres', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Inscrits Newsletter', 'fa fa-envelope', EmailInscription::class);
         yield MenuItem::linkToCrud('Réservations', 'fa-regular fa-calendar', Reservation::class);
-        yield MenuItem::linkToCrud('Gestion des témoignages', 'fa fa-write', Temoignage::class);
+        yield MenuItem::linkToCrud('Gestion des témoignages', 'fa fa-comment-o', Temoignage::class);
         yield MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', $this->generateUrl('app_home'));
     }
 }

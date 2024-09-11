@@ -10,6 +10,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use App\Form\EmailInscriptionType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\EmailInscription;
+use App\Repository\TemoignageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Mime\Email;
 
@@ -17,7 +18,7 @@ use Symfony\Component\Mime\Email;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(EvenementRepository $EvenementRepository, Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    public function index(EvenementRepository $EvenementRepository, TemoignageRepository $temoignageRepository, Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
     {
         $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
@@ -45,6 +46,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'evenements' => $EvenementRepository->findBy([], ['createAt' => 'DESC'], 1),
+            'temoignages' => $temoignageRepository,
             'formEmail' => $formEmail->createView(),
         ]);
     }
