@@ -6,6 +6,7 @@ use App\Entity\EmailInscription;
 use App\Entity\User;
 use App\Entity\Evenement;
 use App\Entity\Reservation;
+use App\Entity\Temoignage;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -33,6 +34,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Membres', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Inscrits Newsletter', 'fa fa-envelope', EmailInscription::class);
         yield MenuItem::linkToCrud('Réservations', 'fa-regular fa-calendar', Reservation::class);
+        yield MenuItem::linkToCrud('Gestion des témoignages', 'fa fa-write', Temoignage::class);
         yield MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', $this->generateUrl('app_home'));
     }
 }
