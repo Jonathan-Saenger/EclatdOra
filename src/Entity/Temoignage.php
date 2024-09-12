@@ -43,6 +43,12 @@ class Temoignage
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Email = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $estValide = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -153,6 +159,30 @@ class Temoignage
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->Email;
+    }
+
+    public function setEmail(string $Email): static
+    {
+        $this->Email = $Email;
+
+        return $this;
+    }
+
+    public function isEstValide(): ?bool
+    {
+        return $this->estValide;
+    }
+
+    public function setEstValide(?bool $estValide): static
+    {
+        $this->estValide = $estValide;
 
         return $this;
     }
