@@ -147,6 +147,37 @@
                 {% endfor %}
             </div>
         </div>
+        <div class="container mt-3 text-center">
+          <button id="comment "type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
+        </div>
+        <div id="temoignage">
+            {{ form_start(form)}}
+                {{form_errors(form)}}
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Votre Nom'}}) }}
+                            {{ form_label(form.nom, 'Nom & Prénom') }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Votre Email'}}) }}
+                            {{ form_label(form.email, 'Votre Email') }}
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Votre message', 'style': 'height: 150px;'}}) }}
+                            {{ form_label(form.message, 'Votre commentaire/temoignage') }}
+                        </div>
+                    </div>
+                  <div class="col-12">
+                      <button class="bouton-or" type="submit">Envoyer</button>
+                  </div>
+                </div>
+            {{form_end(form)}}
+        </div>
     </div>
 
 {% endblock %}

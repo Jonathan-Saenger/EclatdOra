@@ -10,6 +10,8 @@ use Symfony\Component\Mailer\MailerInterface;
 use App\Form\EmailInscriptionType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\EmailInscription;
+use App\Entity\Temoignage;
+use App\Form\TemoignageType;
 use App\Repository\TemoignageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Mime\Email;
@@ -41,6 +43,15 @@ class HomeController extends AbstractController
 
             $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
             return $this->redirectToRoute('app_home');
+        }
+
+        $temoignage = new Temoignage();
+        $temoignageForm = $this->createForm(TemoignageType::class, $temoignage);
+        $temoignageForm->handleRequest($request);
+
+        if ($temoignageForm->isSubmitted() && $temoignageForm->isValid()) {
+            $entityManager->persist($temoignage);
+            $entityManager->flush();
         }
 
         return $this->render('home/index.html.twig', [
@@ -85,7 +96,7 @@ class HomeController extends AbstractController
     #[Route('/mentions_legales', name:'app_mentions_legales')]
     public function juridiqueMentions(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
         {
-            $EmailInscription = new EmailInscription();
+        $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
         $formEmail->handleRequest($request);
         if ($formEmail->isSubmitted() && $formEmail->isValid()) {
