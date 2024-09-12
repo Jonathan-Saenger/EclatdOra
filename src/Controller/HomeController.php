@@ -50,6 +50,22 @@ class HomeController extends AbstractController
         $temoignageForm->handleRequest($request);
 
         if ($temoignageForm->isSubmitted() && $temoignageForm->isValid()) {
+            
+            $data = $temoignageForm->getData();
+            $nom = $data->getNom();
+            $email = $data->getEmail();
+            $commentaire = $data->getCommentaire();
+
+            $email = (new Email())
+                ->from($email)
+                ->to('cedric.eclatdora@gmail.com')
+                ->subject('Nouveau commentaire reçu')
+                ->text($commentaire)
+                ->html("<p>Bonjour Cédric ! Tu as reçu un commentaire de " . $nom . " ! Rends toi dans ton espace de gestion  
+                pour le valider afin qu'il soit publié sur la page d'accueil ! </p>");
+                
+            $mailer->send($email);
+            
             $entityManager->persist($temoignage);
             $entityManager->flush();
         }
@@ -57,7 +73,8 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'evenements' => $EvenementRepository->findBy([], ['createAt' => 'DESC'], 1),
-            'temoignages' => $temoignageRepository,
+            'temoignageForm' => $temoignageForm->createView(),
+            'temoignage' => $temoignageRepository,
             'formEmail' => $formEmail->createView(),
         ]);
     }

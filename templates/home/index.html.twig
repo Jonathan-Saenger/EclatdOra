@@ -129,7 +129,7 @@
 
         <div class="row text-center">
             <div class="col-md-4 mb-0">
-                {% for temoignage in temoignages %}
+                {% for temoignage in temoignage %}
                     <div class="card">
                         <div class="card-body py-4 mt-2">
                             <div class="d-flex justify-content-center mb-4">
@@ -147,36 +147,42 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="container mt-3 text-center">
+        <div class="container text-center">
           <button id="comment "type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
         </div>
         <div id="temoignage">
-            {{ form_start(form)}}
-                {{form_errors(form)}}
+            {{ form_start(temoignageForm)}}
+                {{form_errors(temoignageForm)}}
                 <div class="row g-3">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-floating">
-                            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Votre Nom'}}) }}
-                            {{ form_label(form.nom, 'Nom & Prénom') }}
+                            {{ form_widget(temoignageForm.Nom, {'attr': {'class': 'form-control', 'placeholder': 'Votre Nom'}}) }}
+                            {{ form_label(temoignageForm.Nom, 'Nom & Prénom') }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Votre Email'}}) }}
-                            {{ form_label(form.email, 'Votre Email') }}
+                            {{ form_widget(temoignageForm.Email, {'attr': {'class': 'form-control', 'placeholder': 'Votre Email'}}) }}
+                            {{ form_label(temoignageForm.Email, 'Votre Email') }}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            {{ form_widget(temoignageForm.Metier, {'attr': {'class': 'form-control', 'placeholder': 'Votre Metier'}}) }}
+                            {{ form_label(temoignageForm.Metier, 'Profession') }}
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating">
-                            {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Votre message', 'style': 'height: 150px;'}}) }}
-                            {{ form_label(form.message, 'Votre commentaire/temoignage') }}
+                            {{ form_widget(temoignageForm.Commentaire, {'attr': {'class': 'form-control', 'placeholder': 'Votre message', 'style': 'height: 150px;'}}) }}
+                            {{ form_label(temoignageForm.Commentaire, 'Votre commentaire/temoignage') }}
                         </div>
                     </div>
                   <div class="col-12">
                       <button class="bouton-or" type="submit">Envoyer</button>
                   </div>
                 </div>
-            {{form_end(form)}}
+            {{form_end(temoignageForm)}}
         </div>
     </div>
 

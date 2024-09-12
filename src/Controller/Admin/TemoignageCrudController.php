@@ -4,9 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Temoignage;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Intl\Languages;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
@@ -27,6 +29,7 @@ class TemoignageCrudController extends AbstractCrudController
     yield textField::new('Nom','Nom et prénom');
     yield textField::new('Metier');
     yield TextEditorField::new('Commentaire');
+    yield BooleanField::new('estValide', 'Publier le commentaire');
     yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
     }
 }

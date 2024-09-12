@@ -47,6 +47,7 @@ class TemoignageType extends AbstractType
                     ]),
                 ]
             ])
+            ->add('Email')
             ->add('Commentaire', TextareaType::class, [
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir votre message.']),
