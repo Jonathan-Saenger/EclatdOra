@@ -37,7 +37,7 @@ class TemoignageType extends AbstractType
                     new Length ([
                         'min' => 2, 
                         'minMessage' => 'Veuillez saisir un minimum de {{ limit }} caractères',
-                        'max' => 15, 
+                        'max' => 50, 
                         'maxMessage' => 'Vous avez dépassé le nombre de caractères limités',
                     ]),
                     new Regex([

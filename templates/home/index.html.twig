@@ -128,12 +128,12 @@
         </div>
 
         <div class="row text-center">
-            <div class="col-md-4 mb-0">
-                {% for temoignage in temoignage %}
+            {% for temoignage in temoignages %}
+                <div class="col-md-4 mb-0">
                     <div class="card">
-                        <div class="card-body py-4 mt-2">
+                        <div class="card-body">
                             <div class="d-flex justify-content-center mb-4">
-                                <img src="{{ vich_uploader_asset(evenement,'imageFile') }}" 
+                                <img src="{{ vich_uploader_asset(temoignage,'imageFile') }}" 
                                   class="rounded-circle shadow-1-strong" width="100" height="100" alt="Photo témoignage"/>
                             </div>
                             <h5 class="font-weight-bold">{{temoignage.getNom() }}</h5>
@@ -144,11 +144,13 @@
                             </p>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
         <div class="container text-center">
-          <button id="comment" type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
+          {% if is_granted('ROLE_USER') %}
+              <button id="comment" type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
+          {% endif %}
         </div>
         <div id="temoignage" style="display: none">
             {{ form_start(temoignageForm)}}

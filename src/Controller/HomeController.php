@@ -45,36 +45,24 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        $temoignage = new Temoignage();
-        $temoignageForm = $this->createForm(TemoignageType::class, $temoignage);
+        $temoignages = new Temoignage();
+        $temoignageForm = $this->createForm(TemoignageType::class, $temoignages);
         $temoignageForm->handleRequest($request);
 
         if ($temoignageForm->isSubmitted() && $temoignageForm->isValid()) {
-            
-            $data = $temoignageForm->getData();
-            $nom = $data->getNom();
-            $email = $data->getEmail();
-            $commentaire = $data->getCommentaire();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Nouveau commentaire reçu')
-                ->text($commentaire)
-                ->html("<p>Bonjour Cédric ! Tu as reçu un commentaire de " . $nom . " ! Rends toi dans ton espace de gestion  
-                pour le valider afin qu'il soit publié sur la page d'accueil ! </p>");
-                
-            $mailer->send($email);
-            
-            $entityManager->persist($temoignage);
+            $entityManager->persist($temoignages);
             $entityManager->flush();
+
+            $this->addFlash('success', 'Merci pour votre témoignage ! Il sera publié après validation.');
+
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'evenements' => $EvenementRepository->findBy([], ['createAt' => 'DESC'], 1),
             'temoignageForm' => $temoignageForm->createView(),
-            'temoignage' => $temoignageRepository,
+            'temoignages' => $temoignageRepository->findBy(['estValide' => '1']),
             'formEmail' => $formEmail->createView(),
         ]);
     }
@@ -144,7 +132,7 @@ class HomeController extends AbstractController
     #[Route('/conditions_generales', name:'app_conditions_generales')]
     public function juridiqueConditions(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
         {
-            $EmailInscription = new EmailInscription();
+        $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
         $formEmail->handleRequest($request);
         if ($formEmail->isSubmitted() && $formEmail->isValid()) {
