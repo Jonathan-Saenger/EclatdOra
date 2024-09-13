@@ -46,8 +46,8 @@ class Temoignage
     #[ORM\Column(length: 255)]
     private ?string $Email = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $estValide = null;
+    #[ORM\Column]
+    private ?bool $estValide = false;
 
     public function getId(): ?int
     {

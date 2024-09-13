@@ -22,11 +22,11 @@ class TemoignageType extends AbstractType
                     new Length ([
                         'min' => 2, 
                         'minMessage' => 'Veuillez saisir un minimum de {{ limit }} caractères',
-                        'max' => 15, 
+                        'max' => 20, 
                         'maxMessage' => 'Vous avez dépassé le nombre de caractères limités',
                     ]),
                     new Regex([
-                        'pattern' => '/^[a-zA-Z-]+$/',
+                        'pattern' => '/^[a-zA-ZéèêëÉÈÊË -]+$/',
                         'match' => true, 
                         'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer '
                     ]),
@@ -41,7 +41,7 @@ class TemoignageType extends AbstractType
                         'maxMessage' => 'Vous avez dépassé le nombre de caractères limités',
                     ]),
                     new Regex([
-                        'pattern' => '/^[a-zA-Z-]+$/',
+                        'pattern' => '/^[a-zA-ZéèêëÉÈÊË -]+$/',
                         'match' => true, 
                         'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer '
                     ]),

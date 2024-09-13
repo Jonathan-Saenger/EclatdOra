@@ -148,9 +148,9 @@
             </div>
         </div>
         <div class="container text-center">
-          <button id="comment "type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
+          <button id="comment" type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
         </div>
-        <div id="temoignage">
+        <div id="temoignage" style="display: none">
             {{ form_start(temoignageForm)}}
                 {{form_errors(temoignageForm)}}
                 <div class="row g-3">
@@ -186,4 +186,17 @@
         </div>
     </div>
 
+<script>
+
+document.getElementById('comment').addEventListener('click', function(event) {
+    const temoignageDiv = document.getElementById('temoignage');
+    if (temoignageDiv.style.display === 'none' || temoignageDiv.style.display === '') {
+        temoignageDiv.style.display = 'block';
+    }
+});
+
+</script>
+
 {% endblock %}
+
+
