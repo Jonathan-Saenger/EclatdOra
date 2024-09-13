@@ -50,6 +50,21 @@ class HomeController extends AbstractController
         $temoignageForm->handleRequest($request);
 
         if ($temoignageForm->isSubmitted() && $temoignageForm->isValid()) {
+
+            $data = $temoignageForm->getData();
+            $nom = $data->getNom();
+            $commentaire = $data->getCommentaire();
+            $email = $data->getEmail();
+
+            $email = (new Email())
+                ->from($email)
+                ->to('cedric.eclatdora@gmail.com')
+                ->subject('Nouveau commentaire d\'un client')
+                ->html("<p>Bonjour Cédric ! Tu as reçu un nouveau commentaire de ". $nom .". Rends toi dans ton espace pour le valider et le publier. Voici le commentaire : <br>
+               <cite> ". $commentaire ." </cite>. ");
+
+            $mailer->send($email);
+
             $entityManager->persist($temoignages);
             $entityManager->flush();
 
