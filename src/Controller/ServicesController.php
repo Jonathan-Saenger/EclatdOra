@@ -14,196 +14,93 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ServicesController extends AbstractController
 {
-    #[Route('/services', name: 'app_services')]
-    public function index(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    private $mailer;
+    private $entityManager;
+
+    public function __construct(MailerInterface $mailer, EntityManagerInterface $entityManager)
     {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
+        $this->mailer = $mailer;
+        $this->entityManager = $entityManager;
+    }
+
+    #[Route('/services', name: 'app_services')]
+    public function index(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/services.html.twig');
+    }
+
+    #[Route('/_meditation', name: 'app_meditation')]
+    public function serviceMediation(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/_meditation.html.twig');
+    }
+
+    #[Route('/_lucia', name: 'app_lucia')]
+    public function serviceLucia(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/_lucia.html.twig');
+    }
+
+    #[Route('/_hypnose', name: 'app_hypnose')]
+    public function serviceHypnose(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/_hypnose.html.twig');
+    }
+
+    #[Route('/_soins', name: 'app_soins')]
+    public function serviceSoins(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/_soins.html.twig');
+    }
+
+    #[Route('/_medium', name: 'app_medium')]
+    public function serviceMedium(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/_medium.html.twig');
+    }
+
+    #[Route('/_constellation', name: 'app_constellation')]
+    public function serviceConstellation(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/_constellation.html.twig');
+    }
+
+    private function handleServiceRequest(Request $request, string $template): Response
+    {
+        $emailInscription = new EmailInscription();
+        $formEmail = $this->createForm(EmailInscriptionType::class, $emailInscription);
         $formEmail->handleRequest($request);
+
         if ($formEmail->isSubmitted() && $formEmail->isValid()) {
+            $email = $emailInscription->getEmail();
 
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
+            $this->sendEmail($email);
+            $this->saveEmailInscription($emailInscription);
 
             $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
             return $this->redirectToRoute('app_home');
         }
 
-        return $this->render('services/services.html.twig', [
+        return $this->render($template, [
             'controller_name' => 'ServicesController',
             'formEmail' => $formEmail->createView(),
         ]);
     }
 
-    #[Route('/_meditation', name: 'app_meditation')]
-    public function serviceMediation(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    private function sendEmail(string $subscriberEmail): void
     {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
+        $email = (new Email())
+            ->from($subscriberEmail)
+            ->to('cedric.eclatdora@gmail.com')
+            ->subject('Demande d\'inscription à la newsletter')
+            ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newsletter. Voici le mail du nouvel inscrit " . $subscriberEmail . "</p>");
 
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
-            return $this->redirectToRoute('app_home');
-        }
-
-        return $this->render('services/_meditation.html.twig', [
-            'controller_name' => 'Controller',
-            'formEmail' => $formEmail->createView(),
-        ]);
+        $this->mailer->send($email);
     }
 
-    #[Route('/_lucia', name: 'app_lucia')]
-    public function serviceLucia(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    private function saveEmailInscription(EmailInscription $emailInscription): void
     {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
-
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
-            return $this->redirectToRoute('app_home');
-        }
-
-        return $this->render('services/_lucia.html.twig', [
-            'controller_name' => 'Controller',
-            'formEmail' => $formEmail->createView(),
-        ]);
+        $this->entityManager->persist($emailInscription);
+        $this->entityManager->flush();
     }
-
-    #[Route('/_hypnose', name: 'app_hypnose')]
-    public function serviceHypnose(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-    {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
-
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
-            return $this->redirectToRoute('app_home');
-        }
-
-        return $this->render('services/_hypnose.html.twig', [
-            'controller_name' => 'Controller',
-            'formEmail' => $formEmail->createView(),
-        ]);
-    }
-
-    #[Route('/_soins', name: 'app_soins')]
-    public function serviceSoins(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-    {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
-
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
-            return $this->redirectToRoute('app_home');
-        }
-
-        return $this->render('services/_soins.html.twig', [
-            'controller_name' => 'SoinsController',
-            'formEmail' => $formEmail->createView(),
-        ]);
-    }
-
-    #[Route('/_medium', name: 'app_medium')]
-    public function serviceMedium(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-    {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
-
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
-            return $this->redirectToRoute('app_home');
-        }
-        
-        return $this->render('services/_medium.html.twig', [
-            'controller_name' => 'MediumController',
-            'formEmail' => $formEmail->createView(),
-        ]);
-    }
-    
 }
