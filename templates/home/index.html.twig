@@ -8,22 +8,23 @@
                 <h4> {{ flashMessage }} </h4>
             {% endfor %}
     </div>
-    <div class="fond mt-3"> 
+    <div class="fond mt-3">
         <div class="container marketing py-3 ">
             <div class="row featurette">
                 <div class="col-md-7">
                     <h1 class="text-center">BIENVENUE !</h1>
-                    <p class="lead pt-3"> Je suis Cédric MEYER, un passionné par l'Etre Humain, la Vie et les mystères de la conscience. Le bien-être et l’épanouissement personnel 
-                    sont au cœur de mon activité. A travers Eclat d'ORA, je vous propose de vous accompagner sur le chemin de la découverte de soi par le biais de pratiques 
-                    ancestrales et innovantes sur lesquelles j'ai été formé. Mon rôle est de vous offrir des expériences uniques et transformatrices, en vous invitant à explorer des 
+                    <p class="lead pt-3"> Je suis Cédric MEYER, un passionné par l'Etre Humain, la Vie et les mystères de la conscience. Le bien-être et l’épanouissement personnel
+                    sont au cœur de mon activité. A travers Eclat d'ORA, je vous propose de vous accompagner sur le chemin de la découverte de soi par le biais de pratiques
+                    ancestrales et innovantes sur lesquelles j'ai été formé. Mon rôle est de vous offrir des expériences uniques et transformatrices, en vous invitant à explorer des
                     pratiques telles que la formation Reiki, l'hypnose transpersonnelle, la méditation ou encore la Lucia.<br>
-                    Chaque activité que je vous propose est conçue pour vous aider à vous connecter avec votre propre énergie, à découvrir des moyens de guérir et de se réconforter. 
-                    Je vous invite à explorer mes services et à découvrir comment ces pratiques, par l'énergie et la sagesse qui s'y cachent, peuvent vous aider à atteindre votre plein 
+                    Chaque activité que je vous propose est conçue pour vous aider à vous connecter avec votre propre énergie, à découvrir des moyens de guérir et de se réconforter.
+                    Je vous invite à explorer mes services et à découvrir comment ces pratiques, par l'énergie et la sagesse qui s'y cachent, peuvent vous aider à atteindre votre plein
                     potentiel et à vivre une vie plus épanouie en harmonie avec vous-même.<br><br>
-                    Je suis convaincu que chaque visiteur est un voyageur curieux et ouvert, prêt à découvrir de nouvelles façons de vivre et de se sentir bien. N'hésitez pas à me 
+                    Je suis convaincu que chaque visiteur est un voyageur curieux et ouvert, prêt à découvrir de nouvelles façons de vivre et de se sentir bien. N'hésitez pas à me
                     contacter si vous souhaitez échanger directement avec moi. <br><br>
                     Je vous souhaite une très belle visite ! </p>
                       <div class="text-center">
+                        <href
                         <a class="bouton-or"> En savoir plus </a>
                       </div>
                 </div>
@@ -68,10 +69,10 @@
                   Réserver >
                 </a>
             </div>
-        </div>             
+        </div>
     </div>
 
-    <div class="fond"> 
+    <div class="fond">
         <div class="container mt-3 text-center">
               <h2>Découvrez mes prestations</h2>
               <p class="lead text-body-secondary">N'hésitez pas à me contacter pour en savoir plus !</p>
@@ -121,50 +122,51 @@
             <div class="col-md-10 col-xl-8 text-center">
                 <h2>Merci pour votre confiance !</h2>
                 <h4 class="mb-4 pb-2 mb-md-5 pb-md-0">
-                    Je suis  profondément touchés par vos retours et témoignages. Un grand merci pour votre confiance 
+                    Je suis  profondément touchés par vos retours et témoignages. Un grand merci pour votre confiance
                     et le temps que vous avez consacré à partager votre expérience.
                 </h4>
             </div>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for temoignage in temoignages %}
+
+            {% for temoignage in temoignages %}
             <div class="col">
-            <div class="card h-100 border-0 shadow-sm hover-shadow transition-all" style="border-radius: 15px;">
-                <div class="card-body d-flex flex-column p-4">
-                <div class="text-center mb-4 position-relative">
-                    <div class="rounded-circle position-absolute" style="width: 130px; height: 130px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(209, 144, 57, 0.1);"></div> {# Changé la couleur ici #}
-                    <img 
-                    src="{{ vich_uploader_asset(temoignage,'imageFile') }}" 
-                    class="rounded-circle shadow-lg position-relative"
-                    width="120" 
-                    height="120" 
-                    style="object-fit: cover; border: 4px solid #fff;"
-                    alt="Photo témoignage"
-                    />
-                </div>
-                
-                <h5 class="font-weight-bold text-center mb-1" style="color: #D19039">{{temoignage.getNom() }}</h5> {# Changé la couleur ici #}
-                <h6 class="text-muted fw-semibold mb-3 text-center small text-uppercase tracking-wider">{{temoignage.getMetier() }}</h6>
-                
-                <div class="flex-grow-1">
-                    <div class="position-relative">
-                    <i class="fas fa-quote-left opacity-25 fa-2x position-absolute" style="top: -10px; left: -8px; color: #D19039;"></i> {# Changé la couleur ici aussi #}
-                    <p class="mb-2 ps-4 pt-2 text-secondary">
-                        {{temoignage.getCommentaire() | raw}}
-                    </p>
+                <div class="card h-100 border-0 shadow-sm hover-shadow transition-all" style="border-radius: 15px;">
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="text-center mb-4 position-relative">
+                            <div class="rounded-circle position-absolute" style="width: 130px; height: 130px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(209, 144, 57, 0.1);"></div> {# Changé la couleur ici #}
+                                <img
+                                    src="{{ vich_uploader_asset(temoignage,'imageFile') }}"
+                                    class="rounded-circle shadow-lg position-relative"
+                                    width="120"
+                                    height="120"
+                                    style="object-fit: cover; border: 4px solid #fff;"
+                                    alt="Photo témoignage"
+                                />
+                            </div>
+                            <h5 class="font-weight-bold text-center mb-1" style="color: #D19039">{{temoignage.getNom() }}</h5>
+                            <h6 class="text-muted fw-semibold mb-3 text-center small text-uppercase tracking-wider">{{temoignage.getMetier() }}</h6>
+                            <div class="flex-grow-1">
+                                <div class="position-relative">
+                                    <i class="fas fa-quote-left opacity-25 fa-2x position-absolute" style="top: -10px; left: -8px; color: #D19039;"></i>
+                                    <p class="mb-2 ps-4 pt-2 text-secondary">
+                                        {{temoignage.getCommentaire() | raw}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
+            {% endfor %}
             </div>
+
+            <div class="container text-center">
+            {% if is_granted('ROLE_USER') %}
+                <button id="comment" type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
+            {% endif %}
             </div>
-        {% endfor %}
-        </div>
-        <div class="container text-center">
-          {% if is_granted('ROLE_USER') %}
-              <button id="comment" type="button" class="bouton-or mb-3">Me laisser un commentaire</button>
-          {% endif %}
-        </div>
+
         <div id="temoignage" style="display: none">
             {{ form_start(temoignageForm)}}
                 {{form_errors(temoignageForm)}}
@@ -231,5 +233,3 @@ document.getElementById('comment').addEventListener('click', function(event) {
 </style>
 
 {% endblock %}
-
-
