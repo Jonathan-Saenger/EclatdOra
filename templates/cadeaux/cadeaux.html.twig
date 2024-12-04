@@ -26,7 +26,7 @@
                 <div class="col">
                     <div class="card m-3">
                         <img src="{{asset('images/services_hypnose.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
-                        <div class="card-body text-center">
+                        <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Hypnose</h3>
                             <p> Durée : 3 heures </p>
@@ -37,7 +37,7 @@
                 <div class="col">
                     <div class="card m-3">
                         <img src="{{asset('images/services_meditation.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
-                        <div class="card-body text-center">
+                        <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Méditation</h3>
                             <p> Durée : 1 heure </p>
@@ -51,8 +51,16 @@
                         <div class="card-body text-center">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Séance Luminothérapie</h3>
-                            <p> Durée : choisir votre durée </p> <!--implémentation checkbox-->
-                            <a href="#" class="bouton-or">Prix : 90 €</a>
+                            <div class="pb-3">
+                                <select class="form-select form-select-sm" aria-label="Small select example">
+                                <option selected>Choisir votre durée</option>
+                                <option value="1">Individuelle 1 heure</option>
+                                <option value="2">Individuelle 2 heures</option>
+                                <option value="3">Duo 1 heure</option>
+                                <option value="3">Duo 2 heures</option>
+                                </select>
+                            </div>
+                            <a id="lucia-price"href="#" class="bouton-or">Prix : 90 €</a> <!-- CODE JS !!! -->
                         </div>
                     </div>
                 </div>
