@@ -52,12 +52,12 @@
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Luminothérapie</h3>
                             <div class="pb-3">
-                                <select class="form-select form-select-sm" aria-label="Small select example">
+                                <select id="duration-select" class="form-select form-select-sm" aria-label="Small select example">
                                 <option selected>Choisir votre durée</option>
                                 <option value="1">Individuelle 1 heure</option>
                                 <option value="2">Individuelle 2 heures</option>
                                 <option value="3">Duo 1 heure</option>
-                                <option value="3">Duo 2 heures</option>
+                                <option value="4">Duo 2 heures</option>
                                 </select>
                             </div>
                             <a id="lucia-price" href="#" class="bouton-or">Prix : 90 €</a> <!-- CODE JS !!! -->
@@ -149,5 +149,15 @@
         <a href="{{path('app_constellation')}}" class="bouton-or m-3">Séance Constellation Familliale</a>
     </div>
 
+<script>
+    const prices = { 1: "90 €", 2: "150 €", 3: "160 €", 4: "250 €" };
+    const selectElement = document.getElementById("duration-select");
+    const priceButton = document.getElementById("lucia-price");
+
+    selectElement.addEventListener("change", () => {
+        const selectedValue = selectElement.value;
+        priceButton.textContent = `Prix : ${prices[selectedValue] || "90 €"}`;
+    });
+</script>
 
 {% endblock %}
