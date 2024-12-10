@@ -1,0 +1,97 @@
+{% block body %}
+
+<div class="container">
+        <div class="icon">🚧</div>
+        <h1>Page en construction</h1>
+        <p>Nous travaillons actuellement sur cette page. En attendant, pour toute question ou suggestion, n'hésitez pas à m'écrire directement </p>
+        <a class="bouton-or" href="{{ path('app_home') }}">Retour à l'accueil</a>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #D19039, #f3c693);
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 600px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .container h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .container p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .container .icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .container a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        color: #D19039;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container a:hover {
+        background-color: #D19039;
+        color: #ffffff;
+    }
+
+    .bouton-or {
+        background: #D19039;
+        border: none;
+        color: white;
+        padding: 5px 25px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 25px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 25px; /* Pour rendre le bouton ovale */
+        transition: background 0.1s; /* Transition pour l'effet de survol */
+        width: auto; /* Pour rendre le bouton responsive */
+        text-align: center;
+    }
+
+    .bouton-or:hover {
+        background: #b7742f; /* Couleur légèrement plus foncée au survol */
+    }
+</style>
+{% endblock %}
