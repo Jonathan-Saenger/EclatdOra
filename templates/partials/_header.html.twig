@@ -6,6 +6,9 @@
             <p><a class="connecter" href="#{#{{path ('app_blog')}}#}">Votre espace</a></p>
             <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
         {% else %}
+            <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold">
+                <i class="fas fa-shopping-cart"></i> Panier
+            </a>
             <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold px-3" href="{{ path('app_register') }}">S'inscrire</a>
             <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold" href="{{ path('app_login')}}">Se connecter</a>
         {% endif %}
@@ -43,16 +46,6 @@
                 <a class="nav-link" href="{{ path('app_presentation') }}"><p class="fs-4">A propos</p></a>
             </li>
         </ul>
-
-        <!-- {% if is_granted('ROLE_ADMIN') %}
-            <p><a class="connecter" href="{{path ('admin')}}">Panneau d'administration</a></p>
-            {% elseif is_granted('ROLE_USER') %}
-                <p><a class="connecter" href="#{#{{path ('app_blog')}}#}">Votre espace</a></p>
-                <p>><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
-            {% else %}
-                <a href="#{#{{ path('app_register') }}#}"><button type="button" class=" btn">S'inscrire</button></a>
-                <a href="{{ path('app_login')}}"><button type="button" class="btn btn-outline-dark">Se connecter</button></a>
-            {% endif %} -->
       </div>
     </div>
 </nav>
