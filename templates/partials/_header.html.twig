@@ -6,7 +6,7 @@
             <p><a class="connecter" href="#{#{{path ('app_blog')}}#}">Votre espace</a></p>
             <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
         {% else %}
-            <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold">
+            <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold" href="{{path('app_panier')}}">
                 <i class="fas fa-shopping-cart"></i> Panier
             </a>
             <a class="text-dark-emphasis link-offset-2 link-underline link-underline-opacity-0 fw-bold px-3" href="{{ path('app_register') }}">S'inscrire</a>
