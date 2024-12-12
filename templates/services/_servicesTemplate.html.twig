@@ -1,0 +1,135 @@
+<div class="fond">
+    <div class="container mt-3 text-center">
+        <h2>Découvrez mes prestations</h2>
+        <p class="lead text-body-secondary">N'hésitez pas à me contacter pour en savoir plus !</p>
+    </div>
+    <div class="album mb-3">
+        <div class="container">
+            <!-- Début du carousel -->
+            <div id="cardsCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row row-cols-1 row-cols-md-3 g-3">
+                            <div class="col">
+                                <div class="card shadow-sm hover-shadow transition-all">
+                                    <img src="{{asset('images/presentation_lucia.webp')}}" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Luminothérapie</h3>
+                                        <p class="card-text">Éveillez vos sens et illuminez votre esprit avec une expérience lumineuse unique qui ouvre les portes de la perception et enrichit votre vie quotidienne.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col d-none d-md-block">
+                                <div class="card shadow-sm hover-shadow transition-all">
+                                    <img src="{{asset('images/presentation_hypnose.webp')}}" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Hypnose transpersonnelle</h3>
+                                        <p class="card-text">Je vous transporte dans un voyage intérieur où les frontières de la conscience s'élargissent pour révéler un potentiel illimité.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col d-none d-md-block">
+                                <div class="card shadow-sm hover-shadow transition-all">
+                                    <img src="{{asset('images/presentation_meditation.webp')}}" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Méditation guidée</h3>
+                                        <p class="card-text">Dans le silence, effectuez un voyage vers la paix intérieure et la clarté mentale, où le tumulte du quotidien se dissipe dans un océan de calme.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row row-cols-1 row-cols-md-3 g-3">
+                            <div class="col">
+                                <div class="card shadow-sm hover-shadow transition-all">
+                                    <img src="{{asset('images/presentation_lucia.webp')}}" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Luminothérapie</h3>
+                                        <p class="card-text">Éveillez vos sens et illuminez votre esprit avec une expérience lumineuse unique qui ouvre les portes de la perception et enrichit votre vie quotidienne.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col d-none d-md-block">
+                                <div class="card shadow-sm hover-shadow transition-all">
+                                    <img src="{{asset('images/presentation_hypnose.webp')}}" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Hypnose transpersonnelle</h3>
+                                        <p class="card-text">Je vous transporte dans un voyage intérieur où les frontières de la conscience s'élargissent pour révéler un potentiel illimité.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col d-none d-md-block">
+                                <div class="card shadow-sm hover-shadow transition-all">
+                                    <img src="{{asset('images/presentation_meditation.webp')}}" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Méditation guidée</h3>
+                                        <p class="card-text">Dans le silence, effectuez un voyage vers la paix intérieure et la clarté mentale, où le tumulte du quotidien se dissipe dans un océan de calme.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flèches de navigation -->
+                <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#cardsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#cardsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!-- Fin du carousel -->
+        </div>
+    </div>
+    <div class="container mt-3 text-center">
+        <a type="button" class="bouton-or mb-3" href="{{path('app_construction')}}">Réserver une séance</a>
+    </div>
+</div>
+
+
+<style>
+/* Centrage vertical des flèches */
+.custom-carousel-control {
+    width: 4rem;
+    height: 4rem;
+    color: black;
+    top: 50%; /* Centré verticalement */
+    transform: translateY(-50%); /* Ajuste le positionnement vertical */
+}
+
+/* Style des icônes */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* Positionnement des flèches vers l'extérieur */
+.carousel-control-prev {
+    left: -2rem;
+}
+
+.carousel-control-next {
+    right: -2rem;
+}
+
+/* Responsive : une seule carte sur mobile */
+@media (max-width: 768px) {
+    .carousel .row-cols-md-3 .col.d-none.d-md-block {
+        display: none !important; /* Cache les cartes supplémentaires */
+    }
+    .carousel .row-cols-md-3 .col {
+        flex: 0 0 100%; /* Une carte par ligne */
+        max-width: 100%;
+    }
+}
+
+</style>

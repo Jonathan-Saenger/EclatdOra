@@ -1,0 +1,21 @@
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary" style="background-image: url('{{asset('images/fond_evenement.webp')}}'); background-size: cover; background-position: center;">
+        <div class=" text-center container">
+              <h2>Prochain évènement</h2>
+              <h4>A ne pas manquer !</h4>
+        </div>
+        {% for evenement in evenements %}
+        <div class="px-4 my-3 text-center border-bottom">
+            <h3>{{evenement.getTitle() }}</h3>
+            <img src="{{ vich_uploader_asset(evenement,'imageFile') }}" class="img-fluid" width="550px" height="100%" alt="Image du dernier évènement">
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">{{ evenement.getDescription() |striptags|slice(0, 250) }}</p>
+                <p class="fw"> Début de l'évènement : {{evenement.getStart|format_date('long', locale='fr') }} </p>
+                <p class="fw"> Fin de l'évènement : {{evenement.getEnd|format_date('long', locale='fr') }} </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="bouton-or">S'inscrire</button>
+                    <button type="button" class="bouton-or">Autres évènements</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
