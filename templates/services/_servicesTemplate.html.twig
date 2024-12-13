@@ -109,54 +109,82 @@
 .carousel-control-next {
     right: -2rem;
 }
-
 @media (max-width: 768px) {
+    .carousel-track {
+        justify-content: flex-start; /* Alignement à gauche */
+    }
+
     .card {
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin: 0 auto;
+        flex: 0 0 calc(100% - 1rem); /* Largeur complète moins la marge */
+        max-width: calc(100% - 1rem);
+        margin-right: 1rem;
     }
-    .carousel-control-prev {
-        left: -1rem;
-    }
-    .carousel-control-next {
-        right: -1rem;
+
+    .carousel-container {
+        overflow-x: hidden; /* Cache le dépassement horizontal */
     }
 }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const track = document.getElementById('carouselTrack');
-        const prevButton = document.getElementById('prevButton');
-        const nextButton = document.getElementById('nextButton');
-        const cards = track.querySelectorAll('.card');
-        const cardWidth = cards[0].offsetWidth + 16; // Inclut la marge droite
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.getElementById('carouselTrack');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const cards = track.querySelectorAll('.card');
 
-        let currentIndex = 0;
-        const maxIndex = cards.length - Math.floor(track.offsetWidth / cardWidth);
+    let cardWidth;
+    let visibleCards;
+    let maxIndex;
+    let currentIndex = 0;
 
-        function updateCarousel() {
-            const offset = -currentIndex * cardWidth;
-            track.style.transform = `translateX(${offset}px)`;
-        }
+    function calculateCarouselParams() {
+        // Largeur d'une carte incluant sa marge
+        cardWidth = cards[0].offsetWidth + 16;
 
-        nextButton.addEventListener('click', function () {
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
+        // Calculer combien de cartes sont visibles dans le conteneur
+        visibleCards = Math.floor(track.offsetWidth / cardWidth);
 
-        prevButton.addEventListener('click', function () {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
+        // Calculer le nombre maximum de décalages possibles
+        // Soustraire 1 de visibleCards pour éviter le dépassement
+        maxIndex = Math.max(0, cards.length - visibleCards);
+    }
 
-        window.addEventListener('resize', function () {
+    function updateCarousel() {
+        const offset = -currentIndex * cardWidth;
+        track.style.transform = `translateX(${offset}px)`;
+
+        // Gérer l'état des boutons
+        prevButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex >= maxIndex;
+    }
+
+    function recalculateLimits() {
+        calculateCarouselParams();
+        currentIndex = Math.min(currentIndex, maxIndex);
+        updateCarousel();
+    }
+
+    nextButton.addEventListener('click', function () {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
             updateCarousel();
-        });
+        }
     });
+
+    prevButton.addEventListener('click', function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    // Recalculer lors du redimensionnement
+    window.addEventListener('resize', recalculateLimits);
+
+    // Calcul initial
+    calculateCarouselParams();
+    updateCarousel();
+});
+
 </script>
