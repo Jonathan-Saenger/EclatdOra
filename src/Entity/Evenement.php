@@ -32,7 +32,7 @@ class Evenement
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $end = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?\DateTimeImmutable $createAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'evenement')]
@@ -51,6 +51,15 @@ class Evenement
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Adresse = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Codepostal = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $Place = null;
 
     public function getId(): ?int
     {
@@ -198,6 +207,42 @@ class Evenement
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->Adresse;
+    }
+
+    public function setAdresse(?string $Adresse): static
+    {
+        $this->Adresse = $Adresse;
+
+        return $this;
+    }
+
+    public function getCodepostal(): ?string
+    {
+        return $this->Codepostal;
+    }
+
+    public function setCodepostal(?string $Codepostal): static
+    {
+        $this->Codepostal = $Codepostal;
+
+        return $this;
+    }
+
+    public function getPlace(): ?int
+    {
+        return $this->Place;
+    }
+
+    public function setPlace(?int $Place): static
+    {
+        $this->Place = $Place;
 
         return $this;
     }
