@@ -76,6 +76,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Temoignage::class, mappedBy: 'Relation')]
     private Collection $temoignages;
 
+    /**
+     * @var Collection<int, Panier>
+     */
+    #[ORM\OneToMany(targetEntity: Panier::class, mappedBy: 'User')]
+    private Collection $paniers;
+
     public function __construct()
     {
         $this->evenement = new ArrayCollection();
@@ -83,6 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->emailInscriptions = new ArrayCollection();
         $this->reservations = new ArrayCollection();
         $this->temoignages = new ArrayCollection();
+        $this->paniers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -388,6 +395,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($temoignage->getRelation() === $this) {
                 $temoignage->setRelation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Panier>
+     */
+    public function getPaniers(): Collection
+    {
+        return $this->paniers;
+    }
+
+    public function addPanier(Panier $panier): static
+    {
+        if (!$this->paniers->contains($panier)) {
+            $this->paniers->add($panier);
+            $panier->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePanier(Panier $panier): static
+    {
+        if ($this->paniers->removeElement($panier)) {
+            // set the owning side to null (unless already changed)
+            if ($panier->getUser() === $this) {
+                $panier->setUser(null);
             }
         }
 
