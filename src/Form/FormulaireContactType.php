@@ -20,14 +20,14 @@ class FormulaireContactType extends AbstractType
             ->add('nom', TextType::class, [
                 'constraints' => [
                     new Length ([
-                        'min' => 2, 
+                        'min' => 2,
                         'minMessage' => 'Veuillez saisir un minimum de {{ limit }} caractères',
-                        'max' => 15, 
+                        'max' => 20,
                         'maxMessage' => 'Vous avez dépassé le nombre de caractères limités',
                     ]),
                     new Regex([
-                        'pattern' => '/^[a-zA-Z-]+$/',
-                        'match' => true, 
+                        'pattern' => '/^[a-zA-Z- ]+$/',
+                        'match' => true,
                         'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer '
                     ]),
                 ]
@@ -45,10 +45,6 @@ class FormulaireContactType extends AbstractType
                     ]),
                 ],
             ])
-           /* ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])*/
         ;
     }
 

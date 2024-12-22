@@ -13,36 +13,24 @@ use Symfony\Component\Mailer\MailerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\EmailInscription;
 use App\Form\EmailInscriptionType;
+use App\Service\MailingService;
 
 class FormulaireContactController extends AbstractController
 {
     #[Route('/formulaire/contact', name: 'app_formulaire_contact')]
-    public function index(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-    {   
+    public function index(Request $request, MailerInterface $mailer, MailingService $mailingService): Response
+    {
         $contact = new Contact();
         $form = $this->createForm(FormulaireContactType::class, $contact);
         $form->handleRequest($request);
 
         $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
 
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
-            $data = $formEmail->getData();
-            $emailInscription = $data->getEmail();
+        $result = $mailingService->newsletterInscription($formEmail, $request);
 
-            $emailInscription = (new Email())
-                ->from($emailInscription)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $emailInscription ." ");
-
-            $mailer->send($emailInscription);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
+        if ($result['success']) {
+            $this->addFlash('success', $result['message']);
             return $this->redirectToRoute('app_home');
         }
 
@@ -60,9 +48,9 @@ class FormulaireContactController extends AbstractController
                 ->to('cedric.eclatdora@gmail.com')
                 ->subject('Formulaire de contact')
                 ->text($message)
-                ->html("<p>Bonjour Cédric ! Tu as reçu une demande de contact de " . $prenom . "  " . $nom . " ! Son numéro de téléphone est 
+                ->html("<p>Bonjour Cédric ! Tu as reçu une demande de contact de " . $prenom . "  " . $nom . " ! Son numéro de téléphone est
                 le 0" . $telephone . " . Voici son message : " . $message . " </p>");
-                
+
             $mailer->send($email);
 
             return $this->redirectToRoute('app_submit'); //route à créer
@@ -81,31 +69,18 @@ class FormulaireContactController extends AbstractController
     }
 
     #[Route('/_inscription', name: 'app_inscription')]
-    public function inscriptionEmail(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager) : Response
+    public function inscriptionEmail(Request $request, MailingService $mailingService) : Response
     {
         $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
 
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
+        $result = $mailingService->newsletterInscription($formEmail, $request);
 
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
+            if ($result['success']) {
+                $this->addFlash('success', $result['message']);
             return $this->redirectToRoute('app_inscription');
         }
-        
+
         return $this->render('formulaire_contact/_inscription.html.twig');
     }
 }

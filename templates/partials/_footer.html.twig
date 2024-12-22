@@ -6,9 +6,9 @@
                     <h5>Section</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="{{ path('app_charte_plateau_therapeuthique') }}" class="nav-link p-0 text-body-secondary">Charte plateau thérapeuthique</a></li>
-                        <li class="nav-item mb-2"><a href="{{ path('app_mentions_legales') }}" class="nav-link p-0 text-body-secondary">Mentions légales</a></li>
-                        <li class="nav-item mb-2"><a href="{{ path('app_conditions_generales') }}" class="nav-link p-0 text-body-secondary">Conditions générales de vente</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_juridique', { page: 'charte_plateau_therapeuthique' }) }}" class="nav-link p-0 text-body-secondary">Charte plateau thérapeuthique</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_juridique', { page: 'mentions_legales' }) }}" class="nav-link p-0 text-body-secondary">Mentions légales</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_juridique', { page: 'conditions_generales' }) }}" class="nav-link p-0 text-body-secondary">Conditions générales de vente</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-3">
@@ -28,10 +28,8 @@
                         <h5>Inscrivez-vous à ma newsletter</h5>
                         <p>Je vous tiens informé de toutes les actualités</p>
                         <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                                {{ form_widget(formEmail.email, {'attr': {'class': 'form-control', 'placeholder': 'Votre Email'}}) }}
-                                <button class="bouton-or" type="submit">S'inscrire</button>
-                            {#<label for="newsletter1" class="visually-hidden">Email address</label>
-                            <input id="newsletter1" type="text" class="form-control" placeholder="Votre Email">#}
+                            {{ form_widget(formEmail.email, {'attr': {'class': 'form-control', 'placeholder': 'Votre Email'}}) }}
+                            <button class="bouton-or" type="submit">S'inscrire</button>
                         </div>
                     {{form_end(formEmail)}}
                 </div>

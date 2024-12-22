@@ -23,6 +23,8 @@ use App\Entity\EmailInscription;
 use App\Form\EmailInscriptionType;
 use App\Repository\EvenementRepository;
 use App\Repository\UserRepository;
+use App\Service\MailingService;
+use Symfony\Component\Mailer\Command\MailerTestCommand;
 
 class RegistrationController extends AbstractController
 {
@@ -34,32 +36,18 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, Authenticator $authenticator, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, Authenticator $authenticator, EntityManagerInterface $entityManager, MailingService $mailingService): Response
     {
-        // Formualaire Newsletter
         $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
 
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
+        $result = $mailingService->newsletterInscription($formEmail, $request);
 
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
+        if ($result['success']) {
+            $this->addFlash('success', $result['message']);
             return $this->redirectToRoute('app_home');
         }
-        
+
         // Formulaire d'inscription
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -123,7 +111,6 @@ class RegistrationController extends AbstractController
     #[Route('/email_validation', name: 'app_email')]
     public function emailValidation(Request $request): Response
     {
-
         $prenom = $request->query->get('prenom');
 
         return $this->render('registration/email_validation.html.twig', [

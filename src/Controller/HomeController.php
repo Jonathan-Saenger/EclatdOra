@@ -13,6 +13,7 @@ use App\Entity\EmailInscription;
 use App\Entity\Temoignage;
 use App\Form\TemoignageType;
 use App\Repository\TemoignageRepository;
+use App\Service\MailingService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Mime\Email;
 
@@ -20,28 +21,15 @@ use Symfony\Component\Mime\Email;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(EvenementRepository $EvenementRepository, TemoignageRepository $temoignageRepository, Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    public function index(EvenementRepository $EvenementRepository, TemoignageRepository $temoignageRepository, Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager, MailingService $mailingService): Response
     {
         $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
 
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
+        $result = $mailingService->newsletterInscription($formEmail, $request);
 
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
+        if ($result['success']) {
+            $this->addFlash('success', $result['message']);
             return $this->redirectToRoute('app_home');
         }
 
@@ -82,96 +70,21 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/charte_plateau_therapeuthique', name: 'app_charte_plateau_therapeuthique')]
-    public function juridiqueCharte(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    #[Route('/{page}', name:'app_juridique', requirements: ['page' => 'charte_plateau_therapeuthique|mentions_legales|conditions_generales'])]
+    public function juridiqueConditions(Request $request, MailingService $mailingService, String $page): Response
     {
         $EmailInscription = new EmailInscription();
         $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
 
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
+        $result = $mailingService->newsletterInscription($formEmail, $request);
 
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
+        if ($result['success']) {
+            $this->addFlash('success', $result['message']);
             return $this->redirectToRoute('app_home');
         }
 
-        return $this->render('home/charte_plateau_therapeuthique.html.twig', [
+        return $this->render(sprintf('home/%s.html.twig', $page), [
             'formEmail' => $formEmail->createView(),
         ]);
     }
-
-    #[Route('/mentions_legales', name:'app_mentions_legales')]
-    public function juridiqueMentions(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-        {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
-
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
-            return $this->redirectToRoute('app_home');
-        }
-
-            return $this->render('home/mentions_legales.html.twig', [
-                'formEmail' => $formEmail->createView(),
-            ]);
-        }
-
-    #[Route('/conditions_generales', name:'app_conditions_generales')]
-    public function juridiqueConditions(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-        {
-        $EmailInscription = new EmailInscription();
-        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
-        $formEmail->handleRequest($request);
-        if ($formEmail->isSubmitted() && $formEmail->isValid()) {
-
-            $data = $formEmail->getData();
-            $email = $data->getEmail();
-
-            $email = (new Email())
-                ->from($email)
-                ->to('cedric.eclatdora@gmail.com')
-                ->subject('Demande d\'inscription à la newsletter')
-                ->html("<p>Bonjour Cédric ! Tu as reçu une inscription à la newletter. Voici le mail du nouvel inscrit ". $email ." ");
-
-            $mailer->send($email);
-
-            $entityManager->persist($EmailInscription);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Merci ! Votre demande d\'inscription à la newsletter a bien été prise en compte !');
-            return $this->redirectToRoute('app_home');
-        }
-
-            return $this->render('home/conditions_generales.html.twig', [
-                'formEmail' => $formEmail->createView(),
-            ]);
-        }
 }
