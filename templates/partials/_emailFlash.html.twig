@@ -1,0 +1,28 @@
+{% set flashMessages = app.flashes('success') %}
+{% if flashMessages is not empty %}
+    <div class="modal fade" id="flashMessageModal" tabindex="-1" aria-labelledby="flashMessageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-color: #D19039;">
+                <div class="modal-header" style="background-color: #FFF4E5; color: #D19039;">
+                    <h5 class="modal-title" id="flashMessageModalLabel">Inscription réussie !</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body lead pt-3">
+                    {% for flashMessage in flashMessages %}
+                        <p>{{ flashMessage }}</p>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="bouton-or" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const flashMessageModal = new bootstrap.Modal(document.getElementById('flashMessageModal'));
+            flashMessageModal.show();
+        });
+    </script>
+{% endif %}
