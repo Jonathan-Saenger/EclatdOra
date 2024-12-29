@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\EmailInscription;
 use App\Entity\User;
 use App\Entity\Evenement;
+use App\Entity\Offre;
 use App\Entity\Reservation;
 use App\Entity\Temoignage;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -26,11 +27,11 @@ class DashboardController extends AbstractDashboardController
         return Dashboard::new()
             ->setTitle('EclatdOra');
     }
-
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
         yield MenuItem::linkToCrud('Evenement', 'fas fa-star', Evenement::class);
+        yield MenuItem::linkToCrud('Offre', 'fa-solid fa-cart-shopping', Offre::class);
         yield MenuItem::linkToCrud('Membres', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Inscrits Newsletter', 'fa fa-envelope', EmailInscription::class);
         yield MenuItem::linkToCrud('Réservations', 'fa-regular fa-calendar', Reservation::class);

@@ -11,37 +11,50 @@
         <img src=" {{ asset('images/description_meditation.webp')}}" class="img-fluid pb-3" alt="Méditation collective">
 
         <h2>Qu’est-ce que la méditation ?</h2>
-        <p class="lead">Une méditation est une pratique qui vise à entraîner l'esprit et à cultiver la pleine conscience. C'est une technique utilisée depuis des milliers 
+        <p class="lead">Une méditation est une pratique qui vise à entraîner l'esprit et à cultiver la pleine conscience. C'est une technique utilisée depuis des milliers
         d'années dans différentes traditions spirituelles et philosophiques à travers le monde notamment le Bouddhisme.</p>
 
-        <p class="lead">Lorsqu'on médite, on se concentre sur un objet ou un point focal, souvent la respiration, pour calmer l'esprit et se détacher des pensées et des 
-        distractions. Cela permet de se connecter à l'instant présent, d'observer ses pensées sans s'y attacher ou les juger, et de cultiver une certaine 
+        <p class="lead">Lorsqu'on médite, on se concentre sur un objet ou un point focal, souvent la respiration, pour calmer l'esprit et se détacher des pensées et des
+        distractions. Cela permet de se connecter à l'instant présent, d'observer ses pensées sans s'y attacher ou les juger, et de cultiver une certaine
         sérénité intérieure. Le but est d’accepter les pensées qui surgissent afin de lâcher prise. </p>
 
-        <p class="lead">La méditation peut être pratiquée de différentes manières. Certaines techniques se focalisent sur la respiration, d'autres sur les sensations corporelles, 
-        les pensées ou les émotions. Certaines méditations sont guidées, tandis que d'autres se font en silence. Certaines peuvent également incorporer des mantras 
+        <p class="lead">La méditation peut être pratiquée de différentes manières. Certaines techniques se focalisent sur la respiration, d'autres sur les sensations corporelles,
+        les pensées ou les émotions. Certaines méditations sont guidées, tandis que d'autres se font en silence. Certaines peuvent également incorporer des mantras
         (phrases ou mots répétés) ou des visualisations.</p>
 
-        <p class="lead">Les bienfaits de la méditation sont nombreux. Elle a été associée à la réduction du stress, de l'anxiété et de la dépression, à l'amélioration de la concentration 
-        et de la créativité, ainsi qu'à une meilleure régulation des émotions. La méditation peut également aider à développer une plus grande clarté mentale, une meilleure 
-        compréhension de soi-même et une plus grande compassion envers les autres. Pour certaines personnes la méditation a une portée spirituelle nous permettant de nous 
+        <p class="lead">Les bienfaits de la méditation sont nombreux. Elle a été associée à la réduction du stress, de l'anxiété et de la dépression, à l'amélioration de la concentration
+        et de la créativité, ainsi qu'à une meilleure régulation des émotions. La méditation peut également aider à développer une plus grande clarté mentale, une meilleure
+        compréhension de soi-même et une plus grande compassion envers les autres. Pour certaines personnes la méditation a une portée spirituelle nous permettant de nous
         reconnecter à notre âme et même à l’univers.</p>
 
-        <p class="lead">Si vous voulez en savoir plus sur la méditation, vous pouvez lire l’article ci-joint : 
+        <p class="lead">Si vous voulez en savoir plus sur la méditation, vous pouvez lire l’article ci-joint :
         <a href="https://www.univers-quantic-shop.com/blog/meditation/la-meditation-apprendre-a-mediter-au-quotidien" target="_blank">https://www.univers-quantic-shop.com/blog/meditation/la-meditation-apprendre-a-mediter-au-quotidien</a></p>
 
-        <p class="lead">J’utilise personnellement diverses techniques de méditations pour accompagner les groupes comme la Vipassana, la méditation guidée, la méditation transcendantale, la 
-        méditation Zen et la méditation de pleine conscience.  Chaque méditation que je guide ne ressemblera jamais à la précédente et permet d’accéder à la pleine conscience 
+        <p class="lead">J’utilise personnellement diverses techniques de méditations pour accompagner les groupes comme la Vipassana, la méditation guidée, la méditation transcendantale, la
+        méditation Zen et la méditation de pleine conscience.  Chaque méditation que je guide ne ressemblera jamais à la précédente et permet d’accéder à la pleine conscience
         ainsi qu’à de nouvelles perceptions du « Moi » intérieur.</p>
 
-        <p class="lead"> Pour accompagner mes séances, j’utilise différents outils vibratoires comme les bols tibétains, les bols de cristal, le tambour chamanique, les Koshi, ma guitare, les 
+        <p class="lead"> Pour accompagner mes séances, j’utilise différents outils vibratoires comme les bols tibétains, les bols de cristal, le tambour chamanique, les Koshi, ma guitare, les
         symboles à hautes fréquences vibratoires, les encens, les huiles essentiels ainsi que ma voix.</p>
 
-        <div class="text-center mb-3">
-            <a href="{{ path('reservation_prestation', { prestation: 'Méditation guidée'}) }}"
-                <button type="button" class="bouton-or">Réserver une séance</button>
-            </a>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3 text-center">
+                    <h3>Séance de méditation</h3>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="card-title pricing-card-title">15 €</h4>
+                    <div class="list-unstyled mt-3 mb-4">
+                        <p>Durée: 1 heure</p>
+                    </div>
+                    <a href="{{ path('reservation_prestation', { prestation: 'Luminothérapie duo 2h'}) }}">
+                        <button type="button" class="bouton-or">Réserver</button>
+                    </a>
+                </div>
+            </div>
         </div>
+    </div>
 
         <p class="text-end "><a class="text-warning link-offset-2 link-underline link-underline-opacity-0 fw-bold" href=" {{path('app_services')}}">Revenir aux services ↣</a></p>
     </div>
