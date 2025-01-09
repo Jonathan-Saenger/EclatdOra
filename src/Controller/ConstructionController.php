@@ -15,4 +15,12 @@ class ConstructionController extends AbstractController
             'controller_name' => 'ConstructionController',
         ]);
     }
+
+    #[Route('/construction_prestation', name: 'app_construction_prestation')]
+    public function indexBis(): Response
+    {
+        return $this->render('construction_prestation.html.twig', [
+            'controller_name' => 'ConstructionController',
+        ]);
+    }
 }
