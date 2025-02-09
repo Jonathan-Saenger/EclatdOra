@@ -1,11 +1,11 @@
 h1 {
         font-size: 5rem;
         background: linear-gradient(to bottom, #000000 0%, #c27107 30%, #c27107 70%, #000000 100%);
-        -webkit-background-clip: text; 
+        -webkit-background-clip: text;
         color: transparent;
         -webkit-text-stroke: 0.5px white;
         text-stroke: 0.5px white;
-        font-family: 'Molengo';
+        font-family: 'Molengo' !important;
     }
 
 h2 {
@@ -14,19 +14,19 @@ h2 {
 
 @media screen and (max-width: 991px) {
     h1 {
-        font-size : 4rem; 
+        font-size : 4rem;
      }
  }
 
  @media screen and (max-width: 600px) {
     h1 {
-        font-size : 3.3rem; 
+        font-size : 3.3rem;
      }
  }
 
  @media screen and (max-width: 446px) {
     h1 {
-        font-size : 2.5rem; 
+        font-size : 2.5rem;
      }
  }
 
@@ -107,7 +107,7 @@ h4 {
     box-shadow: none; /* Supprime l'effet d'éclat lors du clic */
 }
 
-/* Personnalisation de la navbar */ 
+/* Personnalisation de la navbar */
 
 .fs-4 {
     color: #0A020A;
