@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Évènements{% endblock %}
+{% block title %}Événements à ne pas manquer{% endblock %}
 
 {% block body %}
 
@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="text-center mb-5">
-                    <h1 class="display-4"> ✨ RETROUVONS-NOUS À MES ÉVÉNEMENTS ✨ </h1>
+                    <h1 class="display-4"> ✨ Découvrez Mes Prochains Evénements : Ateliers, Stages et Plus ✨ </h1>
                 </div>
             </div>
         </div>
@@ -24,8 +24,8 @@
                         <div class="card-body">
                             <p class="card-text text-muted">{{ evenement.getDescription() | raw }}</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item" style="background-color: #fefaf4;"><strong>🕒 L'évènement débutera :</strong> {{ evenement.getStart | format_datetime('medium', 'short', locale='fr') }}</li>
-                                <li class="list-group-item" style="background-color: #fefaf4;"><strong>🕔 et prendra fin :</strong> {{ evenement.getEnd | format_datetime('medium', 'short', locale='fr') }}</li>
+                                <li class="list-group-item" style="background-color: #fefaf4;"><strong>🕒 Début de l'événement :</strong> {{ evenement.getStart | format_datetime('medium', 'short', locale='fr') }}</li>
+                                <li class="list-group-item" style="background-color: #fefaf4;"><strong>🕔 Fin de l'événement :</strong> {{ evenement.getEnd | format_datetime('medium', 'short', locale='fr') }}</li>
                                 <li class="list-group-item" style="background-color: #fefaf4;"><strong>💰 Prix :</strong> {{ evenement.getPrice() }} €</li>
                                 <li class="list-group-item" style="background-color: #fefaf4;"><strong>📍 Adresse :</strong> {{ evenement.getAdresse() }}</li>
                                 <li class="list-group-item" style="background-color: #fefaf4;"><strong>📬 Code Postal :</strong> {{ evenement.getCodePostal() }}</li>
@@ -33,7 +33,7 @@
                             </ul>
                         </div>
                         <div class="card-footer text-center" style="background-color: #f9f2e9;">
-                            <a href="{{ path('app_construction_prestation')}}" class="bouton-or">✨ S'inscrire à l'évènement ✨</a>
+                            <a href="{{ path('app_construction_prestation')}}" class="bouton-or">✨ Je réserver ma place ✨</a>
                         </div>
                         <div class="text-center mt-2 mb-3">
                             <small class="text-muted">Créé le {{ "now" | date('d/m/Y') }} par Cédric</small>
@@ -45,7 +45,7 @@
 
         {% if evenements is empty %}
             <div class="col-12 text-center mt-5">
-                <p class="text-muted display-6" style="color: #D19039;">Aucun évènement n'est disponible pour le moment. Revenez plus tard !</p>
+                <p class="text-muted display-6" style="color: #D19039;">Découvrez mes prochains événements. Revenez bientôt pour les mises à jour !</p>
             </div>
         {% endif %}
     </div>

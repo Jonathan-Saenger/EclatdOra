@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cadeaux{% endblock %}
+{% block title %}Cadeaux - Offrez des Séances de Bien-être{% endblock %}
 
 {% block body %}
 
     <div class="mb-3">
         <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/bandeau_cadeau.webp')}}'); background-size: cover; background-position: center; height: 300px; width: 100%">
             <div class="container pt-3">
-                <h1> OFFREZ DES CADEAUX </h1>
+                <h1> Offrez des Cadeaux Originaux</h1>
             </div>
         </div>
     </div>
 
     <section class="py-3 text-center container">
-            <h2>Idée de cadeaux</h2>
+            <h2>Idées de cadeaux</h2>
             <h3>Envie d'offrir un cadeau bien-être à un proche ?</h3>
             <h3>Faites lui découvrir la méditation, l'hypnose transpersonnelle ou la lumière Lucia</h3>
             <p class="lead">Parfait pour illuminer tous les <strong>moments spéciaux</strong> de la vie, des <strong>anniversaires</strong> à la <strong>Saint-Valentin</strong>, en passant par la <strong>Fête des Mères</strong>, la <strong>Fête des Pères</strong>, <strong>Noël</strong>, etc... !</p>
@@ -25,7 +25,7 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/hypnose_cadeau.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                        <img src="{{asset('images/hypnose_cadeau.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance d'hypnose">
                         <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Hypnose</h3>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/meditation_cadeau.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                        <img src="{{asset('images/meditation_cadeau.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance de méditation" >
                         <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Méditation</h3>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/lucia_cadeau.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                        <img src="{{asset('images/lucia_cadeau.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Luminothérapie" >
                         <div class="card-body text-center">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Luminothérapie</h3>
@@ -60,13 +60,13 @@
                                 <option value="4">Duo 2 heures</option>
                                 </select>
                             </div>
-                            <a id="lucia-price" href="#" class="bouton-or">Prix : 90 €</a> <!-- CODE JS !!! -->
+                            <a id="lucia-price" href="#" class="bouton-or">Prix : 90 €</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/reiki_cadeau1.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                        <img src="{{asset('images/reiki_cadeau1.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Réiki" >
                         <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Reiki</h3>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/cadeau_soins.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                        <img src="{{asset('images/cadeau_soins.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Soin Vibratoire" >
                         <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Soin Vibratoire</h3>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="bd-placeholder-img card-img-top" width="" height="" alt="..." >
+                        <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Constellation Familiale" >
                         <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance Constellation</h4>
                             <h3>Constellation Familliale</h3>
@@ -104,7 +104,7 @@
     <div class="album py-3">
         <h2 class="text-center"> Je vous propose un bon cadeau à montant libre </h2>
         <div class="text-center my-3">
-            <img src="{{asset('images/meditation_cadeau.webp')}}" class="img-fluid" width="568px" height="569px" alt="..." >
+            <img src="{{asset('images/meditation_cadeau.webp')}}" class="img-fluid" width="568px" height="569px" alt="Montant libre du bon cadeau à offrir" >
             <div class="card-body text-center py-3">
                 <h4 class="card-text">Choisissez le montant de votre bon cadeau</h4>
                     <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
@@ -113,7 +113,7 @@
                             <span class="input-group-text">€</span></br>
                         </div>
                     </div>
-                <button class="bouton-or" type="submit">Valider votre montant</button> <!-- CODE JS !!! -->
+                <button class="bouton-or" type="submit">Valider votre montant</button>
             </div>
         </div>
     </div>

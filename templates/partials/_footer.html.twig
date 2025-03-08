@@ -3,24 +3,33 @@
         <footer class="py-5">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
+                    <h5>A propos</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="{{ path('app_juridique', { page: 'charte_plateau_therapeuthique' }) }}" class="nav-link p-0 text-body-secondary" rel="nofollow" title="Lire la charte plateau thérapeuthique">Charte plateau thérapeuthique</a></li>
                         <li class="nav-item mb-2"><a href="{{ path('app_juridique', { page: 'mentions_legales' }) }}" class="nav-link p-0 text-body-secondary" rel="nofollow" title="Lire les mentions légales">Mentions légales</a></li>
                         <li class="nav-item mb-2"><a href="{{ path('app_juridique', { page: 'conditions_generales' }) }}" class="nav-link p-0 text-body-secondary" rel="nofollow" title="Lire les conditions générales de vente">Conditions générales de vente</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQ (à venir)</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-3">
                     <h5>Mes services</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="{{ path('app_lucia') }}" class="nav-link p-0 text-body-secondary">Séance LUCIA</a></li>
-                        <li class="nav-item mb-2"><a href="{{ path('app_hypnose') }}" class="nav-link p-0 text-body-secondary">Hypnose transpersonnelle</a></li>
-                        <li class="nav-item mb-2"><a href="{{ path('app_meditation') }}" class="nav-link p-0 text-body-secondary">Méditation guidée</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_lucia') }}" class="nav-link p-0 text-body-secondary">Luminothérapie</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_hypnose') }}" class="nav-link p-0 text-body-secondary">Hypnose Transpersonnelle</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_meditation') }}" class="nav-link p-0 text-body-secondary">Méditation Guidée</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_soins') }}" class="nav-link p-0 text-body-secondary">Soins Holistiques</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_constellation') }}" class="nav-link p-0 text-body-secondary">Constellation Familiale</a></li>
+                        <li class="nav-item mb-2"><a href="{{ path('app_formation') }}" class="nav-link p-0 text-body-secondary">Formation Reiki</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-3">
-                    <h5><a href="{{ path('app_formation') }}" class="nav-link p-0">Ma formation REIKI</a></h5>
+                    <h5>Informations de contact</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2 nav-link p-0 text-body-secondary">6 rue du Général Rapp</li>
+                        <li class="nav-item mb-2 nav-link p-0 text-body-secondary">67450 Mundolsheim</li>
+                        <li class="nav-item mb-2 nav-link p-0 text-body-secondary">06 85 65 63 67</li>
+                        <li><a href="mailto:cedric.eclatdora@gmail.com" class="nav-link p-0 text-body-secondary">cedric.eclatdora@gmail.com</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-5 offset-md-1 mb-3">
                     {{form_errors(formEmail)}}

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Inscription à Eclat d'ORA{% endblock %}
 
 {% block body %}
 
     <div class="my-3">
     <div class="p-5 text-center bg-body-tertiary" style="background-image: url('{{asset('images/entete_anth.webp')}}'); background-size: cover; background-position: center;">
         <div class="container py-5">
-        <h1>Inscription</h1>
+        <h1>Inscription à Eclat d'ORA</h1>
         </div>
     </div>
     </div>
@@ -19,7 +19,7 @@
 
     <div class="container">
 
-        <p> Merci de renseigner tous les champs pour vous inscrire. </p>
+        <p> Veuillez remplir tous les champs du formulaire pour vous inscrire sur Eclat d'ORA.</p>
 
         {{ form_errors(registrationForm) }}
         {{ form_start(registrationForm) }}
