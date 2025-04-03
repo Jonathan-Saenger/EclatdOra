@@ -162,22 +162,14 @@
     let currentIndex = 0;
 
     function calculateCarouselParams() {
-        // Largeur d'une carte incluant sa marge
         cardWidth = cards[0].offsetWidth + 16;
-
-        // Calculer combien de cartes sont visibles dans le conteneur
         visibleCards = Math.floor(track.offsetWidth / cardWidth);
-
-        // Calculer le nombre maximum de décalages possibles
-        // Soustraire 1 de visibleCards pour éviter le dépassement
         maxIndex = Math.max(0, cards.length - visibleCards);
     }
 
     function updateCarousel() {
         const offset = -currentIndex * cardWidth;
         track.style.transform = `translateX(${offset}px)`;
-
-        // Gérer l'état des boutons
         prevButton.disabled = currentIndex === 0;
         nextButton.disabled = currentIndex >= maxIndex;
     }
@@ -202,10 +194,7 @@
         }
     });
 
-    // Recalculer lors du redimensionnement
     window.addEventListener('resize', recalculateLimits);
-
-    // Calcul initial
     calculateCarouselParams();
     updateCarousel();
 });
