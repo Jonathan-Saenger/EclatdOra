@@ -70,7 +70,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/{page}', name:'app_juridique', requirements: ['page' => 'charte_plateau_therapeuthique|mentions_legales|conditions_generales'])]
+    #[Route('/{page}', name:'app_juridique', requirements: ['page' => 'charte_plateau_therapeuthique|mentions_legales|conditions_generales|faq'])]
     public function juridiqueConditions(Request $request, MailingService $mailingService, String $page): Response
     {
         $EmailInscription = new EmailInscription();
