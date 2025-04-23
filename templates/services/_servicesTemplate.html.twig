@@ -3,200 +3,548 @@
         <h2>Découvrez mes prestations</h2>
         <p class="lead text-body-secondary">N'hésitez pas à me contacter pour en savoir plus !</p>
     </div>
-    <div class="album mb-3">
-        <div class="container position-relative">
-            <!-- Début du carousel personnalisé -->
-            <div class="carousel-container overflow-hidden">
-                <div id="carouselTrack" class="carousel-track d-flex">
-                    <!-- Cartes -->
-                    <div class="card shadow-sm hover-shadow transition-all me-3">
-                        <img src="{{asset('images/presentation_lucia.webp')}}" class="img-fluid" alt="Luminothérapie">
-                        <div class="card-body">
-                            <h3 class="card-title">Luminothérapie</h3>
-                            <p class="card-text">Éveillez vos sens et illuminez votre esprit avec une expérience lumineuse unique qui ouvre les portes de la perception et enrichit votre vie quotidienne.</p>
+    <div class="carousel mb-3">
+        <div class="carousel__container position-relative">
+            <div class="carousel__track" role="region" aria-label="Carrousel de prestations">
+                <!-- Cartes avec liens Twig -->
+                <a href="{{ path('app_lucia') }}" class="carousel__link">
+                    <div class="carousel__card">
+                        <img src="{{ asset('images/presentation_lucia.webp') }}" class="carousel__image" alt="Luminothérapie">
+                        <div class="carousel__content">
+                            <h3 class="carousel__title">Luminothérapie</h3>
+                            <p class="carousel__text">Éveillez vos sens et illuminez votre esprit avec une expérience lumineuse unique qui ouvre les portes de la perception et enrichit votre vie quotidienne.</p>
                         </div>
                     </div>
-                    <div class="card shadow-sm hover-shadow transition-all me-3">
-                        <img src="{{asset('images/presentation_hypnose.webp')}}" class="img-fluid" alt="Hypnose transpersonnelle">
-                        <div class="card-body">
-                            <h3 class="card-title">Hypnose transpersonnelle</h3>
-                            <p class="card-text">Je vous transporte dans un voyage intérieur où les frontières de la conscience s'élargissent pour révéler un potentiel illimité.</p>
+                </a>
+                <a href="{{ path('app_hypnose') }}" class="carousel__link">
+                    <div class="carousel__card">
+                        <img src="{{ asset('images/presentation_hypnose.webp') }}" class="carousel__image" alt="Hypnose transpersonnelle">
+                        <div class="carousel__content">
+                            <h3 class="carousel__title">Hypnose transpersonnelle</h3>
+                            <p class="carousel__text">Je vous transporte dans un voyage intérieur où les frontières de la conscience s'élargissent pour révéler un potentiel illimité.</p>
                         </div>
                     </div>
-                    <div class="card shadow-sm hover-shadow transition-all me-3">
-                        <img src="{{asset('images/presentation_meditation.webp')}}" class="img-fluid" alt="Méditation guidée">
-                        <div class="card-body">
-                            <h3 class="card-title">Méditation guidée</h3>
-                            <p class="card-text">Dans le silence, effectuez un voyage vers la paix intérieure et la clarté mentale, où le tumulte du quotidien se dissipe dans un océan de calme.</p>
+                </a>
+                <a href="{{ path('app_meditation') }}" class="carousel__link">
+                    <div class="carousel__card">
+                        <img src="{{ asset('images/presentation_meditation.webp') }}" class="carousel__image" alt="Méditation guidée">
+                        <div class="carousel__content">
+                            <h3 class="carousel__title">Méditation guidée</h3>
+                            <p class="carousel__text">Dans le silence, effectuez un voyage vers la paix intérieure et la clarté mentale, où le tumulte du quotidien se dissipe dans un océan de calme.</p>
                         </div>
                     </div>
-                    <div class="card shadow-sm hover-shadow transition-all me-3">
-                        <img src="{{asset('images/services_soins.webp')}}" class="img-fluid" alt="Luminothérapie">
-                        <div class="card-body">
-                            <h3 class="card-title">Soin vibratoire</h3>
-                            <p class="card-text">Les soins vibratoires offrent un état de relaxation et un lâcher-prise profond immédiat pour apaiser le corps et l'esprit.</p>
+                </a>
+                <a href="{{ path('app_soins') }}" class="carousel__link">
+                    <div class="carousel__card">
+                        <img src="{{ asset('images/services_soins.webp') }}" class="carousel__image" alt="Soin vibratoire">
+                        <div class="carousel__content">
+                            <h3 class="carousel__title">Soin vibratoire</h3>
+                            <p class="carousel__text">Les soins vibratoires offrent un état de relaxation et un lâcher-prise profond immédiat pour apaiser le corps et l'esprit.</p>
                         </div>
                     </div>
-                    <div class="card shadow-sm hover-shadow transition-all me-3">
-                        <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="img-fluid" alt="Luminothérapie">
-                        <div class="card-body">
-                            <h3 class="card-title">Constellation familiale</h3>
-                            <p class="card-text">Révélez et transformez vos dynamiques familiales pour un futur épanoui.</p>
+                </a>
+                <a href="{{ path('app_constellation') }}" class="carousel__link">
+                    <div class="carousel__card">
+                        <img src="{{ asset('images/services_constellation_boncadeaux.webp') }}" class="carousel__image" alt="Constellation familiale">
+                        <div class="carousel__content">
+                            <h3 class="carousel__title">Constellation familiale</h3>
+                            <p class="carousel__text">Révélez et transformez vos dynamiques familiales pour un futur épanoui.</p>
                         </div>
                     </div>
-                    <div class="card shadow-sm hover-shadow transition-all me-3">
-                        <img src="{{asset('images/reiki_cadeau.webp')}}" class="img-fluid" alt="Luminothérapie">
-                        <div class="card-body">
-                            <h3 class="card-title">Séance de Reiki</h3>
-                            <p class="card-text">Avec cette méthode je capte, canalise et je transmets cette force de vie universelle à travers des exercices simples sur le corps, l'esprit et la conscience.</p>
+                </a>
+                <a href="{{ path('app_formation') }}" class="carousel__link">
+                    <div class="carousel__card">
+                        <img src="{{ asset('images/reiki_cadeau.webp') }}" class="carousel__image" alt="Séance de Reiki">
+                        <div class="carousel__content">
+                            <h3 class="carousel__title">Séance de Reiki</h3>
+                            <p class="carousel__text">Avec cette méthode je capte, canalise et je transmets cette force de vie universelle à travers des exercices simples sur le corps, l'esprit et la conscience.</p>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <!-- Flèches de navigation -->
-            <button class="carousel-control-prev custom-carousel-control" id="prevButton" type="button">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+            <!-- Boutons de navigation -->
+            <button class="carousel__button carousel__button--prev" aria-label="Précédent" disabled>
+                <span class="carousel__button-icon carousel__button-icon--prev" aria-hidden="true"></span>
             </button>
-            <button class="carousel-control-next custom-carousel-control" id="nextButton" type="button">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+            <button class="carousel__button carousel__button--next" aria-label="Suivant">
+                <span class="carousel__button-icon carousel__button-icon--next" aria-hidden="true"></span>
             </button>
         </div>
     </div>
     <div class="container mt-3 text-center">
-        <a type="button" class="bouton-or mb-3" href="{{path('app_construction')}}">Réserver une séance</a>
+        <a type="button" class="bouton-or mb-3" href="{{ path('app_construction') }}">Réserver une séance</a>
     </div>
 </div>
 
 <style>
-.carousel-container {
-    position: relative;
+.carousel {
     width: 100%;
+    max-width: 1600px; /* Largeur maximale conservée */
+    margin: 0 auto;
+    padding: 0 0.5rem; /* Padding léger pour éviter les bords */
+    box-sizing: border-box;
 }
 
-.carousel-track {
+.carousel__container {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Utilise toute la largeur disponible */
+    box-sizing: border-box;
+}
+
+.carousel__track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    padding: 0 0.5rem; /* Padding pour centrer visuellement */
+    box-sizing: border-box;
 }
 
-.card {
-    flex: 0 0 calc(33.333% - 1rem);
+.carousel__link {
+    flex: 0 0 calc(33.333% - 1rem); /* Ajusté pour inclure l'espacement via margin-right */
     max-width: calc(33.333% - 1rem);
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Flèches noires et centrées verticalement */
-.custom-carousel-control {
-    width: 4rem;
-    height: 4rem;
-    color: white;
-    background-color: rgba(165, 115, 45, 0.7); /* Darker version of the testimonial carousel control color */
-    border-radius: 50%;
-    opacity: 1;
+.carousel__card {
+    padding: 0.5rem; /* Padding interne conservé */
+    margin-right: 1rem; /* Remplace le gap pour l'espacement entre cartes */
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Hauteur unifiée */
+}
+
+.carousel__link:last-child .carousel__card {
+    margin-right: 0; /* Supprime la marge droite de la dernière carte */
+}
+
+.carousel__link:hover .carousel__card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.carousel__image {
+    width: 100%;
+    height: 280px; /* Hauteur augmentée conservée */
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.carousel__content {
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.carousel__text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.carousel__button {
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    position: absolute;
-    z-index: 10;
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(165, 115, 45, 0.7);
+    border: none;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.custom-carousel-control:hover {
-    background-color: rgba(135, 95, 35, 0.85); /* Even darker on hover */
+.carousel__button:hover {
+    background-color: rgba(135, 95, 35, 0.85);
 }
 
-.carousel-control-prev {
-    left: -2rem;
+.carousel__button--prev {
+    left: 0.5rem; /* Rapproché pour rester visible */
 }
 
-.carousel-control-next {
-    right: -2rem;
+.carousel__button--next {
+    right: 0.5rem; /* Rapproché pour rester visible */
 }
 
-.hover-shadow {
-    transition: all 0.3s ease;
+.carousel__button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.hover-shadow:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
+.carousel__button-icon--prev {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3E%3C/svg%3E");
 }
 
-.tracking-wider {
-    letter-spacing: 0.05em;
+.carousel__button-icon--next {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z'/%3E%3C/svg%3E");
 }
 
-.transition-all {
-    transition: all 0.3s ease-in-out;
+.carousel__button:disabled {
+    background-color: rgba(165, 115, 45, 0.3);
+    cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
-    .carousel-track {
-        justify-content: flex-start; /* Alignement à gauche */
+/* Responsive Design */
+@media (max-width: 992px) {
+    .carousel__link {
+        flex: 0 0 calc(50% - 1rem); /* Ajusté pour 2 cartes avec margin-right */
+        max-width: calc(50% - 1rem);
     }
 
-    .card {
-        flex: 0 0 calc(100% - 1rem); /* Largeur complète moins la marge */
-        max-width: calc(100% - 1rem);
+    .carousel__card {
+        padding: 0.5rem;
         margin-right: 1rem;
     }
 
-    .carousel-container {
-        overflow-x: hidden; /* Cache le dépassement horizontal */
+    .carousel__link:last-child .carousel__card {
+        margin-right: 0;
+    }
+
+    .carousel__image {
+        height: 280px; /* Hauteur unifiée */
+    }
+
+    .carousel__button {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .carousel__button--prev {
+        left: 0.5rem;
+    }
+
+    .carousel__button--next {
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel__link {
+        flex: 0 0 calc(100% - 1rem); /* Ajusté pour 1 carte avec margin-right */
+        max-width: calc(100% - 1rem);
+    }
+
+    .carousel__card {
+        padding: 0.5rem;
+        margin-right: 1rem;
+    }
+
+    .carousel__link:last-child .carousel__card {
+        margin-right: 0;
+    }
+
+    .carousel__image {
+        height: 280px; /* Hauteur unifiée */
+ Doran, your instructions ended mid-sentence. I'll assume you meant to complete the media query for mobile devices and maintain the consistent styling. Here's the corrected and completed CSS, ensuring the last card ("Séance de Reiki") is fully visible and centered, with all previous requirements preserved:
+
+```css
+.carousel {
+    width: 100%;
+    max-width: 1600px; /* Largeur maximale conservée */
+    margin: 0 auto;
+    padding: 0 0.5rem; /* Padding léger pour éviter les bords */
+    box-sizing: border-box;
+}
+
+.carousel__container {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Utilise toute la largeur disponible */
+    box-sizing: border-box;
+}
+
+.carousel__track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    padding: 0 0.5rem; /* Padding pour centrer visuellement */
+    box-sizing: border-box;
+}
+
+.carousel__link {
+    flex: 0 0 calc(33.333% - 1rem); /* Ajusté pour inclure l'espacement via margin-right */
+    max-width: calc(33.333% - 1rem);
+    text-decoration: none;
+    color: inherit;
+}
+
+.carousel__card {
+    padding: 0.5rem; /* Padding interne conservé */
+    margin-right: 1rem; /* Remplace le gap pour l'espacement entre cartes */
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Hauteur unifiée */
+}
+
+.carousel__link:last-child .carousel__card {
+    margin-right: 0; /* Supprime la marge droite de la dernière carte */
+}
+
+.carousel__link:hover .carousel__card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.carousel__image {
+    width: 100%;
+    height: 280px; /* Hauteur augmentée conservée */
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.carousel__content {
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.carousel__text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(165, 115, 45, 0.7);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel__button:hover {
+    background-color: rgba(135, 95, 35, 0.85);
+}
+
+.carousel__button--prev {
+    left: 0.5rem; /* Rapproché pour rester visible */
+}
+
+.carousel__button--next {
+    right: 0.5rem; /* Rapproché pour rester visible */
+}
+
+.carousel__button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.carousel__button-icon--prev {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3E%3C/svg%3E");
+}
+
+.carousel__button-icon--next {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z'/%3E%3C/svg%3E");
+}
+
+.carousel__button:disabled {
+    background-color: rgba(165, 115, 45, 0.3);
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .carousel__link {
+        flex: 0 0 calc(50% - 1rem); /* Ajusté pour 2 cartes avec margin-right */
+        max-width: calc(50% - 1rem);
+    }
+
+    .carousel__card {
+        padding: 0.5rem;
+        margin-right: 1rem;
+    }
+
+    .carousel__link:last-child .carousel__card {
+        margin-right: 0;
+    }
+
+    .carousel__image {
+        height: 280px; /* Hauteur unifiée */
+    }
+
+    .carousel__button {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .carousel__button--prev {
+        left: 0.5rem;
+    }
+
+    .carousel__button--next {
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel__link {
+        flex: 0 0 calc(100% - 1rem); /* Ajusté pour 1 carte avec margin-right */
+        max-width: calc(100% - 1rem);
+    }
+
+    .carousel__card {
+        padding: 0.5rem;
+        margin-right: 1rem;
+    }
+
+    .carousel__link:last-child .carousel__card {
+        margin-right: 0;
+    }
+
+    .carousel__image {
+        height: 280px; /* Hauteur unifiée */
+    }
+
+    .carousel__content {
+        padding: 1rem;
+    }
+
+    .carousel__text {
+        -webkit-line-clamp: 3; /* 3 lignes sur mobile */
+    }
+
+    .carousel__button {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .carousel__button--prev {
+        left: 0.5rem;
+    }
+
+    .carousel__button--next {
+        right: 0.5rem;
     }
 }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const track = document.getElementById('carouselTrack');
-    const prevButton = document.getElementById('prevButton');
-    const nextButton = document.getElementById('nextButton');
-    const cards = track.querySelectorAll('.card');
-
-    let cardWidth;
-    let visibleCards;
-    let maxIndex;
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel__track');
+    const cards = document.querySelectorAll('.carousel__card');
+    const prevButton = document.querySelector('.carousel__button--prev');
+    const nextButton = document.querySelector('.carousel__button--next');
     let currentIndex = 0;
+    let cardWidth, visibleCards, maxIndex;
 
-    function calculateCarouselParams() {
-        cardWidth = cards[0].offsetWidth + 16;
-        visibleCards = Math.floor(track.offsetWidth / cardWidth);
-        maxIndex = Math.max(0, cards.length - visibleCards);
+    function calculateParams() {
+        cardWidth = cards[0].offsetWidth; // Largeur réelle de la carte
+        const containerWidth = track.parentElement.offsetWidth;
+        visibleCards = Math.floor(containerWidth / cardWidth); // Nombre de cartes visibles
+        maxIndex = Math.max(0, cards.length - visibleCards); // Index max pour défilement
+        currentIndex = Math.min(currentIndex, maxIndex); // Ajuster l'index actuel
     }
 
     function updateCarousel() {
-        const offset = -currentIndex * cardWidth;
-        track.style.transform = `translateX(${offset}px)`;
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
         prevButton.disabled = currentIndex === 0;
         nextButton.disabled = currentIndex >= maxIndex;
     }
 
-    function recalculateLimits() {
-        calculateCarouselParams();
-        currentIndex = Math.min(currentIndex, maxIndex);
-        updateCarousel();
+    function handleResize() {
+        clearTimeout(window.carouselResizeTimeout);
+        window.carouselResizeTimeout = setTimeout(() => {
+            calculateParams();
+            updateCarousel();
+        }, 100);
     }
 
-    nextButton.addEventListener('click', function () {
+    // Gestion des clics
+    nextButton.addEventListener('click', () => {
         if (currentIndex < maxIndex) {
             currentIndex++;
             updateCarousel();
         }
     });
 
-    prevButton.addEventListener('click', function () {
+    prevButton.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
             updateCarousel();
         }
     });
 
-    window.addEventListener('resize', recalculateLimits);
-    calculateCarouselParams();
+    // Gestion des gestes tactiles
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    track.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+    });
+
+    track.addEventListener('touchend', () => {
+        const deltaX = touchEndX - touchStartX;
+        if (deltaX > 50 && currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        } else if (deltaX < -50 && currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    // Initialisation
+    window.addEventListener('resize', handleResize);
+    calculateParams();
     updateCarousel();
 });
-
 </script>
