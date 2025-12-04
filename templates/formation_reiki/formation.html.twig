@@ -152,9 +152,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 1h30</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'reiki-seance',
+                        titre: 'Séance de Reiki',
+                        duree: '1h30',
+                        prix: 90
+                    }) }}
                 </div>
             </div>
         </div>
@@ -168,9 +171,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 1 week-end</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'reiki-degre-1',
+                        titre: 'Formation Reiki 1er degré',
+                        duree: '1 week-end',
+                        prix: 280
+                    }) }}
                 </div>
             </div>
         </div>
@@ -184,9 +190,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 1 week-end</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'reiki-degre-2',
+                        titre: 'Formation Reiki 2ème degré',
+                        duree: '1 week-end',
+                        prix: 450
+                    }) }}
                 </div>
             </div>
         </div>
@@ -200,9 +209,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 1 week-end</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'reiki-degre-3',
+                        titre: 'Formation Reiki 3ème degré',
+                        duree: '1 week-end',
+                        prix: 980
+                    }) }}
                 </div>
             </div>
         </div>
@@ -216,9 +228,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 1 week-end</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'reiki-degre-4',
+                        titre: 'Formation Reiki 4ème degré',
+                        duree: '1 week-end',
+                        prix: 1450
+                    }) }}
                 </div>
             </div>
         </div>

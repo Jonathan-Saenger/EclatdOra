@@ -100,9 +100,12 @@
                         <div class="list-unstyled mt-3 mb-4">
                             <p>Durée: 1 heure</p>
                         </div>
-                        <a href="{{ path('app_construction_prestation')}}">
-                            <button type="button" class="bouton-or">Réserver</button>
-                        </a>
+                        {{ include('partials/_add_to_cart_button.html.twig', {
+                            id: 'constellation-familiale',
+                            titre: 'Séance de constellation familiale',
+                            duree: '1 heure',
+                            prix: 125
+                        }) }}
                     </div>
                 </div>
             </div>

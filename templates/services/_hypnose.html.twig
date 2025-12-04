@@ -148,13 +148,21 @@
                 <div class="list-unstyled mt-3 mb-4">
                     <p>Durée : 3 heures</p>
                 </div>
-                <a href="{{ path('app_construction_prestation')}}">
-                    <button type="button" class="bouton-or">Acompte: 60 €</button>
-                </a>
+                {{ include('partials/_add_to_cart_button.html.twig', {
+                    id: 'hypnose-presentiel-acompte',
+                    titre: 'Hypnose présentielle (acompte)',
+                    duree: '3 heures',
+                    prix: 60,
+                    label: 'Acompte: 60 €'
+                }) }}
                 <br>
-                <a href="{{ path('app_construction_prestation')}}">
-                    <button type="button" class="bouton-or mt-2">Réserver</button>
-                </a>
+                {{ include('partials/_add_to_cart_button.html.twig', {
+                    id: 'hypnose-presentiel',
+                    titre: 'Séance Hypnose présentielle',
+                    duree: '3 heures',
+                    prix: 200,
+                    label: 'Réserver'
+                }) }}
             </div>
         </div>
     </div>
@@ -169,9 +177,12 @@
                 <div class="list-unstyled mt-3 mb-4">
                     <p>Durée : 3 heures</p>
                 </div>
-                <a href="{{ path('app_construction_prestation')}}">
-                    <button type="button" class="bouton-or">Réserver</button>
-                </a>
+                {{ include('partials/_add_to_cart_button.html.twig', {
+                    id: 'hypnose-visio',
+                    titre: 'Séance Hypnose visio',
+                    duree: '3 heures',
+                    prix: 200
+                }) }}
             </div>
         </div>
     </div>

@@ -6,48 +6,68 @@
 
 <div class="container my-5">
     <h3 class="text-center mb-5">Récapitulatif de votre commande</h3>
-    <div class="table-responsive">
-        <table class="table table-striped table-hover align-middle">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Prestation</th>
-                    <th scope="col">Durée</th>
-                    <th scope="col">Prix (unitaire)</th>
-                    <th scope="col">Quantité</th>
-                    <th scope="col" class="text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Example rows, replace with dynamic content -->
-                <tr>
-                    <td>Titre de l'offre</td>
-                    <td>1 heure</td>
-                    <td>50 €</td>
-                    <td>2</td>
-                    <td class="text-center">
-                        <button class="btn btn-danger btn-sm RemoveLink" data-id="123">Retirer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Titre de l'offre</td>
-                    <td>30 minutes</td>
-                    <td>25 €</td>
-                    <td>1</td>
-                    <td class="text-center">
-                        <button class="btn btn-danger btn-sm RemoveLink" data-id="456">Retirer</button>
-                    </td>
-                </tr>
-                <!-- End example rows -->
-                <tr class="table-info">
-                    <td colspan="3" class="text-end fw-bold">Total</td>
-                    <td colspan="2" id="cart-total" class="fw-bold">125 €</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    
+    {% if cart is empty %}
+        <div class="alert alert-info text-center">
+            <p class="mb-3">Votre panier est vide.</p>
+            <a href="{{ path('app_services') }}" class="bouton-or">Découvrir nos prestations</a>
+        </div>
+    {% else %}
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Prestation</th>
+                        <th scope="col">Durée</th>
+                        <th scope="col">Prix (unitaire)</th>
+                        <th scope="col" class="text-center">Quantité</th>
+                        <th scope="col" class="text-center">Sous-total</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart %}
+                    <tr data-item-id="{{ item.id }}">
+                        <td>{{ item.titre }}</td>
+                        <td>{{ item.duree }}</td>
+                        <td>{{ item.prix|number_format(2, ',', ' ') }} €</td>
+                        <td class="text-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <form action="{{ path('app_panier_decrementer', {id: item.id}) }}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-outline-secondary btn-sm">-</button>
+                                </form>
+                                <span class="mx-2 item-quantity">{{ item.quantite }}</span>
+                                <form action="{{ path('app_panier_incrementer', {id: item.id}) }}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-outline-secondary btn-sm">+</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td class="text-center item-subtotal">{{ (item.prix * item.quantite)|number_format(2, ',', ' ') }} €</td>
+                        <td class="text-center">
+                            <form action="{{ path('app_panier_supprimer', {id: item.id}) }}" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm">Retirer</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="table-info">
+                        <td colspan="4" class="text-end fw-bold">Total</td>
+                        <td colspan="2" id="cart-total" class="fw-bold text-center">{{ total|number_format(2, ',', ' ') }} €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <div class="text-center mt-2">
-        <a href="{{ path('app_construction') }}" class="bouton-or">Payer ma commande</a>
+        <div class="d-flex justify-content-between mt-4">
+            <form action="{{ path('app_panier_vider') }}" method="post">
+                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Êtes-vous sûr de vouloir vider votre panier ?')">Vider le panier</button>
+            </form>
+            <a href="{{ path('app_construction') }}" class="bouton-or">Payer ma commande</a>
+        </div>
+    {% endif %}
+    
+    <div class="text-center mt-5">
+        <a href="{{ path('app_services') }}" class="btn btn-outline-primary">← Continuer mes achats</a>
     </div>
 </div>
 

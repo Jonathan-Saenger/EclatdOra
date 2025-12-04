@@ -1,0 +1,18 @@
+{# 
+    Bouton d'ajout au panier 
+    Paramètres:
+    - id: identifiant unique de la prestation (ex: "hypnose-presentiel")
+    - titre: nom de la prestation
+    - duree: durée de la prestation
+    - prix: prix en euros (nombre)
+    - label: texte du bouton (optionnel, défaut: "Réserver")
+#}
+<form action="{{ path('app_panier_ajouter') }}" method="post" class="add-to-cart-form d-inline">
+    <input type="hidden" name="id" value="{{ id }}">
+    <input type="hidden" name="titre" value="{{ titre }}">
+    <input type="hidden" name="duree" value="{{ duree }}">
+    <input type="hidden" name="prix" value="{{ prix }}">
+    <button type="submit" class="bouton-or btn-add-to-cart">
+        {{ label|default('Réserver') }}
+    </button>
+</form>

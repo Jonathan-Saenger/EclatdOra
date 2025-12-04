@@ -33,7 +33,13 @@
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Hypnose</h3>
                             <p> Durée : 3 heures </p>
-                            <a href="#" class="bouton-or">Prix : 200 €</a>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-hypnose',
+                                titre: 'Bon cadeau - Hypnose',
+                                duree: '3 heures',
+                                prix: 200,
+                                label: 'Prix : 200 €'
+                            }) }}
                         </div>
                     </div>
                 </div>
@@ -44,7 +50,13 @@
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Méditation</h3>
                             <p> Durée : 1 heure </p>
-                            <a href="#" class="bouton-or">Prix : 15 €</a>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-meditation',
+                                titre: 'Bon cadeau - Méditation',
+                                duree: '1 heure',
+                                prix: 15,
+                                label: 'Prix : 15 €'
+                            }) }}
                         </div>
                     </div>
                 </div>
@@ -57,13 +69,19 @@
                             <div class="pb-3">
                                 <select id="duration-select" class="form-select form-select-sm" aria-label="Small select example">
                                 <option selected>Choisir votre durée</option>
-                                <option value="1">Individuelle 1 heure</option>
-                                <option value="2">Individuelle 2 heures</option>
-                                <option value="3">Duo 1 heure</option>
-                                <option value="4">Duo 2 heures</option>
+                                <option value="1" data-prix="90" data-duree="1 heure">Individuelle 1 heure</option>
+                                <option value="2" data-prix="150" data-duree="2 heures">Individuelle 2 heures</option>
+                                <option value="3" data-prix="160" data-duree="1 heure">Duo 1 heure</option>
+                                <option value="4" data-prix="250" data-duree="2 heures">Duo 2 heures</option>
                                 </select>
                             </div>
-                            <a id="lucia-price" href="#" class="bouton-or">Prix : 90 €</a>
+                            <form action="{{ path('app_panier_ajouter') }}" method="post" class="d-inline" id="lucia-cadeau-form">
+                                <input type="hidden" name="id" id="lucia-cadeau-id" value="cadeau-lucia-individuelle-1h">
+                                <input type="hidden" name="titre" id="lucia-cadeau-titre" value="Bon cadeau - Lucia individuelle 1h">
+                                <input type="hidden" name="duree" id="lucia-cadeau-duree" value="1 heure">
+                                <input type="hidden" name="prix" id="lucia-cadeau-prix" value="90">
+                                <button type="submit" id="lucia-price" class="bouton-or">Prix : 90 €</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -74,7 +92,13 @@
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Reiki</h3>
                             <p> Durée : 1 heure </p>
-                            <a href="#" class="bouton-or">Prix : 90 €</a>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-reiki',
+                                titre: 'Bon cadeau - Reiki',
+                                duree: '1h30',
+                                prix: 90,
+                                label: 'Prix : 90 €'
+                            }) }}
                         </div>
                     </div>
                 </div>
@@ -85,7 +109,13 @@
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Soin Vibratoire</h3>
                             <p> Durée : 1 heure </p>
-                            <a href="#" class="bouton-or">Prix : 80 €</a>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-soins',
+                                titre: 'Bon cadeau - Soin Vibratoire',
+                                duree: '1h à 1h30',
+                                prix: 80,
+                                label: 'Prix : 80 €'
+                            }) }}
                         </div>
                     </div>
                 </div>
@@ -96,7 +126,13 @@
                             <h4 class="card-text">Offrez une séance</h4>
                             <h3>Constellation Familliale</h3>
                             <p> Durée : 1 heure </p>
-                            <a href="#" class="bouton-or"> Prix : 125 €</a>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-constellation',
+                                titre: 'Bon cadeau - Constellation Familiale',
+                                duree: '1 heure',
+                                prix: 125,
+                                label: 'Prix : 125 €'
+                            }) }}
                         </div>
                     </div>
                 </div>
@@ -153,13 +189,32 @@
     </div>
 
 <script>
-    const prices = { 1: "90 €", 2: "150 €", 3: "160 €", 4: "250 €" };
+    // Configuration Lucia pour les bons cadeaux
+    const luciaConfig = {
+        1: { prix: 90, duree: "1 heure", id: "cadeau-lucia-individuelle-1h", titre: "Bon cadeau - Lucia individuelle 1h" },
+        2: { prix: 150, duree: "2 heures", id: "cadeau-lucia-individuelle-2h", titre: "Bon cadeau - Lucia individuelle 2h" },
+        3: { prix: 160, duree: "1 heure", id: "cadeau-lucia-duo-1h", titre: "Bon cadeau - Lucia duo 1h" },
+        4: { prix: 250, duree: "2 heures", id: "cadeau-lucia-duo-2h", titre: "Bon cadeau - Lucia duo 2h" }
+    };
+    
     const selectElement = document.getElementById("duration-select");
     const priceButton = document.getElementById("lucia-price");
+    const luciaIdInput = document.getElementById("lucia-cadeau-id");
+    const luciaTitreInput = document.getElementById("lucia-cadeau-titre");
+    const luciaDureeInput = document.getElementById("lucia-cadeau-duree");
+    const luciaPrixInput = document.getElementById("lucia-cadeau-prix");
 
     selectElement.addEventListener("change", () => {
         const selectedValue = selectElement.value;
-        priceButton.textContent = `Prix : ${prices[selectedValue] || "90 €"}`;
+        const config = luciaConfig[selectedValue];
+        
+        if (config) {
+            priceButton.textContent = `Prix : ${config.prix} €`;
+            luciaIdInput.value = config.id;
+            luciaTitreInput.value = config.titre;
+            luciaDureeInput.value = config.duree;
+            luciaPrixInput.value = config.prix;
+        }
     });
 </script>
 

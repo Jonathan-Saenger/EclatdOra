@@ -162,3 +162,100 @@ h4 {
     color: white;
     text-shadow: 3px 3px 3px #0A020A;
 }
+
+/* ===== PANIER / CART STYLES ===== */
+
+/* Cart notification toast */
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 15px 20px;
+    transform: translateX(120%);
+    transition: transform 0.3s ease-out;
+    max-width: 350px;
+}
+
+.cart-notification.show {
+    transform: translateX(0);
+}
+
+.cart-notification-success {
+    border-left: 4px solid #28a745;
+}
+
+.cart-notification-error {
+    border-left: 4px solid #dc3545;
+}
+
+.cart-notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-notification-icon {
+    font-size: 1.5rem;
+    color: #28a745;
+}
+
+.cart-notification-error .cart-notification-icon {
+    color: #dc3545;
+}
+
+.cart-notification-message {
+    flex: 1;
+    font-weight: 500;
+    color: #333;
+}
+
+.cart-notification-link {
+    color: #D19039;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cart-notification-link:hover {
+    text-decoration: underline;
+}
+
+/* Cart count badge animation */
+.cart-count {
+    transition: transform 0.3s ease;
+}
+
+.cart-count-updated {
+    transform: scale(1.3);
+    animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Button success temporary state */
+.btn-success-temp {
+    background: #28a745 !important;
+}
+
+/* Cart page styles */
+.item-quantity {
+    min-width: 30px;
+    font-weight: bold;
+}
+
+/* Responsive adjustments for cart notification */
+@media screen and (max-width: 576px) {
+    .cart-notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}

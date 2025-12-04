@@ -238,9 +238,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 1h</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'lucia-individuelle-1h',
+                        titre: 'Lucia individuelle',
+                        duree: '1 heure',
+                        prix: 90
+                    }) }}
                 </div>
             </div>
         </div>
@@ -254,9 +257,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 1h</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'lucia-duo-1h',
+                        titre: 'Lucia duo',
+                        duree: '1 heure',
+                        prix: 160
+                    }) }}
                 </div>
             </div>
         </div>
@@ -270,9 +276,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 2h</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'lucia-individuelle-2h',
+                        titre: 'Lucia individuelle',
+                        duree: '2 heures',
+                        prix: 150
+                    }) }}
                 </div>
             </div>
         </div>
@@ -286,9 +295,12 @@
                     <div class="list-unstyled mt-3 mb-4">
                         <p>Durée: 2h</p>
                     </div>
-                    <a href="{{ path('app_construction_prestation')}}">
-                        <button type="button" class="bouton-or">Réserver</button>
-                    </a>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'lucia-duo-2h',
+                        titre: 'Lucia duo',
+                        duree: '2 heures',
+                        prix: 250
+                    }) }}
                 </div>
             </div>
         </div>
