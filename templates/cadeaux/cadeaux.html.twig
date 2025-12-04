@@ -147,12 +147,18 @@
             <div class="card-body text-center py-3">
                 <h4 class="card-text">Valider le montant de votre bon cadeau</h4>
                     <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
-                        <div class="input-group mb-3">
-                            <input id="montant-cadeau" class ="form-control" type="number" id="montant-cadeau" name="montant-cadeau" min="15" max="" placeholder="Votre montant"/>
-                            <span class="input-group-text">€</span></br>
-                        </div>
+                        <form action="{{ path('app_panier_ajouter') }}" method="post" class="add-to-cart-form" id="montant-libre-form">
+                            <input type="hidden" name="id" value="cadeau-montant-libre">
+                            <input type="hidden" name="titre" id="montant-libre-titre" value="Bon cadeau - Montant libre">
+                            <input type="hidden" name="duree" value="À définir">
+                            <input type="hidden" name="prix" id="montant-libre-prix" value="15">
+                            <div class="input-group mb-3">
+                                <input id="montant-cadeau" class="form-control" type="number" name="montant-cadeau" min="15" placeholder="Votre montant (min. 15€)" required/>
+                                <span class="input-group-text">€</span>
+                            </div>
+                            <button class="bouton-or" type="submit">Ajouter au panier</button>
+                        </form>
                     </div>
-                <button class="bouton-or" type="submit">Valider votre montant</button>
             </div>
         </div>
     </div>
@@ -214,6 +220,27 @@
             luciaTitreInput.value = config.titre;
             luciaDureeInput.value = config.duree;
             luciaPrixInput.value = config.prix;
+        }
+    });
+
+    // Gestion du bon cadeau à montant libre
+    const montantCadeauInput = document.getElementById("montant-cadeau");
+    const montantLibrePrixInput = document.getElementById("montant-libre-prix");
+    const montantLibreTitreInput = document.getElementById("montant-libre-titre");
+
+    montantCadeauInput.addEventListener("input", () => {
+        const montant = parseFloat(montantCadeauInput.value) || 15;
+        montantLibrePrixInput.value = montant;
+        montantLibreTitreInput.value = `Bon cadeau - ${montant} €`;
+    });
+
+    // Validation du montant minimum avant soumission
+    document.getElementById("montant-libre-form").addEventListener("submit", (e) => {
+        const montant = parseFloat(montantCadeauInput.value);
+        if (!montant || montant < 15) {
+            e.preventDefault();
+            alert("Le montant minimum est de 15 €");
+            return false;
         }
     });
 </script>
