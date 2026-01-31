@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\EmailInscription;
 use App\Service\MailingService;
 use App\Service\CartService;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class PanierController extends AbstractController
 {
@@ -145,5 +146,45 @@ class PanierController extends AbstractController
         return new JsonResponse([
             'count' => $this->cartService->getItemCount(),
         ]);
+    }
+
+    #[Route('/panier/recapitulatif', name: 'app_panier_recapitulatif')]
+    #[IsGranted('ROLE_USER')]
+    public function recapitulatif(Request $request, MailingService $mailingService): Response
+    {
+        $cart = $this->cartService->getCart();
+        
+        // Rediriger vers le panier si celui-ci est vide
+        if (empty($cart)) {
+            $this->addFlash('warning', 'Votre panier est vide.');
+            return $this->redirectToRoute('app_panier');
+        }
+
+        // Formulaire newsletter pour le footer
+        $EmailInscription = new EmailInscription();
+        $formEmail = $this->createForm(EmailInscriptionType::class, $EmailInscription);
+
+        $result = $mailingService->newsletterInscription($formEmail, $request);
+
+        if ($result['success']) {
+            $this->addFlash('success', $result['message']);
+            return $this->redirectToRoute('app_panier_recapitulatif');
+        }
+
+        return $this->render('panier/recapitulatif.html.twig', [
+            'cart' => $cart,
+            'total' => $this->cartService->getTotal(),
+            'user' => $this->getUser(),
+            'formEmail' => $formEmail->createView(),
+        ]);
+    }
+
+    #[Route('/panier/valider', name: 'app_panier_valider', methods: ['POST'])]
+    #[IsGranted('ROLE_USER')]
+    public function valider(): Response
+    {
+        // TODO: Implémenter la logique de validation de commande
+        // Pour l'instant, rediriger vers la page construction
+        return $this->redirectToRoute('app_construction');
     }
 }

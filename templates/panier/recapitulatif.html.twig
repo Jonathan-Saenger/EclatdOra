@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Récapitulatif de votre commande - Eclat d'Ora{% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- En-tête -->
+            <div class="text-center mb-5">
+                <h2 class="mb-3" style="color: #D19039;">Récapitulatif de votre commande</h2>
+                <p class="text-muted">Veuillez vérifier les détails de votre commande avant de valider</p>
+            </div>
+
+            <!-- Informations client -->
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-header bg-white border-bottom" style="border-color: #D19039 !important;">
+                    <h5 class="mb-0" style="color: #0A020A;">
+                        <i class="fas fa-user me-2" style="color: #D19039;"></i>
+                        Informations client
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Nom :</strong> {{ user.nom ?? 'Non renseigné' }}</p>
+                            <p class="mb-1"><strong>Prénom :</strong> {{ user.prenom ?? 'Non renseigné' }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Email :</strong> {{ user.email }}</p>
+                            <p class="mb-1"><strong>Téléphone :</strong> {{ user.telephone ?? 'Non renseigné' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Détail des prestations -->
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-header bg-white border-bottom" style="border-color: #D19039 !important;">
+                    <h5 class="mb-0" style="color: #0A020A;">
+                        <i class="fas fa-list me-2" style="color: #D19039;"></i>
+                        Détail des prestations
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead style="background-color: #F6EFEA;">
+                                <tr>
+                                    <th scope="col" class="ps-4">Prestation</th>
+                                    <th scope="col">Durée</th>
+                                    <th scope="col" class="text-center">Quantité</th>
+                                    <th scope="col" class="text-end">Prix unitaire</th>
+                                    <th scope="col" class="text-end pe-4">Sous-total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                <tr>
+                                    <td class="ps-4">{{ item.titre }}</td>
+                                    <td>{{ item.duree }}</td>
+                                    <td class="text-center">{{ item.quantite }}</td>
+                                    <td class="text-end">{{ item.prix|number_format(2, ',', ' ') }} €</td>
+                                    <td class="text-end pe-4 fw-semibold">{{ (item.prix * item.quantite)|number_format(2, ',', ' ') }} €</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total -->
+            <div class="card mb-5 border-0 shadow-sm">
+                <div class="card-body" style="background-color: #F6EFEA;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 mb-0" style="color: #0A020A;">Total de la commande</span>
+                        <span class="h4 mb-0 fw-bold" style="color: #D19039;">{{ total|number_format(2, ',', ' ') }} €</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informations importantes -->
+            <div class="alert border-0 mb-5" style="background-color: #FFF9E6; border-left: 4px solid #D19039 !important;">
+                <h6 class="alert-heading" style="color: #D19039;">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Informations importantes
+                </h6>
+                <ul class="mb-0 small">
+                    <li>Vous recevrez un email de confirmation après validation de votre commande.</li>
+                    <li>Cédric vous contactera pour fixer les dates de vos prestations.</li>
+                    <li>Le paiement s'effectuera par virement bancaire ou lors de votre rendez-vous.</li>
+                </ul>
+            </div>
+
+            <!-- Boutons d'action -->
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+                <a href="{{ path('app_services') }}" class="text-muted text-decoration-none small">
+                    <i class="fas fa-arrow-left me-1"></i>Retour sur le site
+                </a>
+                <form action="{{ path('app_panier_valider') }}" method="post" class="d-inline">
+                    <button type="submit" class="bouton-or">
+                        Valider ma commande<i class="fas fa-check ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

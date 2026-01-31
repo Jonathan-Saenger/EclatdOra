@@ -63,7 +63,7 @@
                 <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Êtes-vous sûr de vouloir vider votre panier ?')">Vider le panier</button>
             </form>
             {% if app.user %}
-                <a href="{{ path('app_construction') }}" class="bouton-or">Payer ma commande</a>
+                <a href="{{ path('app_panier_recapitulatif') }}" class="bouton-or">Payer ma commande</a>
             {% else %}
                 <a href="{{ path('app_login') }}" class="bouton-or">Payer ma commande</a>
             {% endif %}
