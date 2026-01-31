@@ -8,7 +8,7 @@
     <h3 class="text-center mb-5">Récapitulatif de votre commande</h3>
     
     {% if cart is empty %}
-        <div class="alert alert-info text-center">
+        <div class="text-center">
             <p class="mb-3">Votre panier est vide.</p>
             <a href="{{ path('app_services') }}" class="bouton-or">Découvrir nos prestations</a>
         </div>
@@ -50,7 +50,7 @@
                         </td>
                     </tr>
                     {% endfor %}
-                    <tr class="table-info">
+                    <tr class="bg-white">
                         <td colspan="4" class="text-end fw-bold">Total</td>
                         <td colspan="2" id="cart-total" class="fw-bold text-center">{{ total|number_format(2, ',', ' ') }} €</td>
                     </tr>
@@ -67,7 +67,7 @@
     {% endif %}
     
     <div class="text-center mt-5">
-        <a href="{{ path('app_services') }}" class="btn btn-outline-primary">← Continuer mes achats</a>
+        <a href="{{ path('app_services') }}" class="text-decoration-none" style="color: #c9a227;">← Continuer mes achats</a>
     </div>
 </div>
 
