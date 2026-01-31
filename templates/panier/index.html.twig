@@ -62,7 +62,11 @@
             <form action="{{ path('app_panier_vider') }}" method="post">
                 <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Êtes-vous sûr de vouloir vider votre panier ?')">Vider le panier</button>
             </form>
-            <a href="{{ path('app_construction') }}" class="bouton-or">Payer ma commande</a>
+            {% if app.user %}
+                <a href="{{ path('app_construction') }}" class="bouton-or">Payer ma commande</a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="bouton-or">Payer ma commande</a>
+            {% endif %}
         </div>
     {% endif %}
     
