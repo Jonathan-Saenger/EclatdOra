@@ -12,11 +12,13 @@ use App\Entity\EmailInscription;
 use App\Service\MailingService;
 use App\Service\CartService;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Psr\Log\LoggerInterface;
 
 class PanierController extends AbstractController
 {
     public function __construct(
-        private CartService $cartService
+        private CartService $cartService,
+        private LoggerInterface $logger
     ) {
     }
 
@@ -181,10 +183,38 @@ class PanierController extends AbstractController
 
     #[Route('/panier/valider', name: 'app_panier_valider', methods: ['POST'])]
     #[IsGranted('ROLE_USER')]
-    public function valider(): Response
+    public function valider(MailingService $mailingService): Response
     {
-        // TODO: Implémenter la logique de validation de commande
-        // Pour l'instant, rediriger vers la page construction
-        return $this->redirectToRoute('app_construction');
+        $cart = $this->cartService->getCart();
+        
+        // Vérifier que le panier n'est pas vide
+        if (empty($cart)) {
+            $this->addFlash('warning', 'Votre panier est vide.');
+            return $this->redirectToRoute('app_panier');
+        }
+
+        $user = $this->getUser();
+        $total = $this->cartService->getTotal();
+        $userIdentifier = is_object($user) && method_exists($user, 'getUserIdentifier')
+            ? $user->getUserIdentifier()
+            : 'utilisateur_inconnu';
+
+        // Envoyer l'email de notification
+        try {
+            $mailingService->sendOrderNotification($user, $cart, $total);
+            $this->addFlash('success', 'Merci ! Votre commande a bien été envoyée.');
+        } catch (\Throwable $e) {
+            $this->logger->error('Erreur envoi email commande: ' . $e->getMessage(), [
+                'exception' => $e,
+                'user' => $userIdentifier,
+            ]);
+            $this->addFlash('error', 'Une erreur est survenue lors de l\'envoi de votre commande. Veuillez réessayer ou nous contacter directement.');
+            return $this->redirectToRoute('app_panier_recapitulatif');
+        }
+
+        // Vider le panier après validation
+        $this->cartService->clearCart();
+
+        return $this->redirectToRoute('app_home');
     }
 }

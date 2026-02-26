@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle commande - Eclat d'Ora</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #F6EFEA;">
+    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="padding: 40px 0;">
+                <table role="presentation" style="width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <!-- En-tête -->
+                    <tr>
+                        <td style="background-color: #D19039; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">✨ Nouvelle Commande ✨</h1>
+                            <p style="color: #ffffff; margin: 10px 0 0 0; font-size: 16px;">Eclat d'Ora</p>
+                        </td>
+                    </tr>
+
+                    <!-- Message principal -->
+                    <tr>
+                        <td style="padding: 30px;">
+                            <p style="color: #0A020A; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
+                                Bonjour Cédric,
+                            </p>
+                            <p style="color: #0A020A; font-size: 16px; line-height: 1.6; margin: 0 0 30px 0;">
+                                Une nouvelle commande vient d'être passée sur ton site ! Voici les détails :
+                            </p>
+
+                            <!-- Informations client -->
+                            <table role="presentation" style="width: 100%; background-color: #F6EFEA; border-radius: 8px; margin-bottom: 25px;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <h2 style="color: #D19039; font-size: 18px; margin: 0 0 15px 0; border-bottom: 2px solid #D19039; padding-bottom: 10px;">
+                                            👤 Informations du client
+                                        </h2>
+                                        <table role="presentation" style="width: 100%;">
+                                            <tr>
+                                                <td style="padding: 5px 0; color: #666; width: 120px;">Nom :</td>
+                                                <td style="padding: 5px 0; color: #0A020A; font-weight: bold;">{{ user.nom }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 0; color: #666;">Prénom :</td>
+                                                <td style="padding: 5px 0; color: #0A020A; font-weight: bold;">{{ user.prenom }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 0; color: #666;">Email :</td>
+                                                <td style="padding: 5px 0; color: #0A020A; font-weight: bold;">
+                                                    <a href="mailto:{{ user.email }}" style="color: #D19039; text-decoration: none;">{{ user.email }}</a>
+                                                </td>
+                                            </tr>
+                                            {% if user.telephone %}
+                                            <tr>
+                                                <td style="padding: 5px 0; color: #666;">Téléphone :</td>
+                                                <td style="padding: 5px 0; color: #0A020A; font-weight: bold;">
+                                                    <a href="tel:{{ user.telephone }}" style="color: #D19039; text-decoration: none;">{{ user.telephone }}</a>
+                                                </td>
+                                            </tr>
+                                            {% endif %}
+                                            {% if user.adresse %}
+                                            <tr>
+                                                <td style="padding: 5px 0; color: #666;">Adresse :</td>
+                                                <td style="padding: 5px 0; color: #0A020A;">{{ user.adresse }}</td>
+                                            </tr>
+                                            {% endif %}
+                                            {% if user.codePostal and user.ville %}
+                                            <tr>
+                                                <td style="padding: 5px 0; color: #666;">Ville :</td>
+                                                <td style="padding: 5px 0; color: #0A020A;">{{ user.codePostal }} {{ user.ville }}</td>
+                                            </tr>
+                                            {% endif %}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Détail de la commande -->
+                            <table role="presentation" style="width: 100%; background-color: #F6EFEA; border-radius: 8px; margin-bottom: 25px;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <h2 style="color: #D19039; font-size: 18px; margin: 0 0 15px 0; border-bottom: 2px solid #D19039; padding-bottom: 10px;">
+                                            🛒 Détail de la commande
+                                        </h2>
+                                        <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                                            <tr style="background-color: #D19039;">
+                                                <th style="padding: 10px; color: #ffffff; text-align: left; font-size: 14px;">Prestation</th>
+                                                <th style="padding: 10px; color: #ffffff; text-align: center; font-size: 14px;">Durée</th>
+                                                <th style="padding: 10px; color: #ffffff; text-align: center; font-size: 14px;">Qté</th>
+                                                <th style="padding: 10px; color: #ffffff; text-align: right; font-size: 14px;">Prix</th>
+                                            </tr>
+                                            {% for item in cart %}
+                                            <tr style="border-bottom: 1px solid #ddd;">
+                                                <td style="padding: 12px 10px; color: #0A020A; font-size: 14px;">{{ item.titre }}</td>
+                                                <td style="padding: 12px 10px; color: #666; text-align: center; font-size: 14px;">{{ item.duree ?? '-' }}</td>
+                                                <td style="padding: 12px 10px; color: #666; text-align: center; font-size: 14px;">{{ item.quantite }}</td>
+                                                <td style="padding: 12px 10px; color: #0A020A; text-align: right; font-size: 14px; font-weight: bold;">{{ (item.prix * item.quantite)|number_format(2, ',', ' ') }} €</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Total -->
+                            <table role="presentation" style="width: 100%; background-color: #D19039; border-radius: 8px;">
+                                <tr>
+                                    <td style="padding: 20px; text-align: right;">
+                                        <span style="color: #ffffff; font-size: 20px; font-weight: bold;">
+                                            Total : {{ total|number_format(2, ',', ' ') }} €
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Actions rapides -->
+                            <table role="presentation" style="width: 100%; margin-top: 30px;">
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <p style="color: #666; font-size: 14px; margin: 0 0 15px 0;">
+                                            Contacter rapidement le client :
+                                        </p>
+                                        <a href="mailto:{{ user.email }}" style="display: inline-block; background-color: #D19039; color: #ffffff; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; margin: 5px;">
+                                            📧 Envoyer un email
+                                        </a>
+                                        {% if user.telephone %}
+                                        <a href="tel:{{ user.telephone }}" style="display: inline-block; background-color: #0A020A; color: #ffffff; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; margin: 5px;">
+                                            📞 Appeler
+                                        </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Pied de page -->
+                    <tr>
+                        <td style="background-color: #0A020A; padding: 20px; text-align: center; border-radius: 0 0 10px 10px;">
+                            <p style="color: #ffffff; margin: 0; font-size: 14px;">
+                                Eclat d'Ora - {{ "now"|date("d/m/Y à H:i") }}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
