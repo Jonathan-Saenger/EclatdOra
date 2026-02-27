@@ -53,10 +53,10 @@ class ServicesController extends AbstractController
         return $this->handleServiceRequest($request, 'services/_soins.html.twig');
     }
 
-    #[Route('/_medium', name: 'app_medium')]
-    public function serviceMedium(Request $request): Response
+    #[Route('/_signature', name: 'app_signature')]
+    public function serviceSignature(Request $request): Response
     {
-        return $this->handleServiceRequest($request, 'services/_medium.html.twig');
+        return $this->handleServiceRequest($request, 'services/_signature.html.twig');
     }
 
     #[Route('/_constellation', name: 'app_constellation')]

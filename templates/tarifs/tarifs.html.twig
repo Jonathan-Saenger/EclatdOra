@@ -165,29 +165,6 @@
 
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <img src="{{asset('images/reiki_cadeau.webp')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3>Mes séances médiumniques</h3>
-                            <p class="card-text">La séance a lieu avec la présence d'une troisième</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item py-5">
-                                - Prix unique pour une séance : <br>
-                                    <strong>80 €</strong> (1er degré)
-                            </li>
-                            <li class="list-group-item"> Moyens de paiement  <br>
-                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
-                                En ligne : <strong>carte bancaire</strong>
-                            </li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="#" class="bouton-or">Réserver une séance</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 text-center">
                         <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3>Mes séances de Constellation</h3>
@@ -212,6 +189,39 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <img src="{{asset('images/signature_tarifs.webp')}}" class="card-img-top" alt="Massages Signature">
+                        <div class="card-body">
+                            <h3>Massages Signature</h3>
+                            <p class="card-text">
+                                Des expériences sensorielles d'exception pour éveiller vos sens et harmoniser corps et esprit.
+                                Entre massages individuels et duos, avec ou sans accompagnement botanique ancestral, chaque soin est pensé
+                                pour offrir un relâchement profond et une reconnexion essentielle.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                - Traversée Sensorielle (1 praticien) :<br>
+                                    <strong>70 €</strong> (1h), <strong>140 €</strong> (2h) <br>
+                                - Voyage Céleste duo (2 praticiens) :<br>
+                                    <strong>130 €/pers</strong> (1h30), <strong>200 €/pers</strong> (2h30) <br>
+                                - Expansion Intérieure (1 praticien) :<br>
+                                    <strong>350 €</strong> (4h) <br>
+                                - Immersion Originelle duo (2 praticiens) :<br>
+                                    <strong>350 €/pers</strong> (4h)
+                            </li>
+                            <li class="list-group-item"> Moyens de paiement  <br>
+                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
+                                En ligne : <strong>carte bancaire</strong>
+                            </li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="{{ path('app_signature')}}" class="bouton-or">Réserver une séance</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -223,7 +233,7 @@
         <a href="{{path('app_meditation')}}" class="bouton-or m-3">Méditation</a>
         <a href="{{path('app_formation')}}" class="bouton-or m-3">Reiki</a>
         <a href="{{path('app_soins')}}" class="bouton-or m-3">Soins énergétiques</a>
-        <a href="{{path('app_medium')}}" class="bouton-or m-3">Séance médiumnique</a>
+        <a href="{{path('app_signature')}}" class="bouton-or m-3">Soins Signature</a>
         <a href="{{path('app_constellation')}}" class="bouton-or m-3">Constellation familiale et systémique</a>
     </div>
 

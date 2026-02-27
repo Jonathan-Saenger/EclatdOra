@@ -136,6 +136,33 @@
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="card m-3">
+                        <img src="{{asset('images/signature_cadeaux.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour un Massage Signature" >
+                        <div class="card-body text-center">
+                            <h4 class="card-text">Offrez un massage</h4>
+                            <h3>Massages Signature</h3>
+                            <div class="pb-3">
+                                <select id="signature-select" class="form-select form-select-sm" aria-label="Choix du massage signature">
+                                    <option selected>Choisir votre massage</option>
+                                    <option value="1">Traversée Sensorielle – 1h</option>
+                                    <option value="2">Traversée Sensorielle – 2h</option>
+                                    <option value="3">Voyage Céleste duo – 1h30</option>
+                                    <option value="4">Voyage Céleste duo – 2h30</option>
+                                    <option value="5">Expansion Intérieure – 4h</option>
+                                    <option value="6">Immersion Originelle duo – 4h</option>
+                                </select>
+                            </div>
+                            <form action="{{ path('app_panier_ajouter') }}" method="post" class="d-inline" id="signature-cadeau-form">
+                                <input type="hidden" name="id" id="signature-cadeau-id" value="cadeau-massage-traversee-1h">
+                                <input type="hidden" name="titre" id="signature-cadeau-titre" value="Bon cadeau - Massage Traversée Sensorielle 1h">
+                                <input type="hidden" name="duree" id="signature-cadeau-duree" value="1 heure">
+                                <input type="hidden" name="prix" id="signature-cadeau-prix" value="70">
+                                <button type="submit" id="signature-price" class="bouton-or">Prix : 70 €</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -192,6 +219,7 @@
         <a href="{{path('app_formation')}}" class="bouton-or m-3">Reiki</a>
         <a href="{{path('app_soins')}}" class="bouton-or m-3">Soins énergétiques</a>
         <a href="{{path('app_constellation')}}" class="bouton-or m-3">Séance Constellation Familliale</a>
+        <a href="{{path('app_signature')}}" class="bouton-or m-3">Massages Signature</a>
     </div>
 
 <script>
@@ -220,6 +248,36 @@
             luciaTitreInput.value = config.titre;
             luciaDureeInput.value = config.duree;
             luciaPrixInput.value = config.prix;
+        }
+    });
+
+    // Configuration Massages Signature pour les bons cadeaux
+    const signatureConfig = {
+        1: { prix: 70, duree: "1 heure", id: "cadeau-massage-traversee-1h", titre: "Bon cadeau - Massage Traversée Sensorielle 1h" },
+        2: { prix: 140, duree: "2 heures", id: "cadeau-massage-traversee-2h", titre: "Bon cadeau - Massage Traversée Sensorielle 2h" },
+        3: { prix: 130, duree: "1h30", id: "cadeau-massage-voyage-celeste-1h30", titre: "Bon cadeau - Massage duo Voyage Céleste 1h30" },
+        4: { prix: 200, duree: "2h30", id: "cadeau-massage-voyage-celeste-2h30", titre: "Bon cadeau - Massage duo Voyage Céleste 2h30" },
+        5: { prix: 350, duree: "4 heures", id: "cadeau-massage-expansion-interieure", titre: "Bon cadeau - Massage Expansion Intérieure 4h" },
+        6: { prix: 350, duree: "4 heures", id: "cadeau-massage-immersion-originelle", titre: "Bon cadeau - Massage duo Immersion Originelle 4h" }
+    };
+
+    const signatureSelect = document.getElementById("signature-select");
+    const signaturePriceButton = document.getElementById("signature-price");
+    const signatureIdInput = document.getElementById("signature-cadeau-id");
+    const signatureTitreInput = document.getElementById("signature-cadeau-titre");
+    const signatureDureeInput = document.getElementById("signature-cadeau-duree");
+    const signaturePrixInput = document.getElementById("signature-cadeau-prix");
+
+    signatureSelect.addEventListener("change", () => {
+        const selectedValue = signatureSelect.value;
+        const config = signatureConfig[selectedValue];
+        
+        if (config) {
+            signaturePriceButton.textContent = `Prix : ${config.prix} €`;
+            signatureIdInput.value = config.id;
+            signatureTitreInput.value = config.titre;
+            signatureDureeInput.value = config.duree;
+            signaturePrixInput.value = config.prix;
         }
     });
 
