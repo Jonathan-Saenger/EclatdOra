@@ -29,10 +29,10 @@ class ServicesController extends AbstractController
         return $this->handleServiceRequest($request, 'services/services.html.twig');
     }
 
-    #[Route('/_meditation', name: 'app_meditation')]
-    public function serviceMediation(Request $request): Response
+    #[Route('/_rituel', name: 'app_rituel')]
+    public function serviceRituel(Request $request): Response
     {
-        return $this->handleServiceRequest($request, 'services/_meditation.html.twig');
+        return $this->handleServiceRequest($request, 'services/_rituel.html.twig');
     }
 
     #[Route('/_lucia', name: 'app_lucia')]

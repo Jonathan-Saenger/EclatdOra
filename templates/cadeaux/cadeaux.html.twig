@@ -15,8 +15,8 @@
     <section class="py-3 text-center container">
             <h2>Bons cadeaux bien-être</h2>
             <h3>Envie d'offrir un cadeau original à un proche ?</h3>
-            <h3>Faites-lui découvrir la méditation, l'hypnose transpersonnelle ou la lumière Lucia</h3>
-            <p class="lead">Pour un moment de bien-être et de sérénité, choisissez une <strong>séance de méditation guidée</strong> qui invite à la relaxation et à
+            <h3>Faites-lui découvrir le Rituel Chamanique Corporel, l'hypnose transpersonnelle ou la lumière Lucia</h3>
+            <p class="lead">Pour un moment de bien-être et de sérénité, choisissez une <strong>séance de Rituel Chamanique Corporel</strong> qui invite à la relaxation et à
             la pleine conscience. Pour un voyage intérieur profond, offrez une <strong>hypnose transpersonnelle</strong> idéale pour l'exploration de soi. Pour une
             expérience lumineuse unique, la<strong>lumière Lucia</strong>, saura élever l'âme et apaiser les tensions. Ces expériences sont parfaites pour célébrer
             les occasions spéciales comme les anniversaires, la Saint-Valentin, Noël, ou encore la fête des Mères et des Pères.</p>
@@ -45,17 +45,17 @@
                 </div>
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/meditation_cadeau.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance de méditation" >
+                        <img src="{{asset('images/rituel_cadeaux.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance de Rituel Chamanique Corporel" >
                         <div class="card-body text-center pb-4">
                             <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Méditation</h3>
+                            <h3>Rituel Chamanique Corporel</h3>
                             <p> Durée : 1 heure </p>
                             {{ include('partials/_add_to_cart_button.html.twig', {
-                                id: 'cadeau-meditation',
-                                titre: 'Bon cadeau - Méditation',
+                                id: 'cadeau-rituel-chamanique',
+                                titre: 'Bon cadeau - Rituel Chamanique Corporel',
                                 duree: '1 heure',
-                                prix: 15,
-                                label: 'Prix : 15 €'
+                                prix: 300,
+                                label: 'Prix : 300 €'
                             }) }}
                         </div>
                     </div>
@@ -215,7 +215,7 @@
         <h2 class="" > Vous souhaitez en savoir plus sur mes prestations ?</h2>
         <a href="{{path('app_hypnose')}}" class="bouton-or m-3">Hypnose</a>
         <a href="{{path('app_lucia')}}" class="bouton-or m-3">Luminothérapie</a>
-        <a href="{{path('app_meditation')}}" class="bouton-or m-3">Méditation</a>
+        <a href="{{path('app_rituel')}}" class="bouton-or m-3">Rituel Chamanique Corporel</a>
         <a href="{{path('app_formation')}}" class="bouton-or m-3">Reiki</a>
         <a href="{{path('app_soins')}}" class="bouton-or m-3">Soins énergétiques</a>
         <a href="{{path('app_constellation')}}" class="bouton-or m-3">Séance Constellation Familliale</a>

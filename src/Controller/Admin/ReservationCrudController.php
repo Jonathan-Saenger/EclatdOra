@@ -32,7 +32,7 @@ class ReservationCrudController extends AbstractCrudController
             ->setChoices([
                 'Hypnose transpersonnelle en presentielle' => 'Hypnose transpersonnelle en presentielle',
                 'Hypnose transpersonnelle en visio' => 'Hypnose transpersonnelle en visio',
-                'Méditation guidée' => 'Méditation guidée',
+                'Rituel Chamanique Corporel' => 'Rituel Chamanique Corporel',
                 'Séance individuelle Reiki' => 'Séance individuelle Reiki',
                 'Formation 1er degré Reiki' => 'Formation 1er degré Reiki',
                 'Formation 2ème degré Reiki' => 'Formation 2ème degré Reiki',

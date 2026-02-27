@@ -1,0 +1,62 @@
+﻿{% extends 'base.html.twig' %}
+
+{% block title %}Rituel Chamanique Corporel{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1 class="pb-3">Séances Rituel Chamanique Corporel : Voyage sensoriel et initiatique</h1>
+
+        <img src=" {{ asset('images/description_meditation.webp')}}" class="img-fluid pb-3" alt="Rituel Chamanique Corporel">
+
+        <p class="lead fs-4 fst-italic text-center my-4">Un espace suspendu où le corps et l'esprit se rencontrent.</p>
+
+        <p class="lead">Chaque geste, chaque mouvement et chaque rituel est pensé pour harmoniser vos énergies et éveiller vos sens.
+        Un voyage guidé dans la profondeur de vos ressentis, où les rituels ancestraux se mêlent au toucher sensoriel pour un moment de clarté, de présence et de ressourcement.</p>
+
+        <h2>L'expérience</h2>
+        <p class="lead">Chaque séance comprend :</p>
+        <ul class="lead">
+            <li>Un temps d'accueil et d'ajustement personnalisé</li>
+            <li>Une immersion corporelle progressive et sécurisée</li>
+            <li>Une phase d'expansion sensorielle guidée</li>
+            <li>Un temps d'intégration et de recentrage</li>
+        </ul>
+        <p class="lead">L'ensemble est conçu comme une parenthèse hors du rythme ordinaire — un espace de densité, de silence et de perception affinée.</p>
+
+        <h2>Les bénéfices ressentis</h2>
+        <ul class="lead">
+            <li>Apaisement profond et durable</li>
+            <li>Sensation d'espace intérieur</li>
+            <li>Clarté émotionnelle</li>
+            <li>Intensification des perceptions</li>
+            <li>Sentiment d'alignement et de cohérence</li>
+        </ul>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3 text-center">
+                    <h3>Séance Rituel Chamanique Corporel</h3>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="card-title pricing-card-title">300 €</h4>
+                    <div class="list-unstyled mt-3 mb-4">
+                        <p>Durée: 1 heure</p>
+                    </div>
+                    {{ include('partials/_add_to_cart_button.html.twig', {
+                        id: 'rituel-chamanique',
+                        titre: 'Séance Rituel Chamanique Corporel',
+                        duree: '1 heure',
+                        prix: 300
+                    }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <p class="text-end "><a class="text-warning link-offset-2 link-underline link-underline-opacity-0 fw-bold" href=" {{path('app_services')}}">Revenir aux services ↣</a></p>
+    </div>
+
+{% endblock %}
