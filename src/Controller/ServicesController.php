@@ -65,6 +65,12 @@ class ServicesController extends AbstractController
         return $this->handleServiceRequest($request, 'services/_constellation.html.twig');
     }
 
+    #[Route('/_reiki', name: 'app_reiki')]
+    public function serviceReiki(Request $request): Response
+    {
+        return $this->handleServiceRequest($request, 'services/_reiki.html.twig');
+    }
+
     private function handleServiceRequest(Request $request, string $template): Response
     {
         $emailInscription = new EmailInscription();

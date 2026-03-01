@@ -23,6 +23,97 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center">
 
+
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <img src="{{asset('images/signature_tarifs.webp')}}" class="card-img-top" alt="Massages Signature">
+                        <div class="card-body">
+                            <h3>Massages : Soins Signatures</h3>
+                            <p class="card-text">
+                                Des expériences sensorielles d'exception pour éveiller vos sens et harmoniser corps et esprit.
+                                Entre massages individuels et duos, avec ou sans accompagnement botanique ancestral, chaque soin est pensé
+                                pour offrir un relâchement profond et une reconnexion essentielle.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                - Traversée Sensorielle (1 praticien) :<br>
+                                    <strong>70 €</strong> (1h), <strong>140 €</strong> (2h) <br>
+                                - Voyage Céleste duo (2 praticiens) :<br>
+                                    <strong>130 €/pers</strong> (1h30), <strong>200 €/pers</strong> (2h30) <br>
+                                - Expansion Intérieure (1 praticien) :<br>
+                                    <strong>350 €</strong> (4h) <br>
+                                - Immersion Originelle duo (2 praticiens) :<br>
+                                    <strong>350 €/pers</strong> (4h)
+                            </li>
+                            <li class="list-group-item"> Moyens de paiement  <br>
+                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
+                                En ligne : <strong>carte bancaire</strong>
+                            </li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="{{ path('app_signature')}}" class="bouton-or">Réserver une séance</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <img src="{{asset('images/reiki_cadeau.webp')}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3>Soins Reiki</h3>
+                            <p class="card-text">
+                                Je propose plusieurs niveaux de formations, vous permettant de vous initier ou de perfectionner vos connaissances en Reiki.
+                                Je propose aussi des séances de soins énergétiques Reiki.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                - Mes formations (1 week-end)<br>
+                                    <strong>280 €</strong> (1er degré), <br>
+                                    <strong>450 €</strong> (2ème degré), <br>
+                                    <strong>980 €</strong> (3ème degré),<br>
+                                    <strong>1450 €</strong> (4ème degré) <br>
+                                - Séance de Reiki : <strong> 90 € </strong>(1 heure 30)
+                            </li>
+                            <li class="list-group-item"> Moyens de paiement  <br>
+                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
+                                En ligne : <strong>carte bancaire</strong>
+                            </li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="{{ path('app_reiki') }}" class="bouton-or">Réserver une séance</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 text-center">
+                        <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3>Mes séances de Constellation</h3>
+                            <p class="card-text">
+                                Je propose des séances de constellation familiale seul, en duo ou en groupe, selon vos besoins.
+                                Ces séances sont basées sur des techniques de constellation familiale systémique et constellation transgénérationnelle,
+                                visant à libérer les blocages familiaux et à rétablir l'équilibre au sein de votre lignée.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                - Prix unique pour une séance : <br>
+                                    <strong>125 €</strong> (1er degré)
+                            </li>
+                            <li class="list-group-item"> Moyens de paiement  <br>
+                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
+                                En ligne : <strong>carte bancaire</strong>
+                            </li>
+                        </ul>
+                        <div class="card-footer">
+                            <a href="{{ path('app_constellation')}}" class="bouton-or">Réserver une séance</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col">
                     <div class="card h-100 text-center">
                         <img src="{{asset('images/services_hypnose.webp')}}" class="card-img-top" alt="...">
@@ -80,64 +171,6 @@
 
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <img src="{{asset('images/rituel_tarif.webp')}}" class="card-img-top" alt="Rituel Chamanique">
-                        <div class="card-body">
-                            <h3>Rituel Chamanique</h3>
-                            <p class="card-text">
-                               Un accompagnement puissant pour libérer les charges émotionnelles, couper les liens toxiques, vous aider en cas de deuil et retrouver votre alignement intérieur.
-                               Chaque rituel chamanique est unique et construit selon votre besoin spécifique.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                - Rituel d'Éveil Intérieur :<br>
-                                    <strong>150 €</strong> (1h30) <br>
-                                - Cérémonie Initiatique Renaissance :<br>
-                                    <strong>300 €</strong> (4h00)
-                            </li>
-                            <li class="list-group-item"> Moyens de paiement  <br>
-                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
-                                En ligne : <strong>carte bancaire</strong>
-                            </li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="{{ path('app_rituel')}}" class="bouton-or">Réserver une séance</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 text-center">
-                        <img src="{{asset('images/reiki_cadeau.webp')}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3>Mes prestations de Reiki</h3>
-                            <p class="card-text">
-                                Je propose plusieurs niveaux de formations, vous permettant de vous initier ou de perfectionner vos connaissances en Reiki.
-                                Je propose aussi des séances de soins énergétiques Reiki.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                - Mes formations (1 week-end)<br>
-                                    <strong>280 €</strong> (1er degré), <br>
-                                    <strong>450 €</strong> (2ème degré), <br>
-                                    <strong>980 €</strong> (3ème degré),<br>
-                                    <strong>1450 €</strong> (4ème degré) <br>
-                                - Séance de Reiki : <strong> 90 € </strong>(1 heure 30)
-                            </li>
-                            <li class="list-group-item"> Moyens de paiement  <br>
-                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
-                                En ligne : <strong>carte bancaire</strong>
-                            </li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="{{ path('app_formation') }}" class="bouton-or">Réserver une séance</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 text-center">
                         <img src="{{asset('images/services_soins.webp')}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3>Soins énergétiques vibratoires</h3>
@@ -166,19 +199,20 @@
 
                 <div class="col">
                     <div class="card h-100 text-center">
-                        <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="card-img-top" alt="...">
+                        <img src="{{asset('images/rituel_tarif.webp')}}" class="card-img-top" alt="Rituel Chamanique">
                         <div class="card-body">
-                            <h3>Mes séances de Constellation</h3>
+                            <h3>Rituel Chamanique</h3>
                             <p class="card-text">
-                                Je propose des séances de constellation familiale seul, en duo ou en groupe, selon vos besoins.
-                                Ces séances sont basées sur des techniques de constellation familiale systémique et constellation transgénérationnelle,
-                                visant à libérer les blocages familiaux et à rétablir l'équilibre au sein de votre lignée.
+                               Un accompagnement puissant pour libérer les charges émotionnelles, couper les liens toxiques, vous aider en cas de deuil et retrouver votre alignement intérieur.
+                               Chaque rituel chamanique est unique et construit selon votre besoin spécifique.
                             </p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                - Prix unique pour une séance : <br>
-                                    <strong>125 €</strong> (1er degré)
+                                - Rituel d'Éveil Intérieur :<br>
+                                    <strong>150 €</strong> (1h30) <br>
+                                - Cérémonie Initiatique Renaissance :<br>
+                                    <strong>300 €</strong> (4h00)
                             </li>
                             <li class="list-group-item"> Moyens de paiement  <br>
                                 Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
@@ -186,40 +220,7 @@
                             </li>
                         </ul>
                         <div class="card-footer">
-                            <a href="#" class="bouton-or">Réserver une séance</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 text-center">
-                        <img src="{{asset('images/signature_tarifs.webp')}}" class="card-img-top" alt="Massages Signature">
-                        <div class="card-body">
-                            <h3>Massages Signature</h3>
-                            <p class="card-text">
-                                Des expériences sensorielles d'exception pour éveiller vos sens et harmoniser corps et esprit.
-                                Entre massages individuels et duos, avec ou sans accompagnement botanique ancestral, chaque soin est pensé
-                                pour offrir un relâchement profond et une reconnexion essentielle.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                - Traversée Sensorielle (1 praticien) :<br>
-                                    <strong>70 €</strong> (1h), <strong>140 €</strong> (2h) <br>
-                                - Voyage Céleste duo (2 praticiens) :<br>
-                                    <strong>130 €/pers</strong> (1h30), <strong>200 €/pers</strong> (2h30) <br>
-                                - Expansion Intérieure (1 praticien) :<br>
-                                    <strong>350 €</strong> (4h) <br>
-                                - Immersion Originelle duo (2 praticiens) :<br>
-                                    <strong>350 €/pers</strong> (4h)
-                            </li>
-                            <li class="list-group-item"> Moyens de paiement  <br>
-                                Sur place : <strong>espèce</strong> ou <strong>chèque</strong> <br>
-                                En ligne : <strong>carte bancaire</strong>
-                            </li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="{{ path('app_signature')}}" class="bouton-or">Réserver une séance</a>
+                            <a href="{{ path('app_rituel')}}" class="bouton-or">Réserver une séance</a>
                         </div>
                     </div>
                 </div>
@@ -229,13 +230,13 @@
 
     <div class="container text-center my-5">
         <h2> Découvrez en détails mes prestations </h2>
+        <a href="{{path('app_signature')}}" class="bouton-or m-3">Massages : Soins Signatures</a>
+        <a href="{{path('app_reiki')}}" class="bouton-or m-3">Soins Reiki</a>
+        <a href="{{path('app_constellation')}}" class="bouton-or m-3">Constellation familiale et systémique</a>
         <a href="{{path('app_hypnose')}}" class="bouton-or m-3">Hypnose</a>
         <a href="{{path('app_lucia')}}" class="bouton-or m-3">Luminothérapie</a>
+        <a href="{{path('app_soins')}}" class="bouton-or m-3">Sonothérapie</a>
         <a href="{{path('app_rituel')}}" class="bouton-or m-3">Rituel Chamanique</a>
-        <a href="{{path('app_formation')}}" class="bouton-or m-3">Reiki</a>
-        <a href="{{path('app_soins')}}" class="bouton-or m-3">Soins énergétiques</a>
-        <a href="{{path('app_signature')}}" class="bouton-or m-3">Soins Signature</a>
-        <a href="{{path('app_constellation')}}" class="bouton-or m-3">Constellation familiale et systémique</a>
     </div>
 
 {% endblock %}

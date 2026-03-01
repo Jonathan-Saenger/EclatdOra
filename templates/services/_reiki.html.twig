@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Soin Reiki à Strasbourg – Harmonisation énergétique et détente profonde{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1>Soin Reiki à Strasbourg – Harmonisation énergétique et détente profonde</h1>
+
+        <section class="row featurette my-5">
+            <div class="col-12">
+                <p class="lead fs-4 fst-italic">
+                    Vous recherchez un <strong>soin Reiki à Strasbourg</strong> pour retrouver équilibre, apaisement et vitalité ?
+                </p>
+            </div>
+        </section>
+
+        <section class="row featurette my-5 align-items-center">
+            <div class="col-md-7">
+                <h2>Pourquoi recevoir un soin Reiki ?</h2>
+
+                <p class="lead">Le Reiki, fondé par Maître Usui, est une méthode japonaise de soin énergétique naturel qui agit à la fois sur le corps, les émotions et le mental.</p>
+
+                <p class="lead">C'est une <strong>pratique énergétique douce</strong> basée sur l'imposition des mains.</p>
+
+                <p class="lead">Le soin Reiki énergétique convient à toute personne souhaitant retrouver un <strong>mieux-être global</strong>.</p>
+            </div>
+            <div class="col-md-5 mt-4 mt-md-0 text-center">
+                <img src="{{ asset('images/services_reiki.webp') }}" class="img-fluid rounded shadow" alt="Soin Reiki">
+            </div>
+        </section>
+
+        <section class="row featurette my-5 align-items-center">
+            <div class="col-md-7 order-md-2">
+                <h2>Une séance de Reiki à Strasbourg peut vous aider à :</h2>
+                <ul>
+                    <li class="lead"> Réduire le stress et l'anxiété</li>
+                    <li class="lead"> Soulager les tensions physiques</li>
+                    <li class="lead"> Améliorer la qualité du sommeil</li>
+                    <li class="lead"> Libérer des blocages émotionnels</li>
+                    <li class="lead"> Retrouver une sensation d'alignement intérieur</li>
+                    <li class="lead"> Recharger votre énergie</li>
+                </ul>
+                <p class="lead">C'est un accompagnement doux, profond et accessible à tous.</p>
+            </div>
+            <div class="col-md-5 order-md-1 mt-4 mt-md-0 text-center">
+                <img src="{{ asset('images/services_reiki1.webp') }}" class="img-fluid rounded shadow" alt="Séance de Reiki à Strasbourg">
+            </div>
+        </section>
+
+        <section class="row featurette my-5">
+            <h2>Comment se déroule votre séance de Reiki à Strasbourg ?</h2>
+
+            <ol>
+                <li class="lead">Je vous accueille et nous échangeons sur vos besoins du moment.</li>
+                <li class="lead">Vous vous installez confortablement, habillé(e) avec une tenue souple.</li>
+                <li class="lead">Je pose mes mains sur différents centres énergétiques pour vous procurer un soin adéquat.</li>
+                <li class="lead">Nous nous offrons un temps d'intégration et de partage de vos ressentis.</li>
+            </ol>
+
+            <p class="lead">Chaque séance de <strong>soin énergétique à Strasbourg</strong> est unique et adaptée à votre situation.</p>
+        </section>
+
+        <section class="row featurette my-5 align-items-center">
+            <div class="col-md-7">
+                <h2>Beaucoup de personnes ressentent :</h2>
+                <ul>
+                    <li class="lead">Une profonde détente</li>
+                    <li class="lead">Une chaleur apaisante</li>
+                    <li class="lead">Un relâchement immédiat</li>
+                    <li class="lead">Un esprit plus clair</li>
+                </ul>
+            </div>
+            <div class="col-md-5 mt-4 mt-md-0 text-center">
+                <img src="{{ asset('images/services_reiki2.webp') }}" class="img-fluid rounded shadow" alt="Ressentis après une séance de Reiki">
+            </div>
+        </section>
+
+        <section class="row featurette my-5">
+            <h2>Pourquoi me choisir pour votre Reiki à Strasbourg ?</h2>
+            <p class="lead">Je vous propose :</p>
+            <ul>
+                <li class="lead">Un cadre sécurisant, bienveillant et apaisant</li>
+                <li class="lead">Une approche personnalisée</li>
+                <li class="lead">Une écoute attentive</li>
+                <li class="lead">Un accompagnement respectueux de votre rythme</li>
+            </ul>
+            <p class="lead"><strong>Mon objectif est simple :</strong> vous aider à retrouver votre équilibre naturel et votre plein potentiel.</p>
+        </section>
+
+        <section class="row featurette my-5">
+            <h2>Offrez-vous ce moment pour vous</h2>
+
+            <p class="lead">Dans le rythme intense du quotidien alsacien, prendre soin de son énergie n'est pas un luxe — c'est une nécessité.</p>
+
+            <p class="lead">Les rendez-vous se remplissent rapidement.
+            Je vous invite à <strong>réserver votre séance de Reiki dès maintenant</strong> et à vous offrir cette parenthèse de mieux-être.</p>
+
+            <div class="text-center my-4">
+                <a href="{{ path('app_formulaire_contact') }}" class="bouton-or">Contactez-moi pour fixer votre rendez-vous</a>
+            </div>
+        </section>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3 text-center">
+                        <h3>Séance de Reiki</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title pricing-card-title">90 €</h4>
+                        <div class="list-unstyled mt-3 mb-4">
+                            <p>Durée : 1 heure 30</p>
+                        </div>
+                        {{ include('partials/_add_to_cart_button.html.twig', {
+                            id: 'seance-reiki',
+                            titre: 'Séance de Reiki',
+                            duree: '1 heure 30',
+                            prix: 90
+                        }) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-end"><a class="text-warning link-offset-2 link-underline link-underline-opacity-0 fw-bold" href=" {{path('app_services')}}">Revenir aux services ↣</a></p>
+
+    </div>
+{% endblock %}

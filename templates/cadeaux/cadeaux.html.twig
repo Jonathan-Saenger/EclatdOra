@@ -26,123 +26,7 @@
             <h2 class="text-center"> Bons cadeaux pour une séance individuelle </h2>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
-                    <div class="card m-3">
-                        <img src="{{asset('images/hypnose_cadeau.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance d'hypnose">
-                        <div class="card-body text-center pb-4">
-                            <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Hypnose</h3>
-                            <p> Durée : 3 heures </p>
-                            {{ include('partials/_add_to_cart_button.html.twig', {
-                                id: 'cadeau-hypnose',
-                                titre: 'Bon cadeau - Hypnose',
-                                duree: '3 heures',
-                                prix: 200,
-                                label: 'Prix : 200 €'
-                            }) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card m-3">
-                        <img src="{{asset('images/rituel_cadeaux.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance de Rituel Chamanique" >
-                        <div class="card-body text-center">
-                            <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Rituel Chamanique</h3>
-                            <div class="pb-3">
-                                <select id="rituel-select" class="form-select form-select-sm" aria-label="Choix du rituel chamanique">
-                                    <option selected>Choisir votre rituel</option>
-                                    <option value="1">Rituel d'Éveil Intérieur – 1h30</option>
-                                    <option value="2">Cérémonie Initiatique Renaissance – 4h00</option>
-                                </select>
-                            </div>
-                            <form action="{{ path('app_panier_ajouter') }}" method="post" class="d-inline" id="rituel-cadeau-form">
-                                <input type="hidden" name="id" id="rituel-cadeau-id" value="cadeau-rituel-eveil-interieur">
-                                <input type="hidden" name="titre" id="rituel-cadeau-titre" value="Bon cadeau - Rituel d'Éveil Intérieur">
-                                <input type="hidden" name="duree" id="rituel-cadeau-duree" value="1h30">
-                                <input type="hidden" name="prix" id="rituel-cadeau-prix" value="150">
-                                <button type="submit" id="rituel-price" class="bouton-or">Prix : 150 €</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card m-3">
-                        <img src="{{asset('images/lucia_cadeau.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Luminothérapie" >
-                        <div class="card-body text-center">
-                            <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Luminothérapie</h3>
-                            <div class="pb-3">
-                                <select id="duration-select" class="form-select form-select-sm" aria-label="Small select example">
-                                <option selected>Choisir votre durée</option>
-                                <option value="1" data-prix="90" data-duree="1 heure">Individuelle 1 heure</option>
-                                <option value="2" data-prix="150" data-duree="2 heures">Individuelle 2 heures</option>
-                                <option value="3" data-prix="160" data-duree="1 heure">Duo 1 heure</option>
-                                <option value="4" data-prix="250" data-duree="2 heures">Duo 2 heures</option>
-                                </select>
-                            </div>
-                            <form action="{{ path('app_panier_ajouter') }}" method="post" class="d-inline" id="lucia-cadeau-form">
-                                <input type="hidden" name="id" id="lucia-cadeau-id" value="cadeau-lucia-individuelle-1h">
-                                <input type="hidden" name="titre" id="lucia-cadeau-titre" value="Bon cadeau - Lucia individuelle 1h">
-                                <input type="hidden" name="duree" id="lucia-cadeau-duree" value="1 heure">
-                                <input type="hidden" name="prix" id="lucia-cadeau-prix" value="90">
-                                <button type="submit" id="lucia-price" class="bouton-or">Prix : 90 €</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card m-3">
-                        <img src="{{asset('images/reiki_cadeau1.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Réiki" >
-                        <div class="card-body text-center pb-4">
-                            <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Reiki</h3>
-                            <p> Durée : 1 heure </p>
-                            {{ include('partials/_add_to_cart_button.html.twig', {
-                                id: 'cadeau-reiki',
-                                titre: 'Bon cadeau - Reiki',
-                                duree: '1h30',
-                                prix: 90,
-                                label: 'Prix : 90 €'
-                            }) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card m-3">
-                        <img src="{{asset('images/cadeau_soins.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Soin Vibratoire" >
-                        <div class="card-body text-center pb-4">
-                            <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Soin Vibratoire</h3>
-                            <p> Durée : 1 heure </p>
-                            {{ include('partials/_add_to_cart_button.html.twig', {
-                                id: 'cadeau-soins',
-                                titre: 'Bon cadeau - Soin Vibratoire',
-                                duree: '1h à 1h30',
-                                prix: 80,
-                                label: 'Prix : 80 €'
-                            }) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card m-3">
-                        <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Constellation Familiale" >
-                        <div class="card-body text-center pb-4">
-                            <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Constellation Familliale</h3>
-                            <p> Durée : 1 heure </p>
-                            {{ include('partials/_add_to_cart_button.html.twig', {
-                                id: 'cadeau-constellation',
-                                titre: 'Bon cadeau - Constellation Familiale',
-                                duree: '1 heure',
-                                prix: 125,
-                                label: 'Prix : 125 €'
-                            }) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card m-3">
+                    <div class="card m-3 h-100">
                         <img src="{{asset('images/signature_cadeaux.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour un Massage Signature" >
                         <div class="card-body text-center">
                             <h4 class="card-text">Offrez un massage</h4>
@@ -168,29 +52,144 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="album py-3">
-        <h2 class="text-center"> Je vous propose un bon cadeau à montant libre </h2>
-        <div class="text-center my-3">
-            <img src="{{asset('images/meditation_cadeau.webp')}}" class="img-fluid" width="568px" height="569px" alt="Montant libre du bon cadeau à offrir" >
-            <div class="card-body text-center py-3">
-                <h4 class="card-text">Valider le montant de votre bon cadeau</h4>
-                    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
-                        <form action="{{ path('app_panier_ajouter') }}" method="post" class="add-to-cart-form" id="montant-libre-form">
-                            <input type="hidden" name="id" value="cadeau-montant-libre">
-                            <input type="hidden" name="titre" id="montant-libre-titre" value="Bon cadeau - Montant libre">
-                            <input type="hidden" name="duree" value="À définir">
-                            <input type="hidden" name="prix" id="montant-libre-prix" value="15">
-                            <div class="input-group mb-3">
-                                <input id="montant-cadeau" class="form-control" type="number" name="montant-cadeau" min="15" placeholder="Votre montant (min. 15€)" required/>
-                                <span class="input-group-text">€</span>
-                            </div>
-                            <button class="bouton-or" type="submit">Ajouter au panier</button>
-                        </form>
+                <div class="col">
+                    <div class="card m-3 h-100">
+                        <img src="{{asset('images/reiki_cadeau1.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Réiki" >
+                        <div class="card-body text-center pb-4">
+                            <h4 class="card-text">Offrez une séance</h4>
+                            <h3>Reiki</h3>
+                            <p> Durée : 1 heure </p>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-reiki',
+                                titre: 'Bon cadeau - Reiki',
+                                duree: '1h30',
+                                prix: 90,
+                                label: 'Prix : 90 €'
+                            }) }}
+                        </div>
                     </div>
+                </div>
+                <div class="col">
+                    <div class="card m-3 h-100">
+                        <img src="{{asset('images/services_constellation_boncadeaux.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Constellation Familiale" >
+                        <div class="card-body text-center pb-4">
+                            <h4 class="card-text">Offrez une séance</h4>
+                            <h3>Constellation Familliale</h3>
+                            <p> Durée : 1 heure </p>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-constellation',
+                                titre: 'Bon cadeau - Constellation Familiale',
+                                duree: '1 heure',
+                                prix: 125,
+                                label: 'Prix : 125 €'
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card m-3 h-100">
+                        <img src="{{asset('images/hypnose_cadeau.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance d'hypnose">
+                        <div class="card-body text-center pb-4">
+                            <h4 class="card-text">Offrez une séance</h4>
+                            <h3>Hypnose</h3>
+                            <p> Durée : 3 heures </p>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-hypnose',
+                                titre: 'Bon cadeau - Hypnose',
+                                duree: '3 heures',
+                                prix: 200,
+                                label: 'Prix : 200 €'
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card m-3 h-100">
+                        <img src="{{asset('images/lucia_cadeau.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Luminothérapie" >
+                        <div class="card-body text-center">
+                            <h4 class="card-text">Offrez une séance</h4>
+                            <h3>Luminothérapie</h3>
+                            <div class="pb-3">
+                                <select id="duration-select" class="form-select form-select-sm" aria-label="Small select example">
+                                <option selected>Choisir votre durée</option>
+                                <option value="1" data-prix="90" data-duree="1 heure">Individuelle 1 heure</option>
+                                <option value="2" data-prix="150" data-duree="2 heures">Individuelle 2 heures</option>
+                                <option value="3" data-prix="160" data-duree="1 heure">Duo 1 heure</option>
+                                <option value="4" data-prix="250" data-duree="2 heures">Duo 2 heures</option>
+                                </select>
+                            </div>
+                            <form action="{{ path('app_panier_ajouter') }}" method="post" class="d-inline" id="lucia-cadeau-form">
+                                <input type="hidden" name="id" id="lucia-cadeau-id" value="cadeau-lucia-individuelle-1h">
+                                <input type="hidden" name="titre" id="lucia-cadeau-titre" value="Bon cadeau - Lucia individuelle 1h">
+                                <input type="hidden" name="duree" id="lucia-cadeau-duree" value="1 heure">
+                                <input type="hidden" name="prix" id="lucia-cadeau-prix" value="90">
+                                <button type="submit" id="lucia-price" class="bouton-or">Prix : 90 €</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card m-3 h-100">
+                        <img src="{{asset('images/cadeau_soins.webp')}}" class="bd-placeholder-img card-img-top" alt="Cadeau pour une séance de Soin Vibratoire" >
+                        <div class="card-body text-center pb-4">
+                            <h4 class="card-text">Offrez une séance</h4>
+                            <h3>Soin Vibratoire</h3>
+                            <p> Durée : 1 heure </p>
+                            {{ include('partials/_add_to_cart_button.html.twig', {
+                                id: 'cadeau-soins',
+                                titre: 'Bon cadeau - Soin Vibratoire',
+                                duree: '1h à 1h30',
+                                prix: 80,
+                                label: 'Prix : 80 €'
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card m-3 h-100">
+                        <img src="{{asset('images/rituel_cadeaux.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance de Rituel Chamanique" >
+                        <div class="card-body text-center">
+                            <h4 class="card-text">Offrez une séance</h4>
+                            <h3>Rituel Chamanique</h3>
+                            <div class="pb-3">
+                                <select id="rituel-select" class="form-select form-select-sm" aria-label="Choix du rituel chamanique">
+                                    <option selected>Choisir votre rituel</option>
+                                    <option value="1">Rituel d'Éveil Intérieur – 1h30</option>
+                                    <option value="2">Cérémonie Initiatique Renaissance – 4h00</option>
+                                </select>
+                            </div>
+                            <form action="{{ path('app_panier_ajouter') }}" method="post" class="d-inline" id="rituel-cadeau-form">
+                                <input type="hidden" name="id" id="rituel-cadeau-id" value="cadeau-rituel-eveil-interieur">
+                                <input type="hidden" name="titre" id="rituel-cadeau-titre" value="Bon cadeau - Rituel d'Éveil Intérieur">
+                                <input type="hidden" name="duree" id="rituel-cadeau-duree" value="1h30">
+                                <input type="hidden" name="prix" id="rituel-cadeau-prix" value="150">
+                                <button type="submit" id="rituel-price" class="bouton-or">Prix : 150 €</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card m-3 h-100">
+                        <img src="{{asset('images/meditation_cadeau.webp')}}" class="bd-placeholder-img card-img-top" alt="Montant libre du bon cadeau à offrir" >
+                        <div class="card-body text-center">
+                            <h4 class="card-text">Montant libre</h4>
+                            <h3>Bon cadeau</h3>
+                            <form action="{{ path('app_panier_ajouter') }}" method="post" id="montant-libre-form">
+                                <div class="pb-3">
+                                    <div class="input-group input-group-sm">
+                                        <input id="montant-cadeau" class="form-control" type="number" name="montant-cadeau" min="15" placeholder="Votre montant (min. 15€)" required/>
+                                        <span class="input-group-text">€</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="id" value="cadeau-montant-libre">
+                                <input type="hidden" name="titre" id="montant-libre-titre" value="Bon cadeau - Montant libre">
+                                <input type="hidden" name="duree" value="À définir">
+                                <input type="hidden" name="prix" id="montant-libre-prix" value="15">
+                                <button type="submit" class="bouton-or">Ajouter au panier</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -218,13 +217,13 @@
 
     <div class="container text-center my-5">
         <h2 class="" > Vous souhaitez en savoir plus sur mes prestations ?</h2>
+        <a href="{{path('app_signature')}}" class="bouton-or m-3">Massages : Soins Signatures</a>
+        <a href="{{path('app_reiki')}}" class="bouton-or m-3">Soins Reiki</a>
+        <a href="{{path('app_constellation')}}" class="bouton-or m-3">Constellation familiale et systémique</a>
         <a href="{{path('app_hypnose')}}" class="bouton-or m-3">Hypnose</a>
         <a href="{{path('app_lucia')}}" class="bouton-or m-3">Luminothérapie</a>
+        <a href="{{path('app_soins')}}" class="bouton-or m-3">Sonothérapie</a>
         <a href="{{path('app_rituel')}}" class="bouton-or m-3">Rituel Chamanique</a>
-        <a href="{{path('app_formation')}}" class="bouton-or m-3">Reiki</a>
-        <a href="{{path('app_soins')}}" class="bouton-or m-3">Soins énergétiques</a>
-        <a href="{{path('app_constellation')}}" class="bouton-or m-3">Séance Constellation Familliale</a>
-        <a href="{{path('app_signature')}}" class="bouton-or m-3">Massages Signature</a>
     </div>
 
 <script>
