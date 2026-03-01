@@ -15,10 +15,9 @@
     <section class="py-3 text-center container">
             <h2>Bons cadeaux bien-être</h2>
             <h3>Envie d'offrir un cadeau original à un proche ?</h3>
-            <h3>Faites-lui découvrir le Rituel Chamanique Corporel, l'hypnose transpersonnelle ou la lumière Lucia</h3>
-            <p class="lead">Pour un moment de bien-être et de sérénité, choisissez une <strong>séance de Rituel Chamanique Corporel</strong> qui invite à la relaxation et à
-            la pleine conscience. Pour un voyage intérieur profond, offrez une <strong>hypnose transpersonnelle</strong> idéale pour l'exploration de soi. Pour une
-            expérience lumineuse unique, la<strong>lumière Lucia</strong>, saura élever l'âme et apaiser les tensions. Ces expériences sont parfaites pour célébrer
+            <h3>Faites-lui découvrir le Rituel Chamanique, l'hypnose transpersonnelle ou la lumière Lucia</h3>
+            <p class="lead">Pour un moment de bien-être et de sérénité, choisissez une <strong>séance de Rituel Chamanique</strong> qui invite à la libération, la transformation et le réalignement intérieur. Pour un voyage intérieur profond, offrez une <strong>hypnose transpersonnelle</strong> idéale pour l'exploration de soi. Pour une
+            expérience lumineuse unique, la <strong>lumière Lucia</strong>, saura élever l'âme et apaiser les tensions. Ces expériences sont parfaites pour célébrer
             les occasions spéciales comme les anniversaires, la Saint-Valentin, Noël, ou encore la fête des Mères et des Pères.</p>
     </section>
 
@@ -45,18 +44,24 @@
                 </div>
                 <div class="col">
                     <div class="card m-3">
-                        <img src="{{asset('images/rituel_cadeaux.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance de Rituel Chamanique Corporel" >
-                        <div class="card-body text-center pb-4">
+                        <img src="{{asset('images/rituel_cadeaux.webp')}}" class="bd-placeholder-img card-img-top"  alt="Cadeau pour une séance de Rituel Chamanique" >
+                        <div class="card-body text-center">
                             <h4 class="card-text">Offrez une séance</h4>
-                            <h3>Rituel Chamanique Corporel</h3>
-                            <p> Durée : 1 heure </p>
-                            {{ include('partials/_add_to_cart_button.html.twig', {
-                                id: 'cadeau-rituel-chamanique',
-                                titre: 'Bon cadeau - Rituel Chamanique Corporel',
-                                duree: '1 heure',
-                                prix: 300,
-                                label: 'Prix : 300 €'
-                            }) }}
+                            <h3>Rituel Chamanique</h3>
+                            <div class="pb-3">
+                                <select id="rituel-select" class="form-select form-select-sm" aria-label="Choix du rituel chamanique">
+                                    <option selected>Choisir votre rituel</option>
+                                    <option value="1">Rituel d'Éveil Intérieur – 1h30</option>
+                                    <option value="2">Cérémonie Initiatique Renaissance – 4h00</option>
+                                </select>
+                            </div>
+                            <form action="{{ path('app_panier_ajouter') }}" method="post" class="d-inline" id="rituel-cadeau-form">
+                                <input type="hidden" name="id" id="rituel-cadeau-id" value="cadeau-rituel-eveil-interieur">
+                                <input type="hidden" name="titre" id="rituel-cadeau-titre" value="Bon cadeau - Rituel d'Éveil Intérieur">
+                                <input type="hidden" name="duree" id="rituel-cadeau-duree" value="1h30">
+                                <input type="hidden" name="prix" id="rituel-cadeau-prix" value="150">
+                                <button type="submit" id="rituel-price" class="bouton-or">Prix : 150 €</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -215,7 +220,7 @@
         <h2 class="" > Vous souhaitez en savoir plus sur mes prestations ?</h2>
         <a href="{{path('app_hypnose')}}" class="bouton-or m-3">Hypnose</a>
         <a href="{{path('app_lucia')}}" class="bouton-or m-3">Luminothérapie</a>
-        <a href="{{path('app_rituel')}}" class="bouton-or m-3">Rituel Chamanique Corporel</a>
+        <a href="{{path('app_rituel')}}" class="bouton-or m-3">Rituel Chamanique</a>
         <a href="{{path('app_formation')}}" class="bouton-or m-3">Reiki</a>
         <a href="{{path('app_soins')}}" class="bouton-or m-3">Soins énergétiques</a>
         <a href="{{path('app_constellation')}}" class="bouton-or m-3">Séance Constellation Familliale</a>
@@ -278,6 +283,32 @@
             signatureTitreInput.value = config.titre;
             signatureDureeInput.value = config.duree;
             signaturePrixInput.value = config.prix;
+        }
+    });
+
+    // Configuration Rituel Chamanique pour les bons cadeaux
+    const rituelConfig = {
+        1: { prix: 150, duree: "1h30", id: "cadeau-rituel-eveil-interieur", titre: "Bon cadeau - Rituel d'Éveil Intérieur" },
+        2: { prix: 300, duree: "4h00", id: "cadeau-rituel-ceremonie-renaissance", titre: "Bon cadeau - Cérémonie Initiatique Renaissance" }
+    };
+
+    const rituelSelect = document.getElementById("rituel-select");
+    const rituelPriceButton = document.getElementById("rituel-price");
+    const rituelIdInput = document.getElementById("rituel-cadeau-id");
+    const rituelTitreInput = document.getElementById("rituel-cadeau-titre");
+    const rituelDureeInput = document.getElementById("rituel-cadeau-duree");
+    const rituelPrixInput = document.getElementById("rituel-cadeau-prix");
+
+    rituelSelect.addEventListener("change", () => {
+        const selectedValue = rituelSelect.value;
+        const config = rituelConfig[selectedValue];
+        
+        if (config) {
+            rituelPriceButton.textContent = `Prix : ${config.prix} €`;
+            rituelIdInput.value = config.id;
+            rituelTitreInput.value = config.titre;
+            rituelDureeInput.value = config.duree;
+            rituelPrixInput.value = config.prix;
         }
     });
 
